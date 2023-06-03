@@ -1,5 +1,5 @@
 import './App.css'
-import About from './components/About/About'
+// import About from './components/About/About'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Routing from './components/Routing/Routing'
@@ -10,7 +10,7 @@ function App() {
     <>
       <Header/>
       <Routing/>
-      <About/>
+      {/* <About/>  ESTO NO DEBE IR AQUÍ (KIKO)     */}
       <Footer/>
     </>
   )
