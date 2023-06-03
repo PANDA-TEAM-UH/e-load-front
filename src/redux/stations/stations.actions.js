@@ -29,7 +29,7 @@ const getAllStations = async () => {
         dispatch({
             type: "GET_STATIONS",
             payload: result.data
-        })
+        });
     } catch (error) {
         dispatch({ type: "ERROR", payload: error.response.data });
     }
