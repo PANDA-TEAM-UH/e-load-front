@@ -1,7 +1,8 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; KIKO*/
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
+  /* padding: 2rem;  KIKO*/
   text-align: center;
 }
 
