@@ -3,7 +3,7 @@
 const FooterColumnRRSS = () => {
     return (
       <div>
-        <div className="footer__container">
+        
           <div className="footer__language">Lenguaje</div>
           <div className="footer__text">
             <div className="footer__text-rrss">Siguenos</div>
@@ -46,7 +46,7 @@ const FooterColumnRRSS = () => {
               </a>
             </div>
           </div>
-        </div>
+        
         <div className="footer-copyright">
           <div className="body-s">© 2023 E-LOAD</div>
         </div>

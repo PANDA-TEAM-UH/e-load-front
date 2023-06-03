@@ -3,7 +3,7 @@
 const FooterColumnList = () => {
   return (
     
-      <div className="footer__container">
+      
         <div className="footer__column-list">
           <div className="footer__title-list">
             <ul className="footer__list">
@@ -18,7 +18,7 @@ const FooterColumnList = () => {
             </ul>
           </div>
         </div>
-      </div>
+      
     
   );
 }

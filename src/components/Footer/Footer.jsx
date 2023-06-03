@@ -7,9 +7,11 @@ import "./Footer.css"
 const Footer = () => {
   return (
     <>
+    <div className="footer__container">
      <FooterColumnHelp/>
      <FooterColumnList/>
      <FooterColumnRRSS/>
+     </div>
     </>
   )
   //METER COMPONENTES FOOTER. LOS 3 CREADOS
