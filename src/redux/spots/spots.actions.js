@@ -53,7 +53,7 @@ const updateSpot = async (spotId, spotToUpdate) => {
         formData.append("type", spotToUpdate.type);
         formData.append("rate", spotToUpdate.rate);
         formData.append("state", spotToUpdate.state);
-        const result = await API.put(`spots/${spotId}, formData`);
+        const result = await API.put(`spots/${spotId}`, formData);
         dispatch({
             type: "UPDATE_SPOT",
             payload: result.data
