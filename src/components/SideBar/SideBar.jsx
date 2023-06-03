@@ -1,11 +1,18 @@
-//import React from 'react'
+//import React from 'react';
 
-const Sidebar = () => {
+const SideBar = () => {
   return (
-    <div>
-      
+    <div className="sidebar">
+      <ul>
+        <li>Información Personal</li>
+        <li>Métodos de Pago</li>
+        <li>Mis Viajes</li>
+        <li>Mis Puntos</li>
+        <li>Reportar Error</li>
+        <li>Cerrar Sesión</li>
+      </ul>
     </div>
-  )
+  );
 }
 
-export default Sidebar
+export default SideBar;
