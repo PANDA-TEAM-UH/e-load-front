@@ -35,5 +35,19 @@ export const stationsReducer = (state = INITIAL_STATE, action) => {
                 loading: false,
                 error: null
             }
+        case "DELETE_STATION":
+            return {
+                ...state,
+                loading: false,
+                error: null
+            }
+        case "ERROR":
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state;
     }
 }
