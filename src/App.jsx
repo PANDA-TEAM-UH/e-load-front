@@ -10,7 +10,6 @@ function App() {
     <>
       <Header/>
       <Routing/>
-      {/* <About/>  ESTO NO DEBE IR AQUÍ (KIKO)     */}
       <Footer/>
     </>
   )
