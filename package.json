@@ -10,13 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource/lato": "^5.0.2",
-    "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.13.3",
-    "@mui/styled-engine-sc": "^5.12.0",
+    "@chakra-ui/react": "^2.7.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@redux-devtools/extension": "^3.2.5",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
+    "framer-motion": "^10.12.16",
     "leaflet": "^1.9.4",
     "moment": "^2.29.4",
     "react": "^18.2.0",
@@ -28,8 +28,7 @@
     "react-router-dom": "^6.11.2",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
-    "sass": "^1.62.1",
-    "styled-components": "^5.3.11"
+    "sass": "^1.62.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
