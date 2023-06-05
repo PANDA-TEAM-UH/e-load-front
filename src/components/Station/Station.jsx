@@ -9,6 +9,7 @@ import {
   DrawerCloseButton
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { AccessTime, FavoriteBorder } from "@mui/icons-material";
 const Station = ({ isOpen, onClose }) => {
     const { stationSelected } = useSelector((state) => state.stations);
 
@@ -25,7 +26,8 @@ const Station = ({ isOpen, onClose }) => {
         <DrawerHeader>{stationSelected.address}</DrawerHeader>
 
         <DrawerBody>
-            
+            <FavoriteBorder/>{stationSelected.likes}
+            <AccessTime/>{stationSelected.schedule}
         </DrawerBody>
 
         <DrawerFooter></DrawerFooter>
