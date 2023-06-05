@@ -2,8 +2,8 @@
 
 const AboutInnovation = () => {
   return (
-    // <section className="about__container-innovation" PODEMOS USAR SECTION EN LUGAR DE PRIMER DIV PARA ESTE BLOQUE?>
-    <div className="about__container-innovation">
+    
+    <section className="about__container-innovation">
 
       <div className="about__header-innovation">
         <h2 className="title-innovation">Nuestros principios de innovación</h2>
@@ -32,7 +32,7 @@ const AboutInnovation = () => {
           <p className="text-information">, con una estética muy cuidada</p>DS
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

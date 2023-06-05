@@ -2,7 +2,7 @@
 
 const AboutBrands = () => {
   return (
-    <div className="about__container-brands">
+    <section className="about__container-brands">
       <div className="brands-carrusel">
         <span className="brands">AQUI IRAN LOGOS DE MARCAS A MODO CARRUSEL</span>
       </div>
@@ -15,7 +15,7 @@ const AboutBrands = () => {
       <div className="brands-carrusel">
         <span className="brands">AQUI IRAN LOGOS DE MARCAS A MODO CARRUSEL</span>
       </div>
-    </div>
+    </section>
   );
 }
 
