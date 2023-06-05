@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { AccessTime, FavoriteBorder } from "@mui/icons-material";
 const Station = ({ isOpen, onClose }) => {
     const { stationSelected } = useSelector((state) => state.stations);
-
+    // const { spotsByStation } = useSelector((state) => state.spots);
   return (
     <Drawer
       isOpen={isOpen}
@@ -28,6 +28,7 @@ const Station = ({ isOpen, onClose }) => {
         <DrawerBody>
             <FavoriteBorder/>{stationSelected.likes}
             <AccessTime/>{stationSelected.schedule}
+
         </DrawerBody>
 
         <DrawerFooter></DrawerFooter>

@@ -36,10 +36,11 @@ const getAllSpots = async () => {
 const getSpotsByStation = async (stationId) => {
     try {
         dispatch({type: "LOADING"});
-        const result = await API.get(`stations/${stationId}`);
+        const result = await API.get(`spots/station/${stationId}`);
+        console.log(result.data);
         dispatch({
             type: "STATION_SPOTS",
-            payload: result.data.spots
+            payload: result.data
         });
     } catch (error) {
         dispatch({ type: "ERROR", payload: error.response.data });

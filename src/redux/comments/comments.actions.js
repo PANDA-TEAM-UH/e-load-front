@@ -35,7 +35,7 @@ const getAllComments = async () => {
 const getCommentsByStation = async (stationId) => {
     try {
         dispatch({type: "LOADING"});
-        const result = await API.get(`stations/${stationId}`);
+        const result = await API.get(`stations/comments/${stationId}`);
         const sortedComments = result.data.comments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         dispatch({
             type: "STATION_COMMENTS",
@@ -51,7 +51,7 @@ const getCommentsByUser = async (comments, user) => {
         const result = comments.filter((comment) => comment.user === user._id);
         dispatch({
             type: "USER_COMMENTS",
-            payload: result
+            payload: result.data
         });
     } catch (error) {
         dispatch({ type: "ERROR", payload: error.response.data });
