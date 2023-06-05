@@ -2,17 +2,18 @@
 
 const AboutHistory = () => {
   return (
-    <div className="about__container">
-    <div className="about__container-description">
-    <h2>AQUI VA EL NACIMIENTO</h2>
-    IMAGEN
+    <div className="about__container-history">
+      <div className="about__container-description">
+        <h2>NACIMIENTO DE E-LOAD</h2>
+        <p>texto sobre como nacio la empresa</p>
+        IMAGEN
+      </div>
+      <div className="about__container-description">
+      <h2>NUESTRA MISION</h2>
+        <p>texto sobre la mision de la empresa</p>
+      </div>
     </div>
-    <div className="about__container-description">
-    <h2>AQUI VA LA MISION</h2>
-    IMAGEN
-    </div>
-    </div>
-  )
-}
+  );
+};
 
-export default AboutHistory
+export default AboutHistory;
