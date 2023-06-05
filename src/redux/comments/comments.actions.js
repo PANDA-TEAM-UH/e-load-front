@@ -51,7 +51,7 @@ const getCommentsByUser = async (comments, user) => {
         const result = comments.filter((comment) => comment.user === user._id);
         dispatch({
             type: "USER_COMMENTS",
-            payload: result
+            payload: result.data
         });
     } catch (error) {
         dispatch({ type: "ERROR", payload: error.response.data });

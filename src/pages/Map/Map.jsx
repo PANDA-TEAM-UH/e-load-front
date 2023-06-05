@@ -6,6 +6,7 @@ import { useDisclosure } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { getAllStations, getStationById } from "../../redux/stations/stations.actions";
 import Station from "../../components/Station/Station";
+import { getSpotsByStation } from "../../redux/spots/spots.actions";
 
 const Map = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -13,6 +14,7 @@ const Map = () => {
   const [selectedStation, setSelectedStation] = useState(null);
 
   const handleMarkerClick = async (station) => {
+    await getSpotsByStation(station._id);
     await getStationById(station._id);
     setSelectedStation(station);
     onOpen();
