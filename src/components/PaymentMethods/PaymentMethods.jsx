@@ -1,11 +1,14 @@
-//import React from 'react'
+import React, { useEffect } from 'react'
+import { deletePayment, getAllPayments  } from '../../redux/payments/payments.actions'
 
 const PaymentMethods = () => {
+
+  useEffect(() => {
+    getAllPayments();
+  }, [])
+
   return (
-    <div className="payment_container">
-    <h2 className="payment-title">MÉTODOS DE PAGO</h2>
-      
-    </div>
+    <div>PaymentMethods</div>
   )
 }
 
