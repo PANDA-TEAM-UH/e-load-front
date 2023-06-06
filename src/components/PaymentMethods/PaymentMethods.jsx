@@ -2,7 +2,8 @@
 
 const PaymentMethods = () => {
   return (
-    <div>
+    <div className="payment_container">
+    <h2 className="payment-title">MÉTODOS DE PAGO</h2>
       
     </div>
   )
