@@ -21,22 +21,21 @@ const RegEditForm = ({ isEditing }) => {
 	const [password, setPassword] = useState('');
 	const [image, setImage] = useState('');
 
-	const dispatch = useDispatch(); // Obtiene la función dispatch
-	const userData = useSelector((state) => state.posts)
-
+	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.users)
+	
 	useEffect(() => {
-		// Si hay datos de usuario en Redux y estamos en modo edición, establece los valores iniciales del formulario
-		if (userData && isEditing) {
-			setNombre(userData.nombre);
-			setApellidos(userData.apellidos);
-			setEmail(userData.email);
+		// Valores iniciales si el usuario existe
+		if (user && isEditing) {
+			setNombre(user.nombre);
+			setApellidos(user.apellidos);
+			setEmail(user.email);
 		}
-	}, [userData, isEditing]);
+	}, [user, isEditing]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		// Crea un objeto con los datos del formulario
 		const formData = {
 			username: nombre,
 			email: email,
@@ -45,14 +44,12 @@ const RegEditForm = ({ isEditing }) => {
 		};
 
 		if (isEditing) {
-			// Llama a la acción updateUser y pasa los datos del formulario y el ID del usuario
-			dispatch(updateUser(userData.id, formData));
+			dispatch(updateUser(user.id, formData));
 		} else {
-			// Llama a la acción createUser y pasa los datos del formulario
 			dispatch(createUser(formData));
 		}
 
-		// Reinicia los campos del formulario
+		// Reset cuando hagamos submit
 		setNombre('');
 		setApellidos('');
 		setEmail('');
