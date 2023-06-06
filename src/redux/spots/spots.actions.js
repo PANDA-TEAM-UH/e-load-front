@@ -37,7 +37,6 @@ const getSpotsByStation = async (stationId) => {
     try {
         dispatch({type: "LOADING"});
         const result = await API.get(`spots/station/${stationId}`);
-        console.log(result.data);
         dispatch({
             type: "STATION_SPOTS",
             payload: result.data
