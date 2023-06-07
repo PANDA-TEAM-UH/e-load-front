@@ -1,4 +1,5 @@
-import React from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import {
   Drawer,
   DrawerBody,
@@ -7,44 +8,57 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Card
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { AccessTime, FavoriteBorder } from "@mui/icons-material";
+import { AccessTime, Chat, FavoriteBorder, Power } from "@mui/icons-material";
+import { getCommentsByStation } from "../../redux/comments/comments.actions";
+import StationSpots from "../StationSpots/StationSpots";
+import StationComments from "../StationComments/StationComments";
 const Station = ({ isOpen, onClose }) => {
-    const { stationSelected } = useSelector((state) => state.stations);
-    const { spotsByStation } = useSelector((state) => state.spots);
+    const { stationSelected } = useSelector((state) => state.stations);    
+    const [showSpots, setShowSpots] = useState(true);
+    const [showComments, setShowComments] = useState(false);
+
+    const handleSpotsClick = async () => {
+      setShowComments(false);
+      setShowSpots(true);
+    }
+    const handleCommentsClick = async () => {
+      await getCommentsByStation(stationSelected._id);
+      setShowSpots(false);
+      setShowComments(true);
+    }
+    const handleCloseDrawer = () => {
+      onClose();
+      handleSpotsClick();
+    }
   return (
     <Drawer
       isOpen={isOpen}
       placement="right"
-      onClose={onClose}
+      onClose={handleCloseDrawer}
       // finalFocusRef={btnRef}
     >
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
         <DrawerHeader>{stationSelected.address}</DrawerHeader>
-
         <DrawerBody>
             <FavoriteBorder/>{stationSelected.likes}
             <AccessTime/>{stationSelected.schedule}
-            {spotsByStation.map((spot) => {
-              return (
-                <Card key={spot._id}>
-                  <p>Potencia {spot.power}</p>
-                  <p>Tipo {spot.type}</p>
-                  <p>Tarifa {spot.rate}</p>
-                  <p>Estado {spot.state}</p>
-                </Card>
-              )
-            })}
+            <Power onClick={handleSpotsClick}/>            
+            <Chat onClick={handleCommentsClick}/>
+            {showSpots && <StationSpots/>}
+            {showComments && <StationComments/>}
         </DrawerBody>
-
         <DrawerFooter></DrawerFooter>
       </DrawerContent>
     </Drawer>
   );
 };
+Station.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func
+}
 
 export default Station;

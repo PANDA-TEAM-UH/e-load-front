@@ -37,7 +37,6 @@ const getSpotsByStation = async (stationId) => {
     try {
         dispatch({type: "LOADING"});
         const result = await API.get(`spots/station/${stationId}`);
-        console.log(result.data);
         dispatch({
             type: "STATION_SPOTS",
             payload: result.data
@@ -59,6 +58,17 @@ const updateSpot = async (spotId, spotToUpdate) => {
             type: "UPDATE_SPOT",
             payload: result.data
         });
+    } catch (error) {
+        dispatch({ type: "ERROR", payload: error.response.data });
+    }
+}
+const updateSpotState = async (spotId, newState) => {
+    try {
+        const result = await API.put(`spots/${spotId}`, {state: newState});
+        dispatch({
+            type: "UPDATE_SPOT",
+            payload: result.data
+        })
     } catch (error) {
         dispatch({ type: "ERROR", payload: error.response.data });
     }
@@ -85,6 +95,7 @@ export {
     getAllSpots,
     getSpotsByStation,
     updateSpot,
+    updateSpotState,
     deleteSpot,
     deleteAllSpotsFromStation
 }
