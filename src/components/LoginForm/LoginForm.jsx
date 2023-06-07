@@ -1,50 +1,44 @@
-//import React from 'react'
-import React, { useState } from 'react';
+import React from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import {
     FormControl,
     FormLabel,
     Input,
     Button,
+    FormErrorMessage,
 } from '@chakra-ui/react';
+import './LoginForm.scss';
+import { useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import { login } from '../../redux/users/users.actions';
 
-const LoginForm = ({ onSubmit, onClose }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        //falta utilziar redux para enviar inform
-
-        setUsername('');
-        setPassword('');
-
-        onSubmit();
-    };
-
+const LoginForm = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const { error } = useSelector((state) => state.users);
     return (
-        <form onSubmit={handleSubmit}>
-            <FormControl>
-                <FormLabel>Username</FormLabel>
-                <Input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
+        <div className="b-login">
+            <form
+                className="b-login-form"
+                onSubmit={handleSubmit((dataLogin) => login(dataLogin, navigate))}
+            >
+                <input
+                    className="b-login-forminput"
+                    {...register("username")}
+                    placeholder="Usuario"
                 />
-
-                <FormLabel>Password</FormLabel>
-                <Input
+                <input
+                    className="b-login-forminput"
+                    {...register("password")}
+                    placeholder="Contraseña"
                     type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
                 />
-
-                <Button type="submit" colorScheme="blue" mt={4}>Login</Button>
-                <Button onClick={onClose} mt={4}>Cerrar</Button>
-            </FormControl>
-        </form>
+                <p className="b-login-formerror">{error}</p>
+                <button className="b-login-formbtn">
+                    Iniciar Sesión
+                </button>
+            </form>
+        </div>
     );
 };
 
