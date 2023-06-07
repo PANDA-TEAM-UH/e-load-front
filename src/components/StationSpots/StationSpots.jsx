@@ -1,11 +1,13 @@
 import { Badge, Button, Card, CardFooter, CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { get } from "react-hook-form";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { updateSpotState } from "../../redux/spots/spots.actions";
 
 const StationSpots = () => {
   const { spotsByStation } = useSelector((state) => state.spots);
   const [chargeMode, setChargeMode] = useState({});
+  const [activeSpot, setActiveSpot] = useState(null);
+
   const getBadgeColor = (stateSpot) => {
     switch (stateSpot) {
       case "Libre":
@@ -35,15 +37,20 @@ const StationSpots = () => {
     };
   }, []);
   const handleChargeMode = (spotId) => {
-    setChargeMode((prevChargeMode) => ({
-      ...prevChargeMode,
-      [spotId]: 0
-    }));
+    if(chargeMode[spotId] === undefined && activeSpot === null) {
+      setActiveSpot(spotId);
+      setChargeMode((prevChargeMode) => ({
+        ...prevChargeMode,
+        [spotId]: 0
+      }));
+      updateSpotState(spotId, "Ocupado");
+    }    
   };
 
   return spotsByStation.map((spot) => {
     const chargingProgress = chargeMode[spot._id] || 0;
     const isCharging = chargingProgress > 0 && chargingProgress < 100;
+    const isDisabled = activeSpot !== null && activeSpot !== spot._id;
     return (
       <Card key={spot._id}>
         <p>Potencia {spot.power}</p>
@@ -54,7 +61,7 @@ const StationSpots = () => {
             variant="ghost"
             colorScheme="green"
             onClick={ () => handleChargeMode(spot._id) }
-            disabled={isCharging}
+            disabled={isCharging || isDisabled}
           >
           {isCharging ? "CARGANDO" : "CARGAR"}
           </Button>

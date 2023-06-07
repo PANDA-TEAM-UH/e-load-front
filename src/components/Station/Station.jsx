@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import {
   Drawer,
   DrawerBody,
@@ -55,5 +56,9 @@ const Station = ({ isOpen, onClose }) => {
     </Drawer>
   );
 };
+Station.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func
+}
 
 export default Station;
