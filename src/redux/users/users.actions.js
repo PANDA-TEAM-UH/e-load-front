@@ -3,7 +3,7 @@ import store from "../store";
 
 const { dispatch } = store;
 
-const login = async (dataLogin, navigate) => {
+const login = async (dataLogin) => {
     try {
         dispatch({type: "LOADING"});
         const result = await API.post("users/login", dataLogin);
@@ -15,9 +15,9 @@ const login = async (dataLogin, navigate) => {
             }
         });
         localStorage.setItem("token", result.data.token);
-        navigate("/");
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const createUser = async (dataRegister, navigate) => {

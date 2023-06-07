@@ -1,26 +1,25 @@
-import React from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
-import {
-    FormControl,
-    FormLabel,
-    Input,
-    Button,
-    FormErrorMessage,
-} from '@chakra-ui/react';
+// import { useNavigate } from 'react-router-dom';
+// import { Link, Navigate, useNavigate } from 'react-router-dom';
+// import {
+//     FormControl,
+//     FormLabel,
+//     Input,
+//     Button,
+//     FormErrorMessage,
+// } from '@chakra-ui/react';
 import './LoginForm.scss';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { login } from '../../redux/users/users.actions';
 
 const LoginForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const navigate = useNavigate();
+    const { register, handleSubmit } = useForm();
     const { error } = useSelector((state) => state.users);
     return (
         <div className="b-login">
             <form
                 className="b-login-form"
-                onSubmit={handleSubmit((dataLogin) => login(dataLogin, navigate))}
+                onSubmit={handleSubmit((dataLogin) => login(dataLogin))}
             >
                 <input
                     className="b-login-forminput"
