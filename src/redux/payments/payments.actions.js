@@ -3,15 +3,14 @@ import store from "../store";
 
 const { dispatch } = store;
 
-const createPayment = async (dataPayment, user) => {
+const createPayment = async (dataPayment) => {
     try {
         dispatch({type: "LOADING"});
         const formData = new FormData();
-        formData.append("nombre", user.name);
-        formData.append("surnames", user.surnames);
+        formData.append("cardHolderName", dataPayment.cardHolderName);
         formData.append("number", dataPayment.number);
-        formData.append("validationMonth", dataPayment.valMonth);
-        formData.append("validationYear",  dataPayment.valYear);
+        formData.append("valMonth", dataPayment.valMonth);
+        formData.append("valYear",  dataPayment.valYear);
         const result = await API.post("payments", formData);
         dispatch({
             type: "CREATE_PAYMENT",
@@ -22,6 +21,7 @@ const createPayment = async (dataPayment, user) => {
     }
 }
 const getAllPayments = async () => {
+    
     try {
         dispatch({type: "LOADING"});
         const result = await API.get("payments");
@@ -33,6 +33,7 @@ const getAllPayments = async () => {
         dispatch({ type: "ERROR", payload: error.response.data });
     }
 }
+
 
 const deletePayment = async (paymentId) => {
     try {

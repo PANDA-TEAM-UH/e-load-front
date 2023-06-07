@@ -21,7 +21,7 @@ export const paymentsReducer = (state = INITIAL_STATE, action) => {
                 loading: false,
                 error: null
             };
-              
+                 
         case "DELETE_PAYMENT":
             return {
                 ...state,
