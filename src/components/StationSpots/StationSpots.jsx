@@ -26,7 +26,7 @@ const StationSpots = () => {
       setChargeMode((prevChargeMode) => {
         const updateChargeMode = {...prevChargeMode};
         Object.keys(updateChargeMode).forEach((spotId) => {
-          const newProgress = updateChargeMode[spotId] + 0.5;
+          const newProgress = updateChargeMode[spotId] + 1;
           updateChargeMode[spotId] = newProgress >= 100 ? 100 : newProgress;
         });
         return updateChargeMode;
@@ -36,14 +36,24 @@ const StationSpots = () => {
       clearInterval(interval);
     };
   }, []);
+  const switchCargeMode = (spotId) => {
+    setChargeMode((prevChargeMode) => ({
+      ...prevChargeMode,
+      [spotId]: 0
+    }));
+  }
+
   const handleChargeMode = (spotId) => {
     if(chargeMode[spotId] === undefined && activeSpot === null) {
       setActiveSpot(spotId);
-      setChargeMode((prevChargeMode) => ({
-        ...prevChargeMode,
-        [spotId]: 0
-      }));
-      updateSpotState(spotId, "Ocupado");
+      switchCargeMode(spotId);
+      const updateSpotStateAndReset = async () => {
+        await updateSpotState(spotId, "Ocupado");
+        switchCargeMode(spotId);
+        setActiveSpot(null);
+        await updateSpotState(spotId, "Libre");
+      }
+      updateSpotStateAndReset();
     }    
   };
 
