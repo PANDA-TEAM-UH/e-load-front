@@ -7,7 +7,10 @@ import { checkSession } from './redux/users/users.actions'
 
 function App() {
   useEffect(() => {
-    checkSession();
+    const token = localStorage.getItem("token");
+    if(token){
+      checkSession();
+    }
   }, []);
   return (
     <>
