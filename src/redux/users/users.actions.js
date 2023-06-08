@@ -39,7 +39,8 @@ const createUser = async (dataRegister, navigate) => {
             username: dataRegister.username,
             password: dataRegister.password
         };
-        login(user, navigate);
+        login(user);
+        navigate("/");
     } catch (error) {
         const errorMessage = error.response.data.msg;
         dispatch({ type: "ERROR", payload: errorMessage });
