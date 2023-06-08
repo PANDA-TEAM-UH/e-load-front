@@ -21,11 +21,11 @@ const createPayment = async (dataPayment) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
-const getAllPayments = async () => {
+const getAllPaymentsByUser = async (userId) => {
     
     try {
         dispatch({type: "LOADING"});
-        const result = await API.get("payments");
+        const result = await API.get(`payments/user/${userId}`);
         dispatch({
             type: "GET_PAYMENTS",
             payload: result.data
@@ -53,7 +53,7 @@ const deletePayment = async (paymentId) => {
 
 export {
     createPayment,
-    getAllPayments,
+    getAllPaymentsByUser,
     deletePayment
     
 }
