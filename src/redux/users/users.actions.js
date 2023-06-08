@@ -68,7 +68,7 @@ const getUserById = async (userId) => {
         });
     } catch (error) {
         const errorMessage = error.response.data.msg;
-        dispatch({ type: "ERROR", payload: errorMessage });;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const updateUser = async (userId, userToUpdate) => {
