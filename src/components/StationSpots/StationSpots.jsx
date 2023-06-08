@@ -1,15 +1,14 @@
-import { Badge, Button, Card, CardFooter, CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+import { Badge, Button, Card, CardFooter, Progress, ProgressLabel } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { updateSpotState } from "../../redux/spots/spots.actions";
-import { HighlightOff } from "@mui/icons-material";
 
 const StationSpots = () => {
   const { spotsByStation } = useSelector((state) => state.spots);
   const [chargeMode, setChargeMode] = useState({});
   const [activeSpot, setActiveSpot] = useState(null);
   const [isChargeComplete, setIsChargeComplete] = useState(false);
-  const [pausedSpot, setPausedSpot] = useState(null);
+
   const getBadgeColor = (stateSpot) => {
     switch (stateSpot) {
       case "Libre":
@@ -22,7 +21,6 @@ const StationSpots = () => {
         return "green";
     }
   };
-
   useEffect(() => {
     const interval = setInterval(() => {
       setChargeMode((prevChargeMode) => {
@@ -48,28 +46,23 @@ const StationSpots = () => {
       clearInterval(interval);
     };
   }, [chargeMode]);
-
   const handleChargeMode = async (spotId) => {
-    if(chargeMode[spotId] === undefined && activeSpot === null) {
+    if (chargeMode[spotId] === undefined && activeSpot === null) {
       setActiveSpot(spotId);
       setChargeMode((prevChargeMode) => ({
         ...prevChargeMode,
-        [spotId]: 0
+        [spotId]: 0,
       }));
       setIsChargeComplete((prevChargeComplete) => ({
         ...prevChargeComplete,
-        [spotId]: false
+        [spotId]: false,
       }));
       await updateSpotState(spotId, "Ocupado");
     }
-    setPausedSpot(null);  
   };
-  const stopChargeMode = async (spotId) => {
-    setPausedSpot(spotId);
-    setIsChargeComplete((prevChargeComplete) => ({
-      ...prevChargeComplete,
-      [spotId]: true
-    }));
+  const disconnectSpot = async (spotId) => {
+    await updateSpotState(spotId, "Libre");
+    console.log(spotId);
   };
 
   return spotsByStation.map((spot) => {
@@ -84,6 +77,14 @@ const StationSpots = () => {
         <p>Potencia {spot.power}</p>
         <p>Tipo {spot.type}</p>
         <p>Tarifa {spot.rate}</p>
+        {isChargeComplete[spot._id] && 
+          <Button
+          colorScheme="green"
+          onClick={ () => disconnectSpot(spot._id) }
+          >
+            DESCONECTAR
+          </Button>
+        } 
         <CardFooter>
           <Button
             variant="ghost"
@@ -92,17 +93,20 @@ const StationSpots = () => {
             disabled={isCharging || isDisabled}
           >
           {isChargeComplete[spot._id] ? "CARGA COMPLETA" : (isCharging ? "CARGANDO" : "CARGAR")}
-          </Button>
-          {isCharging && (
-            <div>
-            <CircularProgress value={chargingProgress} color="green" isPaused={pausedSpot === spot._id}>
-              <CircularProgressLabel>{chargingProgress}%</CircularProgressLabel>
-            </CircularProgress>
-            <HighlightOff onClick={ () => stopChargeMode(spot._id) }/>
-            </div>
-          )}          
+          </Button>       
         </CardFooter>
-        <Badge colorScheme={badgeColor}>{spotState}</Badge>
+        {isChargeComplete[spot._id] ?
+          <Progress value={chargingProgress} colorScheme="green" height='28px'>
+            <ProgressLabel fontSize='xl'>{chargingProgress}%</ProgressLabel>
+          </Progress>
+        :
+        isCharging && (
+          <Progress isIndeterminate value={chargingProgress} colorScheme="green" height='28px'>
+            <ProgressLabel color='black' fontSize='xl'>{chargingProgress}%</ProgressLabel>
+          </Progress>
+        )        
+        }
+        <Badge colorScheme={badgeColor}>{spotState}</Badge>        
       </Card>
     );
   });
