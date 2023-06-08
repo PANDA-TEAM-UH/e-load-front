@@ -3,7 +3,7 @@ import { FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 import { createPayment } from '../../redux/payments/payments.actions';
 import { useForm } from 'react-hook-form';
 
-
+//creado para subida a github
 const CreatePayment = () => {
   
   const {register, handleSubmit} = useForm()

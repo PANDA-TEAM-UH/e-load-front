@@ -17,7 +17,8 @@ const createPayment = async (dataPayment) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getAllPayments = async () => {
@@ -30,7 +31,8 @@ const getAllPayments = async () => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 
@@ -44,7 +46,8 @@ const deletePayment = async (paymentId) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 

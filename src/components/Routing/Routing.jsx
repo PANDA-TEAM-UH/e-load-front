@@ -2,7 +2,7 @@
 import { Route, Routes } from 'react-router-dom'
 import User from '../../pages/User/User'
 import Map from '../../pages/Map/Map'
-import PaymentContainer from '../PaymentContainer/PaymentContainer'
+// import PaymentContainer from '../PaymentContainer/PaymentContainer'
 
 
 const Routing = () => {
@@ -10,8 +10,8 @@ const Routing = () => {
     <Routes>
       <Route path="/user" element={<User/>}/>
         {/* <Route path="/" element={<Inicio/>}></Route> */}
-        <Route path="/mapa" element={<Map/>}></Route>
-        <Route path="/payment" element={<PaymentContainer />} />
+        <Route path="/" element={<Map/>}></Route>
+        {/* <Route path="/payment" element={<PaymentContainer />} /> */}
         {/* <Route path="/login" element={<SobreNosotros/>}></Route>
         <Route path="/login" element={<Contacto/>}></Route>
 
