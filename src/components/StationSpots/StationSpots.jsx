@@ -47,6 +47,7 @@ const StationSpots = () => {
     };
   }, [chargeMode]);
   const handleChargeMode = async (spotId) => {
+    console.log(chargeMode);
     if (chargeMode[spotId] === undefined && activeSpot === null) {
       setActiveSpot(spotId);
       setChargeMode((prevChargeMode) => ({
