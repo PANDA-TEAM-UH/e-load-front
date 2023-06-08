@@ -68,7 +68,7 @@ const updateSpot = async (spotId, spotToUpdate) => {
 }
 const updateSpotState = async (spotId, newState) => {
     try {
-        const result = await API.put(`spots/${spotId}`, {state: newState});
+        const result = await API.patch(`spots/${spotId}`, {state: newState});
         dispatch({
             type: "UPDATE_SPOT",
             payload: result.data
