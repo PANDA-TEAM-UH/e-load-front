@@ -28,9 +28,9 @@ const Navbar = () => {
 				<ModalOverlay />
 				<ModalContent>
 					<ModalHeader>Login</ModalHeader>
-					<ModalCloseButton />
+					<ModalCloseButton onClick={onClose}/>
 					<ModalBody>
-						<LoginForm/>
+						<LoginForm onClose={onClose}/>
 					</ModalBody>
 				</ModalContent>
 			</Modal>
