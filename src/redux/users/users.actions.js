@@ -41,7 +41,8 @@ const createUser = async (dataRegister, navigate) => {
         };
         login(user, navigate);
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getAllUsers = async () => {
@@ -53,7 +54,8 @@ const getAllUsers = async () => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getUserById = async (userId) => {
@@ -65,7 +67,8 @@ const getUserById = async (userId) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });;
     }
 }
 const updateUser = async (userId, userToUpdate) => {
@@ -85,7 +88,8 @@ const updateUser = async (userId, userToUpdate) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const deleteUser = async (userId) => {
@@ -97,7 +101,8 @@ const deleteUser = async (userId) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const logout = async () => {
@@ -105,7 +110,8 @@ const logout = async () => {
         localStorage.removeItem("token");
         dispatch({type: "LOGOUT"});
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 

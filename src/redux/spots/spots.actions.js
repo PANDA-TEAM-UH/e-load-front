@@ -18,7 +18,8 @@ const createSpot = async (dataSpot, station) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getAllSpots = async () => {
@@ -30,7 +31,8 @@ const getAllSpots = async () => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getSpotsByStation = async (stationId) => {
@@ -42,7 +44,8 @@ const getSpotsByStation = async (stationId) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const updateSpot = async (spotId, spotToUpdate) => {
@@ -59,7 +62,8 @@ const updateSpot = async (spotId, spotToUpdate) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const updateSpotState = async (spotId, newState) => {
@@ -70,7 +74,8 @@ const updateSpotState = async (spotId, newState) => {
             payload: result.data
         })
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const deleteSpot = async (spotId) => {
@@ -82,7 +87,8 @@ const deleteSpot = async (spotId) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const deleteAllSpotsFromStation = async (stationId) => {
