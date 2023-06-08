@@ -25,6 +25,8 @@ const createUser = async (dataRegister, navigate) => {
         dispatch({type: "LOADING"});
         const formData = new FormData();
         formData.append("username", dataRegister.username);
+        formData.append("name", dataRegister.name);
+        formData.append("surnames", dataRegister.surnames);
         formData.append("email", dataRegister.email);
         if(dataRegister.image[0]){
             formData.append("image", dataRegister.image[0]);
@@ -76,6 +78,8 @@ const updateUser = async (userId, userToUpdate) => {
     try {
         dispatch({type: "LOADING"});
         const formData = new FormData();
+        formData.append("name", userToUpdate.name);
+        formData.append("surnames", userToUpdate.surnames);
         formData.append("email", userToUpdate.email);
         if(userToUpdate.image[0]){
             formData.append("image", userToUpdate.image[0]);
