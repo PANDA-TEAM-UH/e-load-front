@@ -2,12 +2,14 @@ import { Badge, Button, Card, CardFooter, CircularProgress, CircularProgressLabe
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { updateSpotState } from "../../redux/spots/spots.actions";
+import { HighlightOff } from "@mui/icons-material";
 
 const StationSpots = () => {
   const { spotsByStation } = useSelector((state) => state.spots);
   const [chargeMode, setChargeMode] = useState({});
   const [activeSpot, setActiveSpot] = useState(null);
-
+  const [isChargeComplete, setIsChargeComplete] = useState(false);
+  const [pausedSpot, setPausedSpot] = useState(null);
   const getBadgeColor = (stateSpot) => {
     switch (stateSpot) {
       case "Libre":
@@ -24,43 +26,59 @@ const StationSpots = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setChargeMode((prevChargeMode) => {
-        const updateChargeMode = {...prevChargeMode};
-        Object.keys(updateChargeMode).forEach((spotId) => {
-          const newProgress = updateChargeMode[spotId] + 1;
-          updateChargeMode[spotId] = newProgress >= 100 ? 100 : newProgress;
+        const updatedChargeMode = {...prevChargeMode};
+        let isProgressUpdated = false;
+        Object.keys(updatedChargeMode).forEach((spotId) => {
+          const newProgress = updatedChargeMode[spotId] + 5;
+          if(newProgress > 100) {
+            delete updatedChargeMode[spotId];
+            setIsChargeComplete((prevChargeComplete) => ({
+              ...prevChargeComplete,
+              [spotId]: true
+            }));
+          } else {
+            updatedChargeMode[spotId] = newProgress;
+            isProgressUpdated = true;
+          }
         });
-        return updateChargeMode;
+        return isProgressUpdated ? updatedChargeMode : prevChargeMode;
       });
     }, 1000);
     return () => {
       clearInterval(interval);
     };
-  }, []);
-  const switchCargeMode = (spotId) => {
-    setChargeMode((prevChargeMode) => ({
-      ...prevChargeMode,
-      [spotId]: 0
-    }));
-  }
+  }, [chargeMode]);
 
-  const handleChargeMode = (spotId) => {
+  const handleChargeMode = async (spotId) => {
     if(chargeMode[spotId] === undefined && activeSpot === null) {
       setActiveSpot(spotId);
-      switchCargeMode(spotId);
-      const updateSpotStateAndReset = async () => {
-        await updateSpotState(spotId, "Ocupado");
-        switchCargeMode(spotId);
-        setActiveSpot(null);
-        await updateSpotState(spotId, "Libre");
-      }
-      updateSpotStateAndReset();
-    }    
+      setChargeMode((prevChargeMode) => ({
+        ...prevChargeMode,
+        [spotId]: 0
+      }));
+      setIsChargeComplete((prevChargeComplete) => ({
+        ...prevChargeComplete,
+        [spotId]: false
+      }));
+      await updateSpotState(spotId, "Ocupado");
+    }
+    setPausedSpot(null);  
+  };
+  const stopChargeMode = async (spotId) => {
+    setPausedSpot(spotId);
+    setIsChargeComplete((prevChargeComplete) => ({
+      ...prevChargeComplete,
+      [spotId]: true
+    }));
   };
 
   return spotsByStation.map((spot) => {
     const chargingProgress = chargeMode[spot._id] || 0;
-    const isCharging = chargingProgress > 0 && chargingProgress < 100;
+    const isCharging = chargingProgress > 0 && chargingProgress <= 100;
     const isDisabled = activeSpot !== null && activeSpot !== spot._id;
+    const spotState = isCharging ? "Ocupado" : spot.state;
+    const badgeColor = getBadgeColor(spotState);
+
     return (
       <Card key={spot._id}>
         <p>Potencia {spot.power}</p>
@@ -73,15 +91,18 @@ const StationSpots = () => {
             onClick={ () => handleChargeMode(spot._id) }
             disabled={isCharging || isDisabled}
           >
-          {isCharging ? "CARGANDO" : "CARGAR"}
+          {isChargeComplete[spot._id] ? "CARGA COMPLETA" : (isCharging ? "CARGANDO" : "CARGAR")}
           </Button>
           {isCharging && (
-            <CircularProgress value={chargingProgress} color="green">
+            <div>
+            <CircularProgress value={chargingProgress} color="green" isPaused={pausedSpot === spot._id}>
               <CircularProgressLabel>{chargingProgress}%</CircularProgressLabel>
             </CircularProgress>
+            <HighlightOff onClick={ () => stopChargeMode(spot._id) }/>
+            </div>
           )}          
         </CardFooter>
-        <Badge colorScheme={getBadgeColor(spot.state)}>{spot.state}</Badge>
+        <Badge colorScheme={badgeColor}>{spotState}</Badge>
       </Card>
     );
   });
