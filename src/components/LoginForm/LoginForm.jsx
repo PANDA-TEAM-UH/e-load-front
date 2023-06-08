@@ -12,7 +12,7 @@ import { login } from '../../redux/users/users.actions';
 const LoginForm = ({ onClose }) => {
     const { register, handleSubmit } = useForm();
     const { error } = useSelector((state) => state.users);
-    console.log(error);
+    
     function dataLogin(values) {
         login(values)
         if (error !== null) {
