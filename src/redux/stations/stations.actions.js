@@ -19,7 +19,8 @@ const createStation = async (dataStation) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getAllStations = async () => {
@@ -31,7 +32,8 @@ const getAllStations = async () => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getStationById = async (stationId) => {
@@ -43,7 +45,8 @@ const getStationById = async (stationId) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const updateStation = async (stationId, stationToUpdate) => {
@@ -62,7 +65,8 @@ const updateStation = async (stationId, stationToUpdate) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const deleteStation = async (stationId) => {
@@ -74,7 +78,8 @@ const deleteStation = async (stationId) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 

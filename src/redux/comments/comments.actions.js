@@ -15,7 +15,8 @@ const createComment = async (dataComment, user) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 
@@ -29,7 +30,8 @@ const getAllComments = async () => {
             payload: sortedComments
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getCommentsByStation = async (stationId) => {
@@ -42,7 +44,8 @@ const getCommentsByStation = async (stationId) => {
             payload: sortedComments
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const getCommentsByUser = async (comments, user) => {
@@ -54,7 +57,8 @@ const getCommentsByUser = async (comments, user) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const deleteComment = async (commentId) => {
@@ -66,7 +70,8 @@ const deleteComment = async (commentId) => {
             payload: result.data
         });
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 const deleteAllCommentsFromUser = async (comments) => {
@@ -75,7 +80,8 @@ const deleteAllCommentsFromUser = async (comments) => {
             deleteComment(comment._id);
         }
     } catch (error) {
-        dispatch({ type: "ERROR", payload: error.response.data });
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
 export {
