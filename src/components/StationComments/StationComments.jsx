@@ -6,7 +6,6 @@ const StationComments = () => {
     const { commentsByStation } = useSelector((state) => state.comments);
   return (
     commentsByStation.map((comment) => {
-        console.log(comment.user.username)
         return (
           <Card key={comment._id}>
             <Avatar src={comment.user.image}/>

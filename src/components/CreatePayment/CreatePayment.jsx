@@ -3,19 +3,15 @@ import { FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 import { createPayment } from '../../redux/payments/payments.actions';
 import { useForm } from 'react-hook-form';
 
-//creado para subida a github
 const CreatePayment = () => {
-  
+
   const {register, handleSubmit} = useForm()
-  
   
   const [paymentCreated, setPaymentCreated] = useState(false);
 
-  
   const onSubmit = (dataPayment) => {
-    console.log("Datos del formulario:", dataPayment)
-    createPayment(dataPayment)
-    setPaymentCreated(true)
+    createPayment(dataPayment);
+    setPaymentCreated(true);
     
     };
 
@@ -23,7 +19,6 @@ const CreatePayment = () => {
     setPaymentCreated(true);
   };
   
-
   return (
     <div>
       <Button onClick={handleCreatePaymentClick}>Agregar método de pago</Button>
