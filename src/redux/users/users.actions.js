@@ -106,6 +106,21 @@ const deleteUser = async (userId) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
+const checkSession = async () => {
+    try {
+      const result = await API.get("users/check");
+      dispatch({
+        type: "LOGIN",
+        payload: {
+          user: result.data !== "No estás autorizado" ? result.data : null,
+          token: localStorage.getItem("token")
+        }
+      });
+    }
+    catch (error) {
+      dispatch({ type: "ERROR", payload: error.response.data });
+    }
+  }
 const logout = async () => {
     try {
         localStorage.removeItem("token");
@@ -123,5 +138,6 @@ export {
     getUserById,
     updateUser,
     deleteUser,
+    checkSession,
     logout
 }
