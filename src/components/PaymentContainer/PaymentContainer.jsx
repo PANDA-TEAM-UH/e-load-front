@@ -1,6 +1,7 @@
 // import React from 'react'
 // import { useSelector } from 'react-redux';
 import CreatePayment from '../CreatePayment/CreatePayment';
+import PaymentMethods from '../PaymentMethods/PaymentMethods';
 // import PaymentMethods from '../PaymentMethods/PaymentMethods';
 //creado para subida a github
 const PaymentContainer = () => {
@@ -11,6 +12,7 @@ const PaymentContainer = () => {
         <>
         
         <CreatePayment/>
+        <PaymentMethods/>
       
      {/* {payments && <PaymentMethods payments = {payments}/>}
          */}

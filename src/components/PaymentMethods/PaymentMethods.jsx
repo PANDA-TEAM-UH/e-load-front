@@ -10,7 +10,7 @@ const PaymentMethods = () => {
   const { payments } = useSelector((state) => state.payments);
 
 
-
+  console.log(payments);
 
   return (
     <div className="payments">
