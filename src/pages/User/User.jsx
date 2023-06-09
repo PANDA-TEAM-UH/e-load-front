@@ -6,7 +6,7 @@ const User = () => {
   return (
     <Flex>
       <SideBar />
-      <Flex flex="1" padding="4">
+      <Flex flex="1" padding="4" width="calc(100% - 250px)">
         <RoutingUser />
       </Flex>
     </Flex>
