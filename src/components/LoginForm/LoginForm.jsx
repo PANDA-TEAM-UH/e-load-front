@@ -17,6 +17,7 @@ const LoginForm = ({ onClose }) => {
         await login(values);
         if (token) {
             onClose();
+        }
     }
 
     return (
