@@ -24,6 +24,7 @@ const Routing = () => {
 			<Route path="/usuario/reportar-error" element={<ErrorReport />} />
 		</Routes>
 	)
+  
 }
 
 export default Routing
