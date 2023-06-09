@@ -6,6 +6,7 @@ import Register from '../Register/Register'
 import ErrorReport from '../ErrorReport/ErrorReport'
 import LoyaltyPoints from '../LoyaltyPoints/LoyaltyPoints'
 import MyRecharges from '../MyRecharges/MyRecharges'
+import ContactForm from '../ContactForm/ContactForm'
 
 const Routing = () => {
 	return (
