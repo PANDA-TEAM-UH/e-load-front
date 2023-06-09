@@ -36,7 +36,7 @@ const Routing = () => {
         <Route path="/login" element={<Login/>}></Route> */}
 
         {/* ROUTING USERS SIDEBAR*/}
-        <Route path="/usuario" element={<User/>}/>
+        {/* <Route path="/usuario" element={<User/>}/> */}
         <Route path="/usuario/metodos-de-pago" element={<PaymentContainer/>} />
         <Route path="/usuario/mis-recargas" element={<MyRecharges/>}/>
         <Route path="/usuario/mis-puntos" element={<LoyaltyPoints/>}/>
