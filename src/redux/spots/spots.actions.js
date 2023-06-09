@@ -48,6 +48,19 @@ const getSpotsByStation = async (stationId) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
+const getSpotsByUser = async (userId) => {
+    try {
+        dispatch({type: "LOADING"});
+        const result = await API.get(`spots/user/${userId}`);
+        dispatch({
+            type: "USER_SPOTS",
+            payload: result.data
+        })
+    } catch (error) {
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
+    }
+}
 const updateSpot = async (spotId, spotToUpdate) => {
     try {
         dispatch({type: "LOADING"});
@@ -128,6 +141,7 @@ export {
     createSpot,
     getAllSpots,
     getSpotsByStation,
+    getSpotsByUser,
     updateSpot,
     updateSpotState,
     spotLoading,

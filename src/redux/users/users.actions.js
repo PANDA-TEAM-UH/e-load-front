@@ -97,6 +97,30 @@ const updateUser = async (userId, userToUpdate) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
+const updateUserSpots = async (userId, spotId) => {
+    try {
+        const result = await API.patch(`users/${userId}`, {$push: {spots: spotId}});
+        dispatch({
+            type: "UPDATE_USER",
+            payload: result.data
+        });
+    } catch (error) {
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
+    }
+}
+const updateUserPoints = async (userId, loyaltyPoints) => {
+    try {
+        const result = await API.patch(`users/${userId}`, {points: loyaltyPoints});
+        dispatch({
+            type: "UPDATE_USER",
+            payload: result.data
+        });
+    } catch (error) {
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
+    }
+}
 const deleteUser = async (userId) => {
     try {
         dispatch({type: "LOADING"});
@@ -141,6 +165,8 @@ export {
     getAllUsers,
     getUserById,
     updateUser,
+    updateUserSpots,
+    updateUserPoints,
     deleteUser,
     checkSession,
     logout
