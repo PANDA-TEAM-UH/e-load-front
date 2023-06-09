@@ -25,6 +25,8 @@ const createUser = async (dataRegister, navigate) => {
         dispatch({type: "LOADING"});
         const formData = new FormData();
         formData.append("username", dataRegister.username);
+        formData.append("name", dataRegister.name);
+        formData.append("surnames", dataRegister.surnames);
         formData.append("email", dataRegister.email);
         if(dataRegister.image[0]){
             formData.append("image", dataRegister.image[0]);
@@ -76,6 +78,8 @@ const updateUser = async (userId, userToUpdate) => {
     try {
         dispatch({type: "LOADING"});
         const formData = new FormData();
+        formData.append("name", userToUpdate.name);
+        formData.append("surnames", userToUpdate.surnames);
         formData.append("email", userToUpdate.email);
         if(userToUpdate.image[0]){
             formData.append("image", userToUpdate.image[0]);
@@ -84,6 +88,30 @@ const updateUser = async (userId, userToUpdate) => {
             formData.append("password", userToUpdate.password);  
         }              
         const result = await APIIMAGES.put(`users/${userId}`, formData);
+        dispatch({
+            type: "UPDATE_USER",
+            payload: result.data
+        });
+    } catch (error) {
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
+    }
+}
+const updateUserSpots = async (userId, spotId) => {
+    try {
+        const result = await API.patch(`users/${userId}`, {$push: {spots: spotId}});
+        dispatch({
+            type: "UPDATE_USER",
+            payload: result.data
+        });
+    } catch (error) {
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
+    }
+}
+const updateUserPoints = async (userId, loyaltyPoints) => {
+    try {
+        const result = await API.patch(`users/${userId}`, {points: loyaltyPoints});
         dispatch({
             type: "UPDATE_USER",
             payload: result.data
@@ -137,6 +165,8 @@ export {
     getAllUsers,
     getUserById,
     updateUser,
+    updateUserSpots,
+    updateUserPoints,
     deleteUser,
     checkSession,
     logout

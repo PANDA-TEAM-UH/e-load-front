@@ -48,6 +48,19 @@ const getSpotsByStation = async (stationId) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
+const getSpotsByUser = async (userId) => {
+    try {
+        dispatch({type: "LOADING"});
+        const result = await API.get(`spots/user/${userId}`);
+        dispatch({
+            type: "USER_SPOTS",
+            payload: result.data
+        })
+    } catch (error) {
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
+    }
+}
 const updateSpot = async (spotId, spotToUpdate) => {
     try {
         dispatch({type: "LOADING"});
@@ -68,15 +81,43 @@ const updateSpot = async (spotId, spotToUpdate) => {
 }
 const updateSpotState = async (spotId, newState) => {
     try {
-        const result = await API.put(`spots/${spotId}`, {state: newState});
-        dispatch({
-            type: "UPDATE_SPOT",
-            payload: result.data
-        })
+        const result = await API.patch(`spots/${spotId}`, {state: newState});
+        if(newState === 'Ocupado'){
+            dispatch({
+                type: "SELECT_SPOT_TO_LOAD",
+                payload: result.data
+            });
+        }
+        else if(newState === 'Libre'){
+            dispatch({
+                type: "SELECT_SPOT_TO_DISCONNECT",
+                payload: null
+            });
+        }        
     } catch (error) {
         const errorMessage = error.response.data.msg;
         dispatch({ type: "ERROR", payload: errorMessage });
     }
+}
+const spotLoading = async (spotId, loadValue) => {
+    try {
+        const result = await API.patch(`spots/${spotId}`, {load: loadValue});
+        dispatch({
+            type: "SELECT_SPOT_TO_LOAD",
+            payload: result.data
+        });
+    } catch (error) {
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
+    }
+}
+const loadingSpot = () => {
+    let value = 0;
+    const interval = setInterval(() => {
+        value = value + 5
+        console.log(value);
+    }, 1000);
+    return () => { clearInterval(interval)};
 }
 const deleteSpot = async (spotId) => {
     try {
@@ -100,8 +141,11 @@ export {
     createSpot,
     getAllSpots,
     getSpotsByStation,
+    getSpotsByUser,
     updateSpot,
     updateSpotState,
+    spotLoading,
+    loadingSpot,
     deleteSpot,
     deleteAllSpotsFromStation
 }
