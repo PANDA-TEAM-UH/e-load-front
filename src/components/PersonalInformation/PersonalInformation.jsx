@@ -3,7 +3,7 @@ import './PersonalInformation.scss'
 import { Button } from '@chakra-ui/react';
 import RegEditForm from '../RegEditForm/RegEditForm';
 
-const UserProfile = () => {
+const PersonalInformation = () => {
   return (
     <div>
       <div className="profile-photo">
@@ -17,4 +17,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default PersonalInformation;
