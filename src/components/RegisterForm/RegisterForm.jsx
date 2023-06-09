@@ -20,26 +20,26 @@ const RegisterForm = () => {
                 {...register("username")}
                 placeholder="Usuario"
             />
-            <FormLabel htmlFor="password">Email</FormLabel>
+            <FormLabel htmlFor="email">Email</FormLabel>
             <Input
                 className=""
                 {...register("email")}
                 placeholder="Correo electrónico"
                 type="email"
             />
-            <FormLabel htmlFor="email">Nombre</FormLabel>
+            <FormLabel htmlFor="name">Nombre</FormLabel>
             <Input
                 className=""
                 {...register("name")}
                 placeholder="Nombre"
             />
-            <FormLabel htmlFor="email">Apellidos</FormLabel>
+            <FormLabel htmlFor="surnames">Apellidos</FormLabel>
             <Input
                 className=""
                 {...register("surnames")}
                 placeholder="Apellidos"
             />
-            <FormLabel htmlFor="email">Contraseña</FormLabel>
+            <FormLabel htmlFor="password">Contraseña</FormLabel>
             <Input
                 className=""
                 {...register("password")}
@@ -52,7 +52,7 @@ const RegisterForm = () => {
                 funcion={(e) => setImage(URL.createObjectURL(e.target.files[0]))}
             />
             <p>{registerError}</p>
-            <Button className="b-login-formbtn" type="submit">
+            <Button className="" type="submit">
                 Registrarse
             </Button>
         </form>
