@@ -1,15 +1,16 @@
-//import React from 'react'
-import SideBar from "../../components/SideBar/Sidebar"
-import PersonalInformation from "../../components/PersonalInformation/PersonalInformation"
+import { Flex } from "@chakra-ui/react";
+import SideBar from "../../components/SideBar/Sidebar";
+import RoutingUser from "../../components/Routing/RoutingUser";
 
 const User = () => {
   return (
-    <div>
-      <SideBar/>
-      <PersonalInformation/>
-    </div>
-  )
-}
+    <Flex>
+      <SideBar />
+      <Flex flex="1" backgroundColor="#750b87" padding="4">
+        <RoutingUser />
+      </Flex>
+    </Flex>
+  );
+};
 
-export default User
-
+export default User;
