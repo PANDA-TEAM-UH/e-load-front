@@ -20,7 +20,7 @@ const Station = ({ isOpen, onClose }) => {
     const [showSpots, setShowSpots] = useState(true);
     const [showComments, setShowComments] = useState(false);
 
-    const handleSpotsClick = async () => {
+    const handleSpotsClick = () => {
       setShowComments(false);
       setShowSpots(true);
     }

@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     spots: [],
     spotsByStation: [],
+    spotToCharge: null,
     loading: false,
     error: null
 }
@@ -26,6 +27,20 @@ export const spotsReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 spotsByStation: [...action.payload],
+                loading: false,
+                error: null
+            };
+        case "SELECT_SPOT_TO_LOAD":
+            return {
+                ...state,
+                spotToCharge: {...action.payload},
+                loading: false,
+                error: null
+            }
+        case "SELECT_SPOT_TO_DISCONNECT":
+            return {
+                ...state,
+                spotToCharge: action.payload,
                 loading: false,
                 error: null
             };
