@@ -7,6 +7,7 @@ import ErrorReport from '../ErrorReport/ErrorReport'
 import LoyaltyPoints from '../LoyaltyPoints/LoyaltyPoints'
 import MyRecharges from '../MyRecharges/MyRecharges'
 import ContactForm from '../ContactForm/ContactForm'
+import Cookies from '../Cookies/Cookies'
 
 const Routing = () => {
 	return (
@@ -15,7 +16,7 @@ const Routing = () => {
 			<Route path="/" element={<Map />}></Route>
 			<Route path="/registro" element={<Register />} />
 			<Route path="/contacto" element={<ContactForm />} />
-
+      <Route path="/cookies" element={<Cookies />} />
 			{/* ROUTING USERS SIDEBAR*/}
 			<Route path="/usuario" element={<User />} />
 			<Route path="/usuario/metodos-de-pago" element={<PaymentContainer />} />
