@@ -1,8 +1,10 @@
 import { Flex, Link, Text } from '@chakra-ui/react';
-import { AccountCircle, CreditCard, LocationOn, CardGiftcard, Error, ExitToApp } from '@mui/icons-material';
+import { AccountCircle, CreditCard, LocationOn, CardGiftcard, Error, ExitToApp, EvStationOutlined, ElectricalServices, People, ForumOutlined } from '@mui/icons-material';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const SideBar = () => {
+  const { user } = useSelector((state) => state.users);
   return (
     <Flex
       backgroundColor="gray.200"
@@ -35,6 +37,34 @@ const SideBar = () => {
           <Text fontWeight="bold">Mis Puntos</Text>
         </Flex>
       </Link>
+      {user && user.rol === "admin" && (
+        <div>
+          <Link as={NavLink} to="/usuario/estaciones" display="block" pb={4} pt={4}>
+            <Flex alignItems="center">
+              <EvStationOutlined fontSize="30px" mr={2} />
+              <Text fontWeight="bold">Estaciones</Text>
+            </Flex>
+          </Link>
+          <Link as={NavLink} to="/usuario/puntos-carga" display="block" pb={4} pt={4}>
+            <Flex alignItems="center">
+              <ElectricalServices fontSize="30px" mr={2} />
+              <Text fontWeight="bold">Puntos de Carga</Text>
+            </Flex>
+          </Link>
+          <Link as={NavLink} to="/usuario/usuarios" display="block" pb={4} pt={4}>
+            <Flex alignItems="center">
+              <People fontSize="30px" mr={2} />
+              <Text fontWeight="bold">Usuarios</Text>
+            </Flex>
+          </Link>
+          <Link as={NavLink} to="/usuario/comentarios" display="block" pb={4} pt={4}>
+            <Flex alignItems="center">
+              <ForumOutlined fontSize="30px" mr={2} />
+              <Text fontWeight="bold">Comentarios</Text>
+            </Flex>
+          </Link>
+        </div>
+      )}
       <Link as={NavLink} to="/usuario/reportar-error" display="block" pb={4} pt={4}>
         <Flex alignItems="center">
           <Error fontSize="30px" mr={2} />
