@@ -11,11 +11,11 @@ import { login } from '../../redux/users/users.actions';
 
 const LoginForm = ({ onClose }) => {
     const { register, handleSubmit } = useForm();
-    const { error } = useSelector((state) => state.users);
+    const { error, token } = useSelector((state) => state.users);
     
-    function dataLogin(values) {
-        login(values)
-        if (error !== null) {
+    async function dataLogin(values) {
+        await login(values);
+        if (token) {
             onClose();
         }
     }
@@ -42,7 +42,7 @@ const LoginForm = ({ onClose }) => {
             <Button className="b-login-formbtn" type="submit">
                 Iniciar Sesión
             </Button>
-            <Link to="/register">No tienes cuenta? Regístrate</Link>
+            <Link to="/registro" onClick={onClose}>No tienes cuenta? Regístrate</Link>
         </form>
     );
 };

@@ -21,7 +21,7 @@ const Navbar = () => {
 			<Link to="/mapa">Mapa</Link>
 			<Link to="/sobre-nosotros">Sobre Nosotros</Link>
 			<Link to="/contacto">Contacto</Link>
-			<Link to="/register">Registrarse</Link>
+			<Link to="/registro">Registrarse</Link>
 			<Button onClick={onOpen}>Login</Button>
 
 			<Modal isOpen={isOpen} onClose={onClose}>
