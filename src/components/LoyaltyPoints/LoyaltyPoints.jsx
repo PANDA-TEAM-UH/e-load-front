@@ -10,6 +10,7 @@ const LoyaltyPoints = () => {
 
   return (
     <div>
+      <h1>Puntos fidelización</h1>
        <Stack>
         <Progress
           colorScheme='green'
