@@ -1,7 +1,8 @@
 import { Box, Button, Slide, useDisclosure } from "@chakra-ui/react"
 
 const Cookies = () => {
-  const { isOpen, onToggle } = useDisclosure()
+  const { isOpen, onToggle, onClose } = useDisclosure()
+
 
   return (
     <>
@@ -23,8 +24,8 @@ const Cookies = () => {
 
          
 
-         <Button>Aceptar</Button>
-         <Button>Cerrar</Button>
+         <Button onClick={onClose}>Aceptar</Button>
+         <Button>Configurar</Button>
          
         </Box>
       </Slide>
