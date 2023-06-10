@@ -21,8 +21,7 @@ const RoutingUser = () => {
         <RequireAuth adminAccess>
           <AdminStations/>
         </RequireAuth>
-      }
-      />
+      }/>
       <Route path="/puntos-carga" element={
         <RequireAuth adminAccess>
           <AdminSpots/>

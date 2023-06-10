@@ -82,7 +82,10 @@ const StationSpots = () => {
     });
     setIsChargeComplete(false);
   };
-
+  useEffect(() => {
+    console.log("renderizo");
+  },[]);
+  
   return (
     <>
       {user === null && (
