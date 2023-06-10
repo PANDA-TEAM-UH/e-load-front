@@ -1,5 +1,5 @@
 //import React from 'react'
-import {  Card, CardBody,Divider, Flex, Grid, GridItem, Heading, Image,Stack, Text } from '@chakra-ui/react'
+import {  Card, CardBody,CardHeader,Divider, Flex, Grid, GridItem, Heading, Image,Stack, Text } from '@chakra-ui/react'
 import './MyRecharges.scss'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
@@ -23,13 +23,13 @@ return (
   <div>
     <h2>MIS RECARGAS</h2>
     
-    <Grid templateColumns="repeat(4, 1fr)" gap={4}>
+    <Grid templateColumns="repeat(3, 1fr)" gap={4}>
    
       {spotsByUser.map((spot) => {
         return (
-          <GridItem key={spot._id} w="100%" h="40" mt={4}>
+          <GridItem key={spot._id} w="100%" h="40" >
           <Card maxW='sm'>
-             <CardBody>
+             <CardHeader  margin={0} padding={0}>
               <Image
               src='https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-recargas_ylr88f.jpg'
               alt='station'
@@ -42,7 +42,7 @@ return (
               <Text color='blue.600' fontSize='L'>{spot.power}</Text>
               <Text color='black.300' fontSize='xs'>{spot.updatedAt}</Text>
               </Stack>
-                </CardBody>          
+                </CardHeader>          
             
             </Card>
           </GridItem>
