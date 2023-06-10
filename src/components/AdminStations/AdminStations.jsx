@@ -9,10 +9,13 @@ import {
   CardFooter,
   CardHeader,
   Divider,
+  Flex,
   Grid,
   GridItem,
   Image,
+  Spacer,
 } from "@chakra-ui/react";
+import { Link, NavLink } from "react-router-dom";
 
 const AdminStations = () => {
   const { stations } = useSelector((state) => state.stations);
@@ -21,26 +24,36 @@ const AdminStations = () => {
   }, []);
   return (
     <div>
-      <h2>Estaciones</h2>
+      <Flex>
+        <h2>Estaciones</h2>
+        <Spacer />
+        <Button>CREAR NUEVA ESTACIÓN</Button>
+      </Flex>
+      <Divider my={5} />
       <Grid templateColumns="repeat(4, 1fr)" gap={6} gridAutoFlow="row dense">
         {stations.map((station) => {
           return (
             <GridItem key={station._id} w="100%" h="auto">
               <Card borderTopRadius={10}>
                 <CardHeader margin={0} padding={0}>
-					<Image
-						borderTopRadius={10}
-					src='https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-stations_mkgtko.jpg'
-					/>
-                  
+                  <Image
+                    src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-stations_mkgtko.jpg"
+                  />
                 </CardHeader>
                 <CardBody>
-					<h3>{station.address}</h3>
-					<Divider mt={3}/>
-				</CardBody>				
-                <CardFooter>				
+                  <h3>{station.address}</h3>
+                  <Divider mt={3} />
+                </CardBody>
+                <CardFooter>
                   <ButtonGroup>
-                    <Button>VER</Button>
+                    <Button>
+                      <Link
+                        as={NavLink}
+                        to={`/usuario/estaciones-detalle/${station._id}`}
+                      >
+                        VER
+                      </Link>
+                    </Button>
                     <Button variant="ghost" colorScheme="red">
                       BORRAR
                     </Button>
