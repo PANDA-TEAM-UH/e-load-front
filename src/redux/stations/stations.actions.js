@@ -36,6 +36,19 @@ const getAllStations = async () => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
+const getAllStationsAdmin = async () => {
+    try {
+        dispatch({type: "LOADING"});
+        const result = await API.get("stations/stations-admin/");
+        dispatch({
+            type: "GET_STATIONS",
+            payload: result.data
+        });
+    } catch (error) {
+        const errorMessage = error.response.data.msg;
+        dispatch({ type: "ERROR", payload: errorMessage });
+    }
+}
 const getStationById = async (stationId) => {
     try {
         dispatch({type: "LOADING"});
@@ -86,6 +99,7 @@ const deleteStation = async (stationId) => {
 export {
     createStation,
     getAllStations,
+    getAllStationsAdmin,
     getStationById,
     updateStation,
     deleteStation
