@@ -11,11 +11,11 @@ import { login } from '../../redux/users/users.actions';
 
 const LoginForm = ({ onClose }) => {
     const { register, handleSubmit } = useForm();
-    const { error, token } = useSelector((state) => state.users);
+    const { error, user } = useSelector((state) => state.users);
     
     async function dataLogin(values) {
         await login(values);
-        if (token) {
+        if (user) {
             onClose();
         }
     }
