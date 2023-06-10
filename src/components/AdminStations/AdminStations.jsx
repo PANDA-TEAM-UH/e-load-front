@@ -10,6 +10,7 @@ import {
   CardHeader,
   Grid,
   GridItem,
+  Image,
 } from "@chakra-ui/react";
 
 const AdminStations = () => {
@@ -20,15 +21,18 @@ const AdminStations = () => {
   return (
     <div>
       <h2>Estaciones</h2>
-      <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+      <Grid templateColumns="repeat(4, 1fr)" gap={6} gridAutoFlow="row dense">
         {stations.map((station) => {
           return (
             <GridItem key={station._id} w="100%" h="40">
               <Card>
-                <CardHeader>
-                  <h3>{station.address}</h3>
+                <CardHeader margin={0} padding={0}>
+					<Image
+					src='https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-stations_mkgtko.jpg'
+					/>
+                  
                 </CardHeader>
-                <CardBody></CardBody>
+                <CardBody><h3>{station.address}</h3></CardBody>
                 <CardFooter>
                   <ButtonGroup>
                     <Button>VER</Button>
