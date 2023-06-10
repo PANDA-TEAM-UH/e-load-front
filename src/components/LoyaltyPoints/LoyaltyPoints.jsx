@@ -16,7 +16,7 @@ const LoyaltyPoints = () => {
           colorScheme='green'
           height='32px'
           value={user.points}
-          min={100}
+          min={0}
           max={500}
         />
       </Stack>
