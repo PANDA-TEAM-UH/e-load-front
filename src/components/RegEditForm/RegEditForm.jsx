@@ -5,109 +5,108 @@ import {
 	FormLabel,
 	Input,
 	Button,
-	FormHelperText,
+	Flex,
+	Box,
 } from '@chakra-ui/react';
 import './RegEditForm.scss';
 
-import {
-	createUser,
-	updateUser,
-} from '../../redux/users/users.actions';
+import { updateUser } from '../../redux/users/users.actions';
 
-const RegEditForm = ({ isEditing }) => {
-	const [nombre, setNombre] = useState('');
-	const [apellidos, setApellidos] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [image, setImage] = useState('');
+const RegEditForm = () => {
+	const [selectedImage, setSelectedImage] = useState('');
+	const inputFileRef = React.createRef();
 
+	const { user } = useSelector((state) => state.users);
 	const dispatch = useDispatch();
-	const { user } = useSelector((state) => state.users)
-	
+
 	useEffect(() => {
-		// Valores iniciales si el usuario existe
-		if (user && isEditing) {
-			setNombre(user.nombre);
-			setApellidos(user.apellidos);
-			setEmail(user.email);
+		if (user) {
+			setSelectedImage(user.image || '');
 		}
-	}, [user, isEditing]);
+	}, [user]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const formData = {
-			username: nombre,
-			email: email,
-			password: password,
-			image: image
-		};
+		const formData = new FormData(e.target);
 
-		if (isEditing) {
+		if (user) {
 			dispatch(updateUser(user.id, formData));
-		} else {
-			dispatch(createUser(formData));
 		}
+	};
 
-		// Reset cuando hagamos submit
-		setNombre('');
-		setApellidos('');
-		setEmail('');
-		setPassword('');
-		setImage('');
+	const handleImageChange = (e) => {
+		const file = e.target.files[0];
+		setSelectedImage(URL.createObjectURL(file));
 	};
 
 	return (
 		<div className="reg-edit-form">
-			<form onSubmit={handleSubmit}>
-				<FormControl>
-					<FormLabel>Nombre</FormLabel>
-					<Input
-						type="text"
-						value={nombre}
-						onChange={(e) => setNombre(e.target.value)}
-					/>
-
-					<FormLabel>Apellidos</FormLabel>
-					<Input
-						type="text"
-						value={apellidos}
-						onChange={(e) => setApellidos(e.target.value)}
-					/>
-
-					<FormLabel>Email</FormLabel>
-					<Input
-						type="email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-
-					{!isEditing && (
-						<>
-							<FormLabel>Contraseña</FormLabel>
-							<Input
-								type="password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
-							/>
-						</>
-					)}
-
-					<FormLabel>Imagen</FormLabel>
-					<Input
-						type="file"
-						onChange={(e) => setImage(e.target.files[0])}
-					/>
-
-					<FormHelperText>
-						La imagen debe ser en formato JPG, PNG o GIF.
-					</FormHelperText>
-
-					<Button type="submit" colorScheme="blue" mt={4}>
-						{isEditing ? 'Guardar' : 'Registrarse'}
+			<Flex>
+				<Box w="200px" mr="4">
+					{selectedImage && <img src={selectedImage} alt="User" />}
+					<Button
+						as="label"
+						htmlFor="image-upload"
+						variant="outline"
+						colorScheme="blue"
+						mt={2}
+						cursor="pointer"
+					>
+						Editar imagen
 					</Button>
-				</FormControl>
-			</form>
+
+					<Input
+						id="image-upload"
+						ref={inputFileRef}
+						type="file"
+						accept="image/*"
+						style={{ display: 'none' }}
+						onChange={handleImageChange}
+					/>
+				</Box>
+				<form onSubmit={handleSubmit}>
+					<FormControl>
+						<FormLabel>Nombre de usuario</FormLabel>
+						<Input
+							type="text"
+							name="username"
+							defaultValue={user?.username || ''}
+						/>
+
+						<FormLabel>Nombre</FormLabel>
+						<Input
+							type="text"
+							name="name"
+							defaultValue={user?.name || ''}
+						/>
+
+						<FormLabel>Apellidos</FormLabel>
+						<Input
+							type="text"
+							name="surnames"
+							defaultValue={user?.surnames || ''}
+						/>
+
+						<FormLabel>Email</FormLabel>
+						<Input
+							type="email"
+							name="email"
+							defaultValue={user?.email || ''}
+						/>
+
+						<FormLabel>Contraseña</FormLabel>
+						<Input
+							type="password"
+							name="password"
+							defaultValue={user?.password || ''}
+						/>
+						<Button type="submit" colorScheme="blue" mt={4}>
+							{user ? 'Guardar' : 'Registrarse'}
+						</Button>
+					</FormControl>
+				</form>
+			</Flex>
 		</div>
 	);
 };

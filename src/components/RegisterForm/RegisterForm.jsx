@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const RegisterForm = () => {
     const { register, handleSubmit } = useForm();
-    const { registerError } = useSelector((state) => state.users);
+    const { error } = useSelector((state) => state.users);
     const [image, setImage] = useState();
     const navigate = useNavigate();
 
@@ -51,7 +51,7 @@ const RegisterForm = () => {
                 register={register}
                 funcion={(e) => setImage(URL.createObjectURL(e.target.files[0]))}
             />
-            <p>{registerError}</p>
+            <p>{error}</p>
             <Button className="" type="submit">
                 Registrarse
             </Button>
