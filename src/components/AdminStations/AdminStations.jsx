@@ -37,7 +37,6 @@ const AdminStations = () => {
               <Card borderTopRadius={10}>
                 <CardHeader margin={0} padding={0}>
                   <Image
-                    borderTopRadius={10}
                     src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-stations_mkgtko.jpg"
                   />
                 </CardHeader>

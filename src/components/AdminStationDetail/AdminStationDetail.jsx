@@ -30,7 +30,7 @@ const AdminStationDetail = () => {
         <Button>EDITAR</Button>
       </Flex>
       <Divider my={5} />
-      <Flex>
+      <Flex gap={6}>
         <Flex direction="column">
             <h3>Coordenadas:</h3>
             <p>Latitud:  {stationSelected.coordinates.north}</p>

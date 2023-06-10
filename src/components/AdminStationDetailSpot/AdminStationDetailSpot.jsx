@@ -25,9 +25,11 @@ const AdminStationDetailSpot = ({spot}) => {
   return (
     <GridItem key={spot._id} w="100%" h="auto">
               <Card borderTopRadius={10}>
-                <CardHeader margin={0} padding={0}>
+                <CardHeader margin={0} padding={0} display='flex' justifyContent='center'>
                   <Image
-                    borderTopRadius={10}
+                    boxSize='100px'
+                    objectFit='contain'
+                    mt={3}
                     src={imgSrc}
                   />
                 </CardHeader>
