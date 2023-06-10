@@ -49,6 +49,7 @@ const getAllStationsAdmin = async () => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
+//probar si esto así pasa, con dos parámetros aquí y que le envíe uno y otro
 const getStationById = async (stationId, spotId) => {
     try {
         dispatch({type: "LOADING"});

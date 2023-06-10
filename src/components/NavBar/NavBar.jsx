@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Flex, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
+import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useSelector } from 'react-redux';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
