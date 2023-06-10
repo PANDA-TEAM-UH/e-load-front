@@ -8,6 +8,7 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
+  Divider,
   Grid,
   GridItem,
   Image,
@@ -24,16 +25,20 @@ const AdminStations = () => {
       <Grid templateColumns="repeat(4, 1fr)" gap={6} gridAutoFlow="row dense">
         {stations.map((station) => {
           return (
-            <GridItem key={station._id} w="100%" h="40">
-              <Card>
+            <GridItem key={station._id} w="100%" h="auto">
+              <Card borderTopRadius={10}>
                 <CardHeader margin={0} padding={0}>
 					<Image
+						borderTopRadius={10}
 					src='https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-stations_mkgtko.jpg'
 					/>
                   
                 </CardHeader>
-                <CardBody><h3>{station.address}</h3></CardBody>
-                <CardFooter>
+                <CardBody>
+					<h3>{station.address}</h3>
+					<Divider mt={3}/>
+				</CardBody>				
+                <CardFooter>				
                   <ButtonGroup>
                     <Button>VER</Button>
                     <Button variant="ghost" colorScheme="red">
