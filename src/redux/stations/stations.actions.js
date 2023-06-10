@@ -49,10 +49,17 @@ const getAllStationsAdmin = async () => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
-const getStationById = async (stationId) => {
+const getStationById = async (stationId, address) => {
     try {
         dispatch({type: "LOADING"});
-        const result = await API.get(`stations/${stationId}`);
+        let result = null
+        if(address){
+            result = await API.get(`stations-address/${stationId}`);
+        }
+        else{
+            result = await API.get(`stations/${stationId}`);
+        }
+        
         dispatch({
             type: "SELECT_STATION",
             payload: result.data
