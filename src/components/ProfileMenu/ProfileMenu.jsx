@@ -14,7 +14,6 @@ const ProfileMenu = ({onClose, logout}) => {
                     alt={user.name}
                     style={{ marginLeft: '0.5rem', width: '45px', height: '40px', borderRadius: '50%' }}
                 />
-                <span>{user.name}</span>
             </MenuButton>
             <MenuList>
                 <MenuItem as={Link} to="/usuario">Información Personal</MenuItem>
