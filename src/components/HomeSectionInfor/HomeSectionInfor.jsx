@@ -15,8 +15,9 @@ const HomeSectionInfor = () => {
       flexDirection="column"
       paddingY={20}
       bgAttachment="fixed"
+      gap={6}
     >
-      <Flex display = "flex" justifyContent="center" alignItem="center" gap={6}>
+      <Flex display = "flex" justifyContent="center" alignItems="center" gap={6}>
         <Text
           color="whiteColor"
           maxW="4xl"
@@ -52,7 +53,6 @@ const HomeSectionInfor = () => {
         textAlign="center"
         fontSize="4xl"
         fontWeight="bold"
-        mb={2}
         color="white"
       >
         ¿Quieres formar parte de nuestra red?
@@ -63,7 +63,9 @@ const HomeSectionInfor = () => {
         color="whiteColor"
         _hover={{ bg: "secondaryColor", color: "defaultColor" }}
         size="lg"
-        marginTop={10}
+        borderRadius="full"
+        py={3}
+        px={6}
       >
         ENTRAR
       </Button>
