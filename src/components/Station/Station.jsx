@@ -9,6 +9,10 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
+  Image,
+  Flex,
+  Divider,
+  Tooltip,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { AccessTime, Chat, FavoriteBorder, Power } from "@mui/icons-material";
@@ -43,14 +47,31 @@ const Station = ({ isOpen, onClose }) => {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader>{stationSelected.address}</DrawerHeader>
+        <DrawerHeader>
+          {stationSelected.address}
+          <Image src='https://res.cloudinary.com/dgkm71mjf/image/upload/v1686470412/e-load/e-load-station-02_xqi2zr.png'/>
+        </DrawerHeader>
         <DrawerBody>
-            <FavoriteBorder/>{stationSelected.likes}
-            <AccessTime/>{stationSelected.schedule}
-            <Power onClick={handleSpotsClick}/>            
-            <Chat onClick={handleCommentsClick}/>
+          <Flex justifyContent="space-between">
+            <Flex gap={2}>
+              <FavoriteBorder/>{stationSelected.likes}
+              <AccessTime/>{stationSelected.schedule}
+            </Flex>
+            <Flex>
+              <Tooltip label='Puestos'>
+                <Power onClick={handleSpotsClick} cursor='pointer'/>            
+              </Tooltip>
+              <Tooltip label='Comentarios'>
+                <Chat onClick={handleCommentsClick} cursor='pointer'/>
+              </Tooltip>
+            </Flex>
+          </Flex>
+          <Divider my={3}/>
+          <Flex direction="column" gap={4}>
             {showSpots && <StationSpots/>}
             {showComments && <StationComments/>}
+          </Flex>        
+            
         </DrawerBody>
         <DrawerFooter></DrawerFooter>
       </DrawerContent>
