@@ -1,43 +1,90 @@
+import './HomeSection.scss'
+import {
+  Stack,
+  Flex,
+  Text,
+  VStack,
+  useBreakpointValue,
+} from '@chakra-ui/react';
+
 const HomeSection = () => {
+
+  
   return (
-    <section className="home__container-section">
-      <div className="home__header-section">
-        <p>FIND/</p>
-        <p>CHARGE/</p>
-        <p>GO/</p>
-      </div>
 
-      <div className="home__header-section">
-        <h2>Conduce a cualquier lugar con la app de E-LOAD/</h2>
-      </div>
+    <Flex
+    w={'full'}
+    h={'100vh'}
+    position={'relative'}
+    overflow={'hidden'}
+  >
+    <Flex
+      w={'full'}
+      h={'full'}
+      position={'absolute'}
+      top={0}
+      left={0}
+      zIndex={-1}
+    >
+      <video
+        autoPlay
+        loop
+        muted
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+      >
+        <source
+          src="https://res.cloudinary.com/dgkm71mjf/video/upload/v1686474818/e-load/e-load-section-01_hq4smf.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      <div className="home__buttons-rrss">
-        <a
-          href="https://play.google.com/store/apps/details?id=com.enredats.electromaps"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link-googleplay"
-        >
-          <img
-            src="https://uploads-ssl.webflow.com/6278f767c8039e09089ab08c/6453bc92b6498149ffc7047b_android_badge%202.png"
-            alt="boton-googleplay"
-            />
-        </a>
+      </Flex>
+        <VStack
+          w={'full'}
+          justify={'center'}
+          px={useBreakpointValue({ base: 4, md: 8 })}
+          bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+          <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+            <Text
+              color={'white'}
+              fontWeight={500}
+              lineHeight={1.2}
+              fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+              FIND/
+            </Text>
+            
+            <Text
+              color={'white'}
+              fontWeight={500}
+              lineHeight={1.2}
+              fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+             CHARGE/
+            </Text>
 
-        <a
-          href="https://play.google.com/store/apps/details?id=com.enredats.electromaps"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link-aple"
-        >
-          <img
-            src="https://uploads-ssl.webflow.com/6278f767c8039e09089ab08c/6453bc92b6498149ffc7047b_android_badge%202.png"
-            alt="boton-apple"
-          />
-        </a>
-      </div>
-    </section>
-  );
-}
+            <Text
+              color={'white'}
+              fontWeight={500}
+              lineHeight={1.2}
+              fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+              GO/
+            </Text>
+            
+            <Text
+              color={'white'}
+              fontWeight={100}
+              lineHeight={1.5}
+              fontSize={useBreakpointValue({ base: '6xl', md: '4xl' })}>
+              Conduce hasta cualquier lugar.
+            </Text>
+            
+          </Stack>
+        </VStack>
+      </Flex>
+    );
+  }
+  export default HomeSection
 
-export default HomeSection
