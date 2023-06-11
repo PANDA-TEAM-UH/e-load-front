@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Flex, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
+import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Box, useColorModeValue } from '@chakra-ui/react';
 import LoginForm from '../LoginForm/LoginForm';
 import { useSelector } from 'react-redux';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
@@ -8,7 +8,6 @@ import { logout } from '../../redux/users/users.actions';
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
-
 	const onOpen = () => {
 		setIsOpen(true);
 	};
@@ -25,7 +24,7 @@ const Navbar = () => {
 	const { user } = useSelector((state) => state.users);
 
 	return (
-		<div className="navbar" style={{ display: 'flex', justifyContent: 'center' }}>
+		<Box bg={'secondaryColor'} className="navbar" style={{ display: 'flex', justifyContent: 'center' }}>
 			<nav style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw' }}>
 				<Link to="/">Inicio</Link>
 				<Link to="/mapa">Mapa</Link>
@@ -52,7 +51,7 @@ const Navbar = () => {
 					)}
 				</div>
 			</nav>
-		</div>
+		</Box>
 	);
 };
 
