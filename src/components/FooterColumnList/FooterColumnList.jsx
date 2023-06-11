@@ -1,4 +1,3 @@
-import './FooterColumnList.scss'
 
 const FooterColumnList = () => {
   return (

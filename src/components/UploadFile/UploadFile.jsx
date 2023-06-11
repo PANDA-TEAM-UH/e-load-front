@@ -1,4 +1,3 @@
-import "./UploadFile.scss";
 import { AddPhotoAlternate } from "@mui/icons-material";
 import { FormLabel, Input } from '@chakra-ui/react';
 

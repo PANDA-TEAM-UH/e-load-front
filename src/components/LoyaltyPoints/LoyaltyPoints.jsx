@@ -1,8 +1,6 @@
 import { Progress, Stack } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
 
-
-
 const LoyaltyPoints = () => {
 
   const {user} = useSelector((state)=> state.users) 

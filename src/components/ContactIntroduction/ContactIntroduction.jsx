@@ -1,4 +1,3 @@
-import './ContactIntroduction.scss'
 
 const ContactIntroduction = () => {
   return (

@@ -1,5 +1,3 @@
-import './HomeSectionInstructions'
-
 const HomeSectionInstructions = () => {
   return (
     <section className="home__container-instructions">

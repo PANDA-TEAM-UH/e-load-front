@@ -1,4 +1,3 @@
-import './AboutHistory.scss'
 
 const AboutHistory = () => {
   return (

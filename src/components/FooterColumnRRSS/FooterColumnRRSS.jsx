@@ -1,5 +1,3 @@
-import './FooterColumnRRSS.scss'
-
 const FooterColumnRRSS = () => {
     return (
       <div>
