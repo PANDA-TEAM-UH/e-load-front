@@ -1,58 +1,33 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Box, useColorModeValue } from '@chakra-ui/react';
-import LoginForm from '../LoginForm/LoginForm';
-import { useSelector } from 'react-redux';
-import ProfileMenu from '../ProfileMenu/ProfileMenu';
-import { logout } from '../../redux/users/users.actions';
+import { Flex, Text } from '@chakra-ui/react';
+import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const onOpen = () => {
-		setIsOpen(true);
-	};
-
-	const onClose = () => {
-		setIsOpen(false);
-	};
-
-	const handleLogout = () => {
-		logout();
-		onClose(); 
-	};
-
-	const { user } = useSelector((state) => state.users);
+const NavBar = () => {
+	const location = useLocation();
 
 	return (
-		<Box bg={'secondaryColor'} className="navbar" style={{ display: 'flex', justifyContent: 'center' }}>
-			<nav style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw' }}>
-				<Link to="/">Inicio</Link>
-				<Link to="/mapa">Mapa</Link>
-				<Link to="/sobre-nosotros">Sobre Nosotros</Link>
-				<Link to="/contacto">Contacto</Link>
-				<div style={{ marginLeft: 'auto' }}>
-					{user ? (
-						<ProfileMenu onClose={onClose} logout={handleLogout}/>
-					) : (
-						<>
-							<Link to="/registro">Registrarse</Link>
-							<Button onClick={onOpen}>Login</Button>
-							<Modal isOpen={isOpen} onClose={onClose}>
-								<ModalOverlay />
-								<ModalContent>
-									<ModalHeader>Login</ModalHeader>
-									<ModalCloseButton onClick={onClose} />
-									<ModalBody>
-										<LoginForm onClose={onClose} />
-									</ModalBody>
-								</ModalContent>
-							</Modal>
-						</>
-					)}
-				</div>
-			</nav>
-		</Box>
+		<Flex display={{ base: 'none', md: 'flex' }} ml={10} justify="center" alignItems="center" gap={4}>
+			<Link to="/">
+				<Text color={location.pathname === '/' ? 'secondaryColor' : 'inherit'} _hover={{ color: 'secondaryColor' }}>
+					Inicio
+				</Text>
+			</Link>
+			<Link to="/mapa">
+				<Text color={location.pathname === '/mapa' ? 'secondaryColor' : 'inherit'} _hover={{ color: 'secondaryColor' }}>
+					Mapa
+				</Text>
+			</Link>
+			<Link to="/sobre-nosotros">
+				<Text color={location.pathname === '/sobre-nosotros' ? 'secondaryColor' : 'inherit'} _hover={{ color: 'secondaryColor' }}>
+					Sobre Nosotros
+				</Text>
+			</Link>
+			<Link to="/contacto">
+				<Text color={location.pathname === '/contacto' ? 'secondaryColor' : 'inherit'} _hover={{ color: 'secondaryColor' }}>
+					Contacto
+				</Text>
+			</Link>
+		</Flex>
 	);
 };
 
-export default Navbar;
+export default NavBar;
