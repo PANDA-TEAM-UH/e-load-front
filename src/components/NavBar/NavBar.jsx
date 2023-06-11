@@ -1,58 +1,17 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, Box, useColorModeValue } from '@chakra-ui/react';
-import LoginForm from '../LoginForm/LoginForm';
-import { useSelector } from 'react-redux';
-import ProfileMenu from '../ProfileMenu/ProfileMenu';
-import { logout } from '../../redux/users/users.actions';
+import { Flex, Stack } from '@chakra-ui/react';
 
-const Navbar = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const onOpen = () => {
-		setIsOpen(true);
-	};
 
-	const onClose = () => {
-		setIsOpen(false);
-	};
-
-	const handleLogout = () => {
-		logout();
-		onClose(); 
-	};
-
-	const { user } = useSelector((state) => state.users);
+const NavBar = () => {
 
 	return (
-		<Box bg={'secondaryColor'} className="navbar" style={{ display: 'flex', justifyContent: 'center' }}>
-			<nav style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw' }}>
-				<Link to="/">Inicio</Link>
-				<Link to="/mapa">Mapa</Link>
-				<Link to="/sobre-nosotros">Sobre Nosotros</Link>
-				<Link to="/contacto">Contacto</Link>
-				<div style={{ marginLeft: 'auto' }}>
-					{user ? (
-						<ProfileMenu onClose={onClose} logout={handleLogout}/>
-					) : (
-						<>
-							<Link to="/registro">Registrarse</Link>
-							<Button onClick={onOpen}>Login</Button>
-							<Modal isOpen={isOpen} onClose={onClose}>
-								<ModalOverlay />
-								<ModalContent>
-									<ModalHeader>Login</ModalHeader>
-									<ModalCloseButton onClick={onClose} />
-									<ModalBody>
-										<LoginForm onClose={onClose} />
-									</ModalBody>
-								</ModalContent>
-							</Modal>
-						</>
-					)}
-				</div>
-			</nav>
-		</Box>
+		<Flex display={{ base: 'none', md: 'flex' }} ml={10} justify="center" alignItems="center" gap={4}>
+			<Link to="/">Inicio</Link>
+			<Link to="/mapa">Mapa</Link>
+			<Link to="/sobre-nosotros">Sobre Nosotros</Link>
+			<Link to="/contacto">Contacto</Link>
+		</Flex>
 	);
 };
 
-export default Navbar;
+export default NavBar;
