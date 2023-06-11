@@ -1,4 +1,3 @@
-import './HomeSection.scss'
 import {
   Stack,
   Flex,

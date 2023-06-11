@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "./Map.scss";
 import { useDisclosure } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { getAllStations, getStationById } from "../../redux/stations/stations.actions";
@@ -23,7 +22,7 @@ const Map = () => {
   useEffect(() => {
     getAllStations();
   }, []);
-  
+ 
   return (
     <>
       <div className="leaflet-container">
