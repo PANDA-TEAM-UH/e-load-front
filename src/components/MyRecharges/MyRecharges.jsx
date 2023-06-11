@@ -1,11 +1,9 @@
 //import React from 'react'
 import {  Card, CardBody,CardHeader,Divider, Flex, Grid, GridItem, Heading, Image,Stack, Text } from '@chakra-ui/react'
-import './MyRecharges.scss'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getSpotsByUser } from '../../redux/spots/spots.actions'
 // import { stationsReducer } from '../../redux/stations/stations.reducer'
-
 
 const MyRecharges = () => {
 

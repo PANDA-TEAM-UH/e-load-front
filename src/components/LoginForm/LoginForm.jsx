@@ -4,7 +4,6 @@ import {
     Input,
     Button,
 } from '@chakra-ui/react';
-import './LoginForm.scss';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { login } from '../../redux/users/users.actions';

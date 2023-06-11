@@ -5,7 +5,6 @@
 //     <section className="home__container-instructions">
 //     <div className="home__header-instructions">
 // <h3 className="title-instructions">Hazte de E-LOAD, la ciudad te espera.</h3>
-
 //     </div>
 
 // <div className="home__body-container">

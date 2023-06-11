@@ -2,7 +2,6 @@
 import AboutHistory from '../AboutHistory/AboutHistory'
 import AboutBrands from '../AboutBrands/AboutBrands'
 import AboutInnovation from '../AboutInnovation/AboutInnovation'
-import './About.scss'
 
 const About = () => {
   return (

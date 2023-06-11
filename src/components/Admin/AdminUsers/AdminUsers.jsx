@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getAllUsers } from "../../redux/users/users.actions";
+import { getAllUsers } from "../../../redux/users/users.actions";
 
 
 const AdminUsers = () => {

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getAllComments } from "../../redux/comments/comments.actions";
+import { getAllComments } from "../../../redux/comments/comments.actions";
 
 const AdminComments = () => {
     const { comments } = useSelector((state) => state.comments);

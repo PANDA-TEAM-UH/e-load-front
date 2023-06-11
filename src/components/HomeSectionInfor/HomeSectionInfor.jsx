@@ -1,9 +1,9 @@
+
 // import './HomeSectionInfor.scss'
 
 // const HomeSectionInfor = () => {
 //   return (
 //     <section className="home__container-infor">
-
 //       <div className="home__header-data">
 //         <div className="home__header-data-numbers">
 //           <p className="stations-register">150</p>

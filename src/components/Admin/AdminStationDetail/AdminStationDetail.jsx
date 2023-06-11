@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getStationById } from "../../redux/stations/stations.actions";
+import { getStationById } from "../../../redux/stations/stations.actions";
 import { useSelector } from "react-redux";
 import { Button, Divider, Flex, Grid, Spacer, Spinner } from "@chakra-ui/react";
-import AdminStationDetailSpot from "../AdminStationDetailSpot/AdminStationDetailSpot";
-import { getSpotsByStation } from "../../redux/spots/spots.actions";
+import AdminStationDetailSpot from "./AdminStationDetailSpot";
+import { getSpotsByStation } from "../../../redux/spots/spots.actions";
 
 const AdminStationDetail = () => {
     const { id } = useParams();

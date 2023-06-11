@@ -17,6 +17,9 @@ const RequireAuth = ({ children, userAccess, adminAccess }) => {
     else if (adminAccess && user.rol !== "admin"){
         return <Navigate to="/"/>;
     }
+    else if (user){
+        return children;
+    }
 
     return children;
 }
@@ -25,6 +28,5 @@ RequireAuth.propTypes = {
     userAccess: PropTypes.bool,
     adminAccess: PropTypes.bool
 }
-
 
 export default RequireAuth

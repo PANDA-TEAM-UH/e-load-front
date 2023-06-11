@@ -8,8 +8,6 @@ import {
 	Flex,
 	Box,
 } from '@chakra-ui/react';
-import './RegEditForm.scss';
-
 import { updateUser } from '../../redux/users/users.actions';
 
 const RegEditForm = () => {

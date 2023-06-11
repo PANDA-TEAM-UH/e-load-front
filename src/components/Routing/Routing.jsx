@@ -17,7 +17,11 @@ const Routing = () => {
 				</RequireAuth>
 			} />
 			<Route path="/contacto" element={<ContactForm />} />
-			<Route path="/usuario/*" element={<User />} />
+			<Route path="/usuario/*" element={
+				<RequireAuth>
+					<User />
+				</RequireAuth>
+			}/>
 		</Routes>
 	)
 }

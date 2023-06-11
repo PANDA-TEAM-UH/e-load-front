@@ -1,4 +1,3 @@
-import './AboutInnovation.scss'
 
 const AboutInnovation = () => {
   return (

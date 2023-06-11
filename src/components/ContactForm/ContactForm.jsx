@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Input, Button, Textarea, Select, Modal, ModalOverlay, 
   ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
-import './ContactForm.scss'
 
 const ContactForm = () => {
   const { handleSubmit } = useForm();
