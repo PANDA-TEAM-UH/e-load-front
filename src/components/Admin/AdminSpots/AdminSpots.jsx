@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { getAllSpots } from "../../redux/spots/spots.actions";
+import { getAllSpots } from "../../../redux/spots/spots.actions";
 
 const AdminSpots = () => {
     const { spots } = useSelector((state) => state.spots);

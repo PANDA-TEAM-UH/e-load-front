@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getAllStationsAdmin } from "../../redux/stations/stations.actions";
+import { getAllStationsAdmin } from "../../../redux/stations/stations.actions";
 import { useSelector } from "react-redux";
 import {
   Button,

@@ -4,12 +4,12 @@ import ErrorReport from '../ErrorReport/ErrorReport';
 import LoyaltyPoints from '../LoyaltyPoints/LoyaltyPoints';
 import MyRecharges from '../MyRecharges/MyRecharges';
 import PersonalInformation from '../PersonalInformation/PersonalInformation';
-import AdminStations from '../AdminStations/AdminStations';
 import RequireAuth from '../RequireAuth/RequireAuth';
-import AdminSpots from '../AdminSpots/AdminSpots';
-import AdminUsers from '../AdminUsers/AdminUsers';
-import AdminComments from '../AdminComments/AdminComments';
-import AdminStationDetail from '../AdminStationDetail/AdminStationDetail';
+import AdminStations from '../Admin/AdminStations/AdminStations';
+import AdminSpots from '../Admin/AdminSpots/AdminSpots';
+import AdminUsers from '../Admin/AdminUsers/AdminUsers';
+import AdminComments from '../Admin/AdminComments/AdminComments';
+import AdminStationDetail from '../Admin/AdminStationDetail/AdminStationDetail';
 
 const RoutingUser = () => {
   return (
