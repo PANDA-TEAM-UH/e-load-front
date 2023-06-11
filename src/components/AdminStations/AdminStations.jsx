@@ -37,12 +37,12 @@ const AdminStations = () => {
               <Card borderTopRadius={10}>
                 <CardHeader margin={0} padding={0}>
                   <Image
-                    src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-stations_mkgtko.jpg"
+                    src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686470412/e-load/e-load-station-02_xqi2zr.png"
                   />
+                  <Divider/>
                 </CardHeader>
                 <CardBody>
                   <h3>{station.address}</h3>
-                  <Divider mt={3} />
                 </CardBody>
                 <CardFooter>
                   <ButtonGroup>
