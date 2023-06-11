@@ -6,6 +6,7 @@ const HomeSectionMobile = () => {
       bgImage="url(public/assets/images/FONDO-MOBILE2.jpg)"
       bgSize="cover"
       bgPosition="center"
+      
       >
 
     <Stack minH={"65vh"} direction={{ base: "column", md: "row" }}>

@@ -6,6 +6,9 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 
+import {  motion } from 'framer-motion';
+const MotionText = motion(Text);
+
 const HomeSection = () => {
 
   
@@ -48,37 +51,56 @@ const HomeSection = () => {
           px={useBreakpointValue({ base: 4, md: 8 })}
           bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
           <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-            <Text
-              color={'white'}
-              fontWeight={500}
-              lineHeight={1.2}
-              fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
-              FIND/
-            </Text>
-            
-            <Text
-              color={'white'}
-              fontWeight={500}
-              lineHeight={1.2}
-              fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
-             CHARGE/
-            </Text>
+           
+          <MotionText
+            color="whiteColor"
+            fontWeight={500}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 6, y:0 }}
+            transition={{ duration: 4, delay: 2}}
+          >
+            FIND/
+          </MotionText>
 
-            <Text
-              color={'white'}
-              fontWeight={500}
-              lineHeight={1.2}
-              fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
-              GO/
-            </Text>
+
+            <MotionText
+            color="whiteColor"
+            fontWeight={500}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 5, delay: 3}}
+          >
+            CHARGE/
+          </MotionText>
+
+          <MotionText
+            color="whiteColor"
+            fontWeight={500}
+            lineHeight={1.2}
+            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 6, delay: 4}}
+          >
+            GO/
+          </MotionText>
             
-            <Text
-              color={'white'}
+              <MotionText
+              color= "whiteColor"
               fontWeight={100}
               lineHeight={1.5}
-              fontSize={useBreakpointValue({ base: '6xl', md: '4xl' })}>
+              fontSize={useBreakpointValue({ base: '6xl', md: '4xl' })}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 7, delay: 5}}
+              >
+              
               Conduce hasta cualquier lugar.
-            </Text>
+              </MotionText>
             
           </Stack>
         </VStack>
