@@ -1,5 +1,3 @@
-//import React from 'react'
-import './PersonalInformation.scss'
 import RegEditForm from '../RegEditForm/RegEditForm';
 
 const PersonalInformation = () => {

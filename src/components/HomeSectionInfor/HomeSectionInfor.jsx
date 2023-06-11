@@ -1,5 +1,3 @@
-import './HomeSectionInfor.scss'
-
 const HomeSectionInfor = () => {
   return (
     <section className="home__container-infor">

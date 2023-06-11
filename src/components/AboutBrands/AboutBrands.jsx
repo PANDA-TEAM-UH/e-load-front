@@ -1,4 +1,3 @@
-import './AboutBrands.scss'
 
 const AboutBrands = () => {
   return (

@@ -1,8 +1,6 @@
-// import React from 'react'
 import FooterColumnHelp from "../FooterColumnHelp/FooterColumnHelp"
 import FooterColumnList from "../FooterColumnList/FooterColumnList"
 import FooterColumnRRSS from "../FooterColumnRRSS/FooterColumnRRSS"
-import "./Footer.scss"
 
 const Footer = () => {
   return (

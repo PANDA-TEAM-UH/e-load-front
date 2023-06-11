@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Flex, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
-import './ProfileMenu.scss';
 import { useSelector } from 'react-redux';
 
 const ProfileMenu = ({onClose, logout}) => {
@@ -14,6 +13,7 @@ const ProfileMenu = ({onClose, logout}) => {
                     alt={user.name}
                     style={{ marginLeft: '0.5rem', width: '45px', height: '40px', borderRadius: '50%' }}
                 />
+                <span>{user.name}</span>
             </MenuButton>
             <MenuList>
                 <MenuItem as={Link} to="/usuario">Información Personal</MenuItem>

@@ -1,4 +1,3 @@
-import './FooterColumnHelp.scss'
 
 const FooterColumnHelp = () => {
   return (

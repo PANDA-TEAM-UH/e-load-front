@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 import { getSpotsByUser } from '../../redux/spots/spots.actions'
 // import { stationsReducer } from '../../redux/stations/stations.reducer'
 
-
 const MyRecharges = () => {
 
 // const {stations} = useSelector((state)=> state.stations) 
