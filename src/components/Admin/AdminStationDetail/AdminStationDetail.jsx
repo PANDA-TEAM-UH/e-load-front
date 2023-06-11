@@ -5,29 +5,44 @@ import { useSelector } from "react-redux";
 import { Button, Divider, Flex, Grid, Spacer, Spinner } from "@chakra-ui/react";
 import AdminStationDetailSpot from "./AdminStationDetailSpot";
 import { getSpotsByStation } from "../../../redux/spots/spots.actions";
+import AdminStationDetailEdit from "./AdminStationDetailEdit";
 
 const AdminStationDetail = () => {
     const { id } = useParams();
-    const { stationSelected } = useSelector((state) => state.stations);
-    const { loading, spotsByStation } = useSelector((state) => state.spots);
-
+    const { loading, stationSelected } = useSelector((state) => state.stations);
+    const { spotsByStation } = useSelector((state) => state.spots);
     useEffect(() => {
         getStationById(id);
         getSpotsByStation(id);
     },[id]);
-    if(loading || !stationSelected){
+    // if(loading || !stationSelected){
+    //     return(
+    //         <Flex justify="center" align="center" height="100vh">
+    //         <Spinner size="xl" />
+    //     </Flex>
+    //     )
+    // }
+     if(loading){
         return(
             <Flex justify="center" align="center" height="100vh">
             <Spinner size="xl" />
         </Flex>
         )
     }
+
   return (
     <Flex minWidth='100%' flexDir='column'>
-      <Flex >
+      <Flex alignItems='center'>
         <h2>{stationSelected.address}</h2>
         <Spacer />
-        <Button>EDITAR</Button>
+        <Flex alignItems='center' gap={3}>
+          <AdminStationDetailEdit/>
+          <Button
+            bg={'redColor'} color={'whiteColor'} _hover={{bg: "redColor", color:"defaultColor"}}
+          >
+              BORRAR
+          </Button>
+        </Flex>
       </Flex>
       <Divider my={5} />
       <Flex gap={6}>
@@ -41,7 +56,12 @@ const AdminStationDetail = () => {
             <p>Puestos de Carga: {stationSelected.spots.length}</p>
             <Divider my={6}/>
             <p>Me gusta: {stationSelected.likes}</p>
-            <Button mt={3}>Comentarios</Button>
+            <Button
+              mt={3}
+              bg={'lightColor'} color={'defaultColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}
+            >
+              Comentarios
+            </Button>
         </Flex>
         <Grid templateColumns="repeat(4, 1fr)" gap={6} gridAutoFlow="row dense">
         {spotsByStation.map((spot) => {

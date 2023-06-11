@@ -74,8 +74,6 @@ const updateStation = async (stationId, stationToUpdate) => {
     try {
         dispatch({type: "LOADING"});
         const formData = new FormData();
-        formData.append("coordinates", stationToUpdate.coordinates);
-        formData.append("address", stationToUpdate.address);
         formData.append("schedule", stationToUpdate.schedule);
         const result = await API.put(`stations/${stationId}`, formData);
         dispatch({

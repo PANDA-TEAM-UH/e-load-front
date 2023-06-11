@@ -18,11 +18,13 @@ const AdminStations = () => {
         <Spacer />
 
         <Link as={NavLink} to={"/usuario/crear-estacion"}>
-          <Button>CREAR NUEVA ESTACIÓN</Button>
+          <Button
+          bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}
+          >CREAR NUEVA ESTACIÓN</Button>
         </Link>
       </Flex>
       <Divider my={5} />
-      <Grid templateColumns="repeat(4, 1fr)" gap={6} gridAutoFlow="row dense">
+      <Grid templateColumns="repeat(6, 1fr)" gap={6} gridAutoFlow="row dense">
         {stationsAdmin.map((station) => {
           return <AdminStationCard station={station} key={station._id} />;
         })}

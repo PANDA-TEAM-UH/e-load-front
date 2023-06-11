@@ -1,21 +1,37 @@
 import { useForm } from "react-hook-form";
-import { createStation, updateStation } from "../../../redux/stations/stations.actions"
+import { createStation } from "../../../redux/stations/stations.actions"
 import PropTypes from "prop-types";
-import { Button, Flex, FormControl, FormLabel, Input, Select, Spacer } from "@chakra-ui/react";
+import { Box, Button, Flex, FormControl, FormLabel, Input, Select, Spacer, useToast } from "@chakra-ui/react";
+import { Done } from "@mui/icons-material";
 
-const AdminStationForm = ({selectedCoordinates, isEditing}) => {
-    const { register, handleSubmit, setValue, getValues } = useForm();
+const AdminStationForm = ({selectedCoordinates}) => {
+    const { register, handleSubmit, reset } = useForm();
+    const toast = useToast();
     const onSubmit= (dataStation) => {
-        if(isEditing && station){
-            updateStation(dataStation);
-        }
-        else{
-            createStation({
-                ...dataStation,
-                coordinatesLat: selectedCoordinates.lat,
-                coordinatesLng: selectedCoordinates.lng
-            });
-        }
+        createStation({
+            ...dataStation,
+            coordinatesLat: selectedCoordinates.lat,
+            coordinatesLng: selectedCoordinates.lng
+        });        
+        reset();
+        toast({
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            render: () => (
+              <Box
+                bg="secondaryColor"
+                color="defaultColor"
+                p={3}
+                borderRadius="md"
+                alignItems='center'
+                display='flex'
+              >
+                <Done/>
+                Estación Creada: Datos registrados correctamente.
+              </Box>
+            )
+          });
     };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -37,7 +53,7 @@ const AdminStationForm = ({selectedCoordinates, isEditing}) => {
                 <Input
                     {...register("address")}
                     placeholder="Dirección"
-                    maxLength={50}
+                    maxLength={80}
                 />
                 <Flex display='flex' alignItems='center'>
                     <FormLabel>Horario</FormLabel>
@@ -49,10 +65,11 @@ const AdminStationForm = ({selectedCoordinates, isEditing}) => {
                         <option  disabled value="Selecciona una opción">Selecciona una opción</option>
                         <option value="10:00 - 22:00">10:00 - 22:00</option>
                         <option value="24 Horas">24 Horas</option>
+                        <option value="Cerrada">Cerrada</option>
                     </Select>
                     <Spacer/>
                     <Button type="subtmit" bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}>
-                        {isEditing ? "ACTUALIZAR" : "GUARDAR"}
+                        GUARDAR
                     </Button>
                 </Flex>            
             </Flex>

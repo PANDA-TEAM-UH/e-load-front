@@ -42,12 +42,11 @@ const Station = ({ isOpen, onClose }) => {
       isOpen={isOpen}
       placement="right"
       onClose={handleCloseDrawer}
-      // finalFocusRef={btnRef}
     >
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader>
+        <DrawerHeader mt={6}>
           {stationSelected.address}
           <Image src='https://res.cloudinary.com/dgkm71mjf/image/upload/v1686470412/e-load/e-load-station-02_xqi2zr.png'/>
         </DrawerHeader>
