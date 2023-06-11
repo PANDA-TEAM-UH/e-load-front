@@ -1,4 +1,4 @@
-import { Box, chakra, Flex, Text, Button } from "@chakra-ui/react";
+import { Box, chakra, Button } from "@chakra-ui/react";
 
 const HomeSectionStations = () => {
     return (
