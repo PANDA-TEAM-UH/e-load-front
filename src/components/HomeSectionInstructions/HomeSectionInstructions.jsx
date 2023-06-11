@@ -1,45 +1,60 @@
-// import './HomeSectionInstructions'
+import { Flex, Container, Heading, Stack, Text, Image, Box } from '@chakra-ui/react';
 
-// const HomeSectionInstructions = () => {
-//   return (
-//     <section className="home__container-instructions">
-//     <div className="home__header-instructions">
-// <h3 className="title-instructions">Hazte de E-LOAD, la ciudad te espera.</h3>
-//     </div>
+const HomeSectionInstructions = () => {
+  return (
+    <Container maxW={'4xl'}>
+      <Stack
+        textAlign={'center'}
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 20, md: 28 }}
+      >
+        <Heading
+          fontWeight={620}
+          fontSize={{ base: '2xl', sm: '3xl', md: '5xl' }}
+          lineHeight={'140%'}
+          mb={20}
+        >
+          HAZTE DE E-LOAD<br />
+          LA CIUDAD TE ESPERA
+        </Heading>
+        <Flex
+          direction={{ base: 'column', md: 'row' }}
+          align={{ base: 'center', md: 'stretch' }}
+          justify={'center'}
+        
+        >
+          <Box display="flex" alignItems="center" mb={{ base: 8, md: 0 }} mr={{ base: 0, md: 8 }}>
+            <Image src="https://zity.eco/wp-content/uploads/2021/07/descargar-app.svg" alt="Icono 1" boxSize={20} />
+            <Text color={'gray.500'} maxW={'2xl'}>
+              Descarga la App
+            </Text>
+          </Box>
+          
+          <Box display="flex" alignItems="center" mb={{ base: 8, md: 0 }} mr={{ base: 0, md: 8 }}>
+            <Image src="https://zity.eco/wp-content/uploads/2021/07/registro.svg" alt="Icono 2" boxSize={20} />
+            <Text color={'gray.500'} maxW={'3xl'}>
+              Registrate
+            </Text>
+          </Box>
 
-// <div className="home__body-container">
+          <Box display="flex" alignItems="center" mb={{ base: 8, md: 0 }} mr={{ base: 0, md: 8 }}>
+            <Image src="https://zity.eco/wp-content/uploads/2021/07/mapa.svg" alt="Icono 3" boxSize={20} />
+            <Text color={'gray.500'} maxW={'3xl'}>
+              Reserva tu estación
+            </Text>
+          </Box>
 
-//     <div className="home__body-instructions">
-//     <img data-src="ICONO DE DESCARGAR" alt="descargar-imagen" src="ruta"/>
-//     <span className="number-instructions">1</span>
-// <h4 className="body-instructions">Descarga la app</h4>
+          <Box display="flex" alignItems="center">
+            <Image src="https://zity.eco/wp-content/uploads/2021/07/coche-electrico.svg" alt="Icono 4" boxSize={20} />
+            <Text color={'gray.500'} maxW={'3xl'}>
+              Muevete con libertad
+            </Text>
+          </Box>
 
-//     </div>
+        </Flex>
+      </Stack>
+    </Container>
+  );
+}
 
-//     <div className="home__body-instructions">
-//     <img data-src="ICONO INSTRUCCIONES" alt="registrate-imagen" src="ruta"/>
-//     <span className="number-instructions">2</span>
-// <h4 className="body-instructions">Registrate</h4>
-
-//     </div>
-
-//     <div className="home__body-instructions">
-//     <img data-src="ICONO RESERVAR" alt="reserva-imagen" src="ruta"/>
-//     <span className="number-instructions">3</span>
-// <h4 className="body-instructions">Reserva tu estación</h4>
-
-//     </div>
-
-//     <div className="home__body-instructions">
-//     <img data-src="ICONO DE UN COCHE" alt="coche-imagen" src="ruta"/>
-//     <span className="number-instructions">4</span>
-// <h4 className="body-instructions">Muévete!</h4>
-
-//     </div>
-
-//     </div>
-//     </section>
-//   )
-// }
-
-// export default HomeSectionInstructions
+export default HomeSectionInstructions;
