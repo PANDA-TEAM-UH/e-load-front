@@ -1,5 +1,6 @@
 import ContactForm from '../../components/ContactForm/ContactForm';
 import { Heading, Image, Box, Text } from '@chakra-ui/react';
+import './ErrorReport.scss'
 
 const ErrorReport = () => {
     return (

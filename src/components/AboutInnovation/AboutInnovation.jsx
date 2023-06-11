@@ -1,4 +1,4 @@
-// import React from 'react'
+import './AboutInnovation.scss'
 
 const AboutInnovation = () => {
   return (

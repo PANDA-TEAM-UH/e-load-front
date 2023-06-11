@@ -1,4 +1,4 @@
-// import React from 'react'
+import './AboutBrands.scss'
 
 const AboutBrands = () => {
   return (
