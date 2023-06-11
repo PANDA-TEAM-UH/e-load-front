@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useDisclosure } from "@chakra-ui/react";
+import { Flex, useDisclosure } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { getAllStations, getStationById } from "../../redux/stations/stations.actions";
 import Station from "../../components/Station/Station";
@@ -25,8 +25,8 @@ const Map = () => {
  
   return (
     <>
-      <div className="leaflet-container">
-        <MapContainer center={{ lat: "40.30", lng: "-3.40" }} zoom={7}>
+      <Flex width='100vw' height='100vh'>
+        <MapContainer className="leaflet-container" center={{ lat: "40.30", lng: "-3.40" }} zoom={7}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -46,7 +46,7 @@ const Map = () => {
             );
           })}
         </MapContainer>
-      </div>
+      </Flex>
       {selectedStation && <Station isOpen={isOpen} onClose={onClose}/>}
     </>
   );

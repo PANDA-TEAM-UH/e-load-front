@@ -10,9 +10,10 @@ import {
   Spacer
 } from "@chakra-ui/react";
 import AdminStationCard from "./AdminStationCard";
+import { Link, NavLink } from "react-router-dom";
 
 const AdminStations = () => {
-  const { stations } = useSelector((state) => state.stations);
+  const { stationsAdmin } = useSelector((state) => state.stations);
   useEffect(() => {
     getAllStationsAdmin();
   }, []);
@@ -21,11 +22,18 @@ const AdminStations = () => {
       <Flex>
         <h2>Estaciones</h2>
         <Spacer />
-        <Button>CREAR NUEVA ESTACIÓN</Button>
+        <Button>
+          <Link
+            as={NavLink}
+            to={'/usuario/crear-estacion'}
+          >
+            CREAR NUEVA ESTACIÓN
+          </Link>
+        </Button>
       </Flex>
       <Divider my={5} />
       <Grid templateColumns="repeat(4, 1fr)" gap={6} gridAutoFlow="row dense">
-        {stations.map((station) => {
+        {stationsAdmin.map((station) => {
           return (
             <AdminStationCard station={station} key={station._id}/>
           );

@@ -36,12 +36,14 @@ const getAllStations = async () => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
+
+//meter-otro-state-para-admin-stations
 const getAllStationsAdmin = async () => {
     try {
         dispatch({type: "LOADING"});
         const result = await API.get("stations/stations-admin/");
         dispatch({
-            type: "GET_STATIONS",
+            type: "GET_STATIONS_ADMIN",
             payload: result.data
         });
     } catch (error) {

@@ -10,6 +10,7 @@ import AdminSpots from '../Admin/AdminSpots/AdminSpots';
 import AdminUsers from '../Admin/AdminUsers/AdminUsers';
 import AdminComments from '../Admin/AdminComments/AdminComments';
 import AdminStationDetail from '../Admin/AdminStationDetail/AdminStationDetail';
+import AdminStationForm from '../Admin/AdminStations/AdminStationForm';
 
 const RoutingUser = () => {
   return (
@@ -23,6 +24,12 @@ const RoutingUser = () => {
           <AdminStations/>
         </RequireAuth>
       }/>
+      <Route path='/crear-estacion' element={
+        <RequireAuth adminAccess>
+            <AdminStationForm/>
+        </RequireAuth>
+      }
+      />
       <Route path="/estaciones-detalle/:id" element={
         <RequireAuth adminAccess>
           <AdminStationDetail/>

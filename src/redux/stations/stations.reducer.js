@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
     stations: [],
+    stationsAdmin: [],
     stationSelected: null,
     loading: false,
     error: null
@@ -19,6 +20,13 @@ export const stationsReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 stations: [...action.payload],
+                loading: false,
+                error: null
+            };
+        case "GET_STATIONS_ADMIN":
+            return {
+                ...state,
+                stationsAdmin: [...action.payload],
                 loading: false,
                 error: null
             };
