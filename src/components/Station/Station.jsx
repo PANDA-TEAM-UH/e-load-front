@@ -70,8 +70,7 @@ const Station = ({ isOpen, onClose }) => {
           <Flex direction="column" gap={4}>
             {showSpots && <StationSpots/>}
             {showComments && <StationComments/>}
-          </Flex>        
-            
+          </Flex>               
         </DrawerBody>
         <DrawerFooter></DrawerFooter>
       </DrawerContent>
