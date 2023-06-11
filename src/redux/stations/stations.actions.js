@@ -1,4 +1,4 @@
-import { API, APIIMAGES } from "../../shared/Api";
+import { API } from "../../shared/Api";
 import store from "../store";
 
 const { dispatch } = store;
@@ -7,13 +7,11 @@ const createStation = async (dataStation) => {
     try {
         dispatch({type: "LOADING"});
         const formData = new FormData();
-        formData.append("coordinates", dataStation.coordinates);
+        formData.append("coordinatesLat", dataStation.coordinatesLat);
+        formData.append("coordinatesLng", dataStation.coordinatesLng);
         formData.append("address", dataStation.address);
-        if(dataStation.image[0]){
-            formData.append("image", dataStation.image[0]);
-        }
         formData.append("schedule", dataStation.schedule);
-        const result = await APIIMAGES.post("stations", formData);
+        const result = await API.post("stations", formData);
         dispatch({
             type: "CREATE_STATION",
             payload: result.data
@@ -78,11 +76,8 @@ const updateStation = async (stationId, stationToUpdate) => {
         const formData = new FormData();
         formData.append("coordinates", stationToUpdate.coordinates);
         formData.append("address", stationToUpdate.address);
-        if(stationToUpdate.image[0]){
-            formData.append("image", stationToUpdate.image[0]);
-        }
         formData.append("schedule", stationToUpdate.schedule);
-        const result = await APIIMAGES.put(`stations/${stationId}`, formData);
+        const result = await API.put(`stations/${stationId}`, formData);
         dispatch({
             type: "UPDATE_STATION",
             payload: result.data

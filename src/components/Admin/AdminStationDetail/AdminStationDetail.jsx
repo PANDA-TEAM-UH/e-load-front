@@ -33,9 +33,9 @@ const AdminStationDetail = () => {
       <Flex gap={6}>
         <Flex direction="column">
             <h3>Coordenadas:</h3>
-            <p>Latitud:  {stationSelected.coordinates.north}</p>
-            <p>Longitud:  {stationSelected.coordinates.west}</p>
-            <Link to={`https://maps.google.com/?q=${stationSelected.coordinates.north},${stationSelected.coordinates.west}`} target="_blank" rel="noopener noreferrer">Ver en Google Maps</Link>
+            <p>Latitud:  {stationSelected.coordinates.lat}</p>
+            <p>Longitud:  {stationSelected.coordinates.lng}</p>
+            <Link to={`https://maps.google.com/?q=${stationSelected.coordinates.lat},${stationSelected.coordinates.lng}`} target="_blank" rel="noopener noreferrer">Ver en Google Maps</Link>
             <Divider my={6}/>
             <p>Horario: {stationSelected.schedule}</p>
             <p>Puestos de Carga: {stationSelected.spots.length}</p>
