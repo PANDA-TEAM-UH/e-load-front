@@ -22,30 +22,26 @@ getSpotsByUser(user._id)
 return (
   <div>
     <h2>MIS RECARGAS</h2>
-    
     <Grid templateColumns="repeat(4, 1fr)" gap={6} >
    
       {spotsByUser.map((spot) => {
         return (
           <GridItem key={spot._id} w="100%" h="auto" >
-          <Card borderTopRadius={10}>
-          <CardHeader margin={0} padding={0}>
-              <Image
-              src='https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-recargas_ylr88f.jpg'
-              alt='station'
-              borderTopRadius={10}
-              maxW='300px'
-              />
-              </CardHeader>   
-              
+            <Card borderTopRadius={10}>
+              <CardHeader margin={0} padding={0}>
+                <Image
+                  src='https://res.cloudinary.com/dgkm71mjf/image/upload/v1686396260/e-load/e-load-recargas_ylr88f.jpg'
+                  alt='station'
+                  borderTopRadius={10}
+                  maxW='300px'
+                />
+              </CardHeader>                
               <Stack mt='6' spacing='4'>
-              <Heading size='S'>DIRECCION ESTACION</Heading>
-              <Divider/>
-              <Text color='blue.600' fontSize='L'>{spot.power}</Text>
-              <Text color='black.300' fontSize='xs'>{spot.updatedAt}</Text>
-              </Stack>
-                       
-            
+                <Heading size='S'>DIRECCION ESTACION</Heading>
+                <Divider/>
+                <Text color='blue.600' fontSize='L'>{spot.power}</Text>
+                <Text color='black.300' fontSize='xs'>{spot.updatedAt}</Text>
+              </Stack>            
             </Card>
           </GridItem>
         );
@@ -53,8 +49,6 @@ return (
     </Grid>
     
   </div>
-
-
    ) }
 
 export default MyRecharges

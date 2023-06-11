@@ -114,7 +114,7 @@ const spotLoading = async (spotId, loadValue) => {
 const loadingSpot = () => {
     let value = 0;
     const interval = setInterval(() => {
-        value = value + 5
+        value = value + 5;
         console.log(value);
     }, 1000);
     return () => { clearInterval(interval)};

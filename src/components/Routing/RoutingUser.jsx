@@ -9,6 +9,7 @@ import RequireAuth from '../RequireAuth/RequireAuth';
 import AdminSpots from '../AdminSpots/AdminSpots';
 import AdminUsers from '../AdminUsers/AdminUsers';
 import AdminComments from '../AdminComments/AdminComments';
+import AdminStationDetail from '../AdminStationDetail/AdminStationDetail';
 
 const RoutingUser = () => {
   return (
@@ -20,6 +21,11 @@ const RoutingUser = () => {
       <Route path="/estaciones" element={
         <RequireAuth adminAccess>
           <AdminStations/>
+        </RequireAuth>
+      }/>
+      <Route path="/estaciones-detalle/:id" element={
+        <RequireAuth adminAccess>
+          <AdminStationDetail/>
         </RequireAuth>
       }
       />
