@@ -1,4 +1,4 @@
-// import React from 'react'
+import './HomeSection.scss'
 
 const HomeSection = () => {
   return (

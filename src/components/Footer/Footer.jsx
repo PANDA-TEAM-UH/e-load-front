@@ -2,7 +2,7 @@
 import FooterColumnHelp from "../FooterColumnHelp/FooterColumnHelp"
 import FooterColumnList from "../FooterColumnList/FooterColumnList"
 import FooterColumnRRSS from "../FooterColumnRRSS/FooterColumnRRSS"
-import "./Footer.css"
+import "./Footer.scss"
 
 const Footer = () => {
   return (

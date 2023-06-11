@@ -1,4 +1,4 @@
-// import React from 'react'
+import './ContactIntroduction.scss'
 
 const ContactIntroduction = () => {
   return (
