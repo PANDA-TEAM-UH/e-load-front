@@ -85,7 +85,7 @@ const HomeSectionMobile = () => {
                </Stack>
       </Flex>
       <Flex flex={1} justifyContent="flex-end">
-        <Box position="relative" w="100%" h="100%">
+        <Box position="relative" w="50%" h="100%">
           <Image
             alt={'foto-movil'}
             objectFit={'cover'}
@@ -94,20 +94,11 @@ const HomeSectionMobile = () => {
             }
             position="absolute"
             top="50%"
-            left="50%"
+            left="10%"
             transform="translate(-50%, -50%)"
             zIndex={1}
           />
-          <Image
-            alt={'map-phone'}
-            objectFit={'cover'}
-            src={'PONER IMAGEN CON MAPA'}
-            position="absolute"
-            top="50%"
-            left="50%"
-            transform="translate(-50%, -50%)"
-            zIndex={2}
-          />
+          
         </Box>
       </Flex>
     </Stack>
@@ -120,42 +111,3 @@ export default HomeSectionMobile
 
 
 
-
-
-
-
-//
-//   return (
-//     <section className="home__container-mobile">
-//       <div className="home__description">
-//         <div className="home__description-section">
-//           <h2>Find/</h2>
-//           <p>
-//             Encuentra los puntos de recarga que mejor se adapten a tus
-//             necesidades allá donde vayas. Busca entre más de x puntos de carga.
-//           </p>
-//         </div>
-
-//         <div className="home__description-section">
-//           <h2>Charge/</h2>
-//           <p>Activa tu cargador desde nuestra APP.</p>
-//         </div>
-
-//         <div className="home__description-section">
-//           <h2>Go/</h2>
-//           <p>
-//             Creamos una experiencia mas fluida y dinámica para que no tengas de
-//             que preocuparte.
-//           </p>
-//         </div>
-//       </div>
-
-//       <div className="home__section-mobile">
-//         <img src="PONER IMAGEN DEL MOVIL" alt="front-phone" />
-//         <img src="PONER IMAGEN CON MAPA" alt="map-phone" />
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default HomeSectionMobile
