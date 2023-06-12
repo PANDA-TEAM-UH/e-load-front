@@ -6,6 +6,7 @@ import ProfileMenu from '../ProfileMenu/ProfileMenu';
 import { logout } from '../../redux/users/users.actions';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { color } from 'framer-motion';
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -46,10 +47,10 @@ const Header = () => {
 								textDecor="underline"
 								_hover={{ color: 'secondaryColor' }}
 								pt={2}
-								>
-									Login
+							>
+								Login
 							</Text>
-							
+
 							<Link to="/registro">
 								<Button
 									display={{ base: 'none', md: 'inline-flex' }}
@@ -63,11 +64,26 @@ const Header = () => {
 									Registrarse
 								</Button>
 							</Link>
-							<Modal isOpen={isOpen} onClose={onClose}>
+							<Modal isOpen={isOpen} onClose={onClose} >
 								<ModalOverlay />
-								<ModalContent>
-									<ModalHeader>Login</ModalHeader>
-									<ModalCloseButton onClick={onClose} />
+								<ModalContent
+									display="flex"
+									alignItems="center"
+									justifyContent="center"
+									boxShadow="0 0 10px #010f20"
+									top="3%"
+									borderRadius={6}
+								>
+									<ModalHeader bg="defaultColor" w="100%" textAlign="center" color="whiteColor">
+										<Flex display="flex" justifyContent="center">
+											<Image
+												src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686469078/e-load/e-load-logo_m7r1jg.png"
+												alt="Login"
+												height={7}
+											/>
+										</Flex>
+									</ModalHeader>
+									<ModalCloseButton onClick={onClose} color={'whiteColor'} />
 									<ModalBody>
 										<LoginForm onClose={onClose} />
 									</ModalBody>
