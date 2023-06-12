@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getStationById } from "../../../redux/stations/stations.actions";
 import { useSelector } from "react-redux";
-import { Button, useDisclosure, Flex, Spacer, Divider, Grid, Spinner } from "@chakra-ui/react";
+import { Button, useDisclosure, Flex, Spacer, Divider, Grid, Spinner, Heading, Text } from "@chakra-ui/react";
 import AdminStationDetailSpot from "./AdminStationDetailSpot";
 import { getSpotsByStation } from "../../../redux/spots/spots.actions";
 import AdminStationDetailEdit from "./AdminStationDetailEdit";
 import AdminStationDeleteAlert from "../AdminStations/AdminStationDeleteAlert";
+import { AccessTime, Place, Power } from "@mui/icons-material";
 
 const AdminStationDetail = () => {
   const { id } = useParams();
@@ -30,7 +31,7 @@ const AdminStationDetail = () => {
     <>
       <Flex minWidth="100%" flexDir="column">
         <Flex alignItems="center">
-          <h2>{stationSelected.address}</h2>
+          <Heading size='md'>{stationSelected.address}</Heading>
           <Spacer />
           <Flex alignItems="center" gap={3}>
             <AdminStationDetailEdit />
@@ -48,20 +49,26 @@ const AdminStationDetail = () => {
         <Flex gap={6}>
           <Flex direction="column">
             <h3>Coordenadas:</h3>
-            <p>Latitud: {stationSelected.coordinates.lat}</p>
-            <p>Longitud: {stationSelected.coordinates.lng}</p>
+            <Text>Latitud: {stationSelected.coordinates.lat}</Text>
+            <Text>Longitud: {stationSelected.coordinates.lng}</Text>
             <Link
               to={`https://maps.google.com/?q=${stationSelected.coordinates.lat},${stationSelected.coordinates.lng}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Ver en Google Maps
+              <Flex>
+                <Place/><Text>Ver en Google Maps</Text>
+              </Flex>
             </Link>
             <Divider my={6} />
-            <p>Horario: {stationSelected.schedule}</p>
-            <p>Puestos de Carga: {stationSelected.spots.length}</p>
+            <Flex>
+              <AccessTime/><Text>Horario: {stationSelected.schedule}</Text>
+            </Flex>
+            <Flex>
+            <Power/><Text>Puestos de Carga: {stationSelected.spots.length}</Text>
+            </Flex>
             <Divider my={6} />
-            <p>Me gusta: {stationSelected.likes}</p>
+            <Text>Me gusta: {stationSelected.likes}</Text>
             <Button
               mt={3}
               bg={"lightColor"}

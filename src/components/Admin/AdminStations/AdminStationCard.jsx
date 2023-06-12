@@ -1,22 +1,27 @@
 import PropTypes from "prop-types";
-import { Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, GridItem, Image, useDisclosure } from "@chakra-ui/react";
+import { Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, Flex, GridItem, Heading, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
 import AdminStationDeleteAlert from "./AdminStationDeleteAlert";
+import { AccessTime } from "@mui/icons-material";
 
 const AdminStationCard = ({ station }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <GridItem key={station._id} w="100%">
+      <GridItem key={station._id} w='100%'>
         <Card minH={"350px"}>
           <CardHeader margin={0} padding={0}>
             <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686470412/e-load/e-load-station-02_xqi2zr.png" />
             <Divider />
           </CardHeader>
-          <CardBody>
-            <h3>{station.address}</h3>
-          </CardBody>
+          <CardBody display={"flex"} flexDirection={"column"} justifyContent={"space-between"}>
+            <Heading size='sm'>{station.address}</Heading>
+            <Flex>
+              <AccessTime/>
+              <Text fontSize='md'>HORARIO: {station.schedule}</Text> 
+            </Flex>
+          </CardBody>          
           <CardFooter>
             <ButtonGroup>
               <Link

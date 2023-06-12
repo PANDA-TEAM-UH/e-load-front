@@ -50,17 +50,10 @@ const getAllStationsAdmin = async () => {
     }
 }
 //probar si esto así pasa, con dos parámetros aquí y que le envíe uno y otro
-const getStationById = async (stationId, spotId) => {
+const getStationById = async (stationId) => {
     try {
         dispatch({type: "LOADING"});
-        let result = null
-        if(spotId){
-            result = await API.get(`stations-address/${stationId}`);
-        }
-        else{
-            result = await API.get(`stations/${stationId}`);
-        }
-        
+        const result = await API.get(`stations/${stationId}`);       
         dispatch({
             type: "SELECT_STATION",
             payload: result.data
@@ -70,6 +63,28 @@ const getStationById = async (stationId, spotId) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
+
+// const getStationById = async (stationId, spotId) => {
+//     try {
+//         dispatch({type: "LOADING"});
+//         let result = null
+//         if(spotId){
+//             result = await API.get(`stations-address/${stationId}`);
+//         }
+//         else{
+//             result = await API.get(`stations/${stationId}`);
+//         }
+        
+//         dispatch({
+//             type: "SELECT_STATION",
+//             payload: result.data
+//         });
+//     } catch (error) {
+//         const errorMessage = error.response.data.msg;
+//         dispatch({ type: "ERROR", payload: errorMessage });
+//     }
+// }
+
 const updateStation = async (stationId, stationToUpdate) => {
     try {
         dispatch({type: "LOADING"});

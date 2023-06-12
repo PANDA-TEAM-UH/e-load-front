@@ -4,24 +4,26 @@ import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import AdminStationCard from "./AdminStationCard";
 import { Link, NavLink } from "react-router-dom";
-import { Button, Divider, Flex, Grid, Spacer } from "@chakra-ui/react";
+import { Button, Divider, Flex, Grid, Heading, Spacer } from "@chakra-ui/react";
 
 const AdminStations = () => {
   const { stationsAdmin } = useSelector((state) => state.stations);
   useEffect(() => {
     getAllStationsAdmin();
-  }, [stationsAdmin]);
+  }, []);
 
    return (
-    <div>
+    <Flex display='column'>
       <Flex>
-        <h2>Estaciones</h2>
+        <Heading size='lg'>Estaciones</Heading>
         <Spacer />
 
         <Link as={NavLink} to={"/usuario/crear-estacion"}>
           <Button
           bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}
-          >CREAR NUEVA ESTACIÓN</Button>
+          >
+            CREAR NUEVA ESTACIÓN
+          </Button>
         </Link>
       </Flex>
       <Divider my={5} />
@@ -30,7 +32,7 @@ const AdminStations = () => {
           return <AdminStationCard station={station} key={station._id}/>;
         })}
       </Grid>
-    </div>
+    </Flex>
   );
 };
 AdminStations.propTypes = {

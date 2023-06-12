@@ -1,44 +1,39 @@
-import { useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { getAllSpots } from "../../../redux/spots/spots.actions";
-import { Button, Divider, Flex, Grid, Spacer } from "@chakra-ui/react";
+import { Button, Divider, Flex, Grid, Heading, Spacer } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
+import AdminSpotsCard from "./AdminSpotsCard";
 
 const AdminSpots = () => {
-    const { spots } = useSelector((state) => state.spots);
-    useEffect(() => {
-        getAllSpots();
-    }, []);
-    return (
-
-<div>
+  const { spots } = useSelector((state) => state.spots);
+  useEffect(() => {
+    getAllSpots();
+  }, []);
+  return (
+    <Flex display='column'>
       <Flex>
-        <h2>Puntos de Carga</h2>
+        <Heading size="lg">Puntos de Carga</Heading>
         <Spacer />
 
         <Link as={NavLink} to={"/usuario/crear-estacion"}>
           <Button
-          bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}
-          >CREAR NUEVO PUNTO</Button>
+            bg={"defaultColor"}
+            color={"whiteColor"}
+            _hover={{ bg: "secondaryColor", color: "defaultColor" }}
+          >
+            CREAR NUEVO PUNTO
+          </Button>
         </Link>
       </Flex>
       <Divider my={5} />
       <Grid templateColumns="repeat(6, 1fr)" gap={6} gridAutoFlow="row dense">
         {spots.map((spot) => {
-          {/* return <AdminStationCard station={station} key={station._id}/>; */}
-          return (
-          <div key={spot._id}>
-            <p>{spot.power}</p>
-            <p>{spot.type}</p>
-            <p>{spot.rate}</p>
-            <p>{spot.state}</p>
-          </div>
-        )
-
+          return <AdminSpotsCard spot={spot} key={spot._id}/>;
         })}
       </Grid>
-    </div>
-      )
-}
+    </Flex>
+  );
+};
 
-export default AdminSpots
+export default AdminSpots;
