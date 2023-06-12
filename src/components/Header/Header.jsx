@@ -82,7 +82,7 @@ const Header = () => {
 											/>
 										</Flex>
 									</ModalHeader>
-									<ModalCloseButton onClick={onClose} color={'whiteColor'} />
+									<ModalCloseButton onClick={onClose} color={'whiteColor'} borderRadius={0} boxShadow="0 0 0 #010f20" />
 									<ModalBody>
 										<LoginForm onClose={onClose} />
 									</ModalBody>
