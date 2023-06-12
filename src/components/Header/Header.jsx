@@ -6,7 +6,6 @@ import ProfileMenu from '../ProfileMenu/ProfileMenu';
 import { logout } from '../../redux/users/users.actions';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { color } from 'framer-motion';
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
