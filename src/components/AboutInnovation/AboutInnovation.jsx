@@ -1,4 +1,4 @@
-import { Flex, Container, Heading, Stack, Text, Image, Box } from '@chakra-ui/react';
+import { Flex, Heading, Stack, Text, Image, Box } from '@chakra-ui/react';
 
 
 const AboutInnovation = () => {
