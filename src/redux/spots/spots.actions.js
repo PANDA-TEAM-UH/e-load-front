@@ -65,8 +65,6 @@ const updateSpot = async (spotId, spotToUpdate) => {
     try {
         dispatch({type: "LOADING"});
         const formData = new FormData();
-        formData.append("power", spotToUpdate.power);
-        formData.append("type", spotToUpdate.type);
         formData.append("rate", spotToUpdate.rate);
         formData.append("state", spotToUpdate.state);
         const result = await API.put(`spots/${spotId}`, formData);

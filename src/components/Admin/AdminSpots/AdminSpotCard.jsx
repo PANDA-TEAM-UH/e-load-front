@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { useState } from 'react';
 import AdminSpotCardInfo from './AdminSpotCardInfo';
 import AdminSpotCardUpdate from './AdminSpotCardUpdate';
+import AdminSpotCardDeleteAlert from './AdminSpotCardDeleteAlert';
 
 const AdminSpotCard = ({ spot }) => {
   const [showInfo, setShowInfo] = useState(true);
   const [showUpdate, setShowUpdate] = useState(false);
-
- 
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   let imgSrc;
   switch (spot.type) {
@@ -47,8 +47,9 @@ const AdminSpotCard = ({ spot }) => {
         >
           <Image boxSize="100px" objectFit="contain" mt={3} src={imgSrc} />
         </CardHeader>
-        {showInfo && <AdminSpotCardInfo spot={spot} setShowInfo={setShowInfo} setShowUpdate={setShowUpdate}/>}
+        {showInfo && <AdminSpotCardInfo spot={spot} setShowInfo={setShowInfo} setShowUpdate={setShowUpdate} setShowDeleteAlert={setShowDeleteAlert}/>}
         {showUpdate && <AdminSpotCardUpdate spot={spot} setShowInfo={setShowInfo} setShowUpdate={setShowUpdate}/>}
+        {showDeleteAlert && <AdminSpotCardDeleteAlert spot={spot} setShowInfo={setShowInfo} setShowDeleteAlert={setShowDeleteAlert}/>}
       </Card>
     </GridItem>
     </>
