@@ -1,4 +1,5 @@
-import { Box, chakra, Button } from "@chakra-ui/react";
+import { Box, chakra, Button,  } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const HomeSectionStations = () => {
     return (
@@ -23,6 +24,7 @@ const HomeSectionStations = () => {
           >
             ¿Quieres descubrir dónde están nuestras estaciones?
           </chakra.h3>
+          <Link to="/mapa">
           <Button
             type="submit"
             bg="defaultColor"
@@ -33,6 +35,7 @@ const HomeSectionStations = () => {
           >
             DESCUBRIR
           </Button>
+          </Link>
         </Box>
       );
     };

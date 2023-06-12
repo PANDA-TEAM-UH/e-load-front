@@ -1,17 +1,57 @@
+import { Box, Heading, Image,  Text, Grid, Container } from "@chakra-ui/react";
 
 const AboutHistory = () => {
   return (
-    <section className="about__container-history">
-      <div className="about__container-description">
-        <h2>NACIMIENTO DE E-LOAD</h2>
-        <p>texto sobre como nacio la empresa</p>
-        IMAGEN
-      </div>
-      <div className="about__container-description">
-      <h2>NUESTRA MISION</h2>
-        <p>texto sobre la mision de la empresa</p>
-      </div>
-    </section>
+    <Container>
+      <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={8}>
+        <Box>
+          <Heading>Nuestra misión</Heading>
+          <Text>
+            Losadnnasdjaspdkjaspdapoksdopaskd
+          </Text>
+          <Text>
+            Losadnnasdjaspdkjaspdapoksdopaskd
+          </Text>
+          <Text>
+            Losadnnasdjaspdkjaspdapoksdopaskd
+          </Text>
+          <Text>
+            Losadnnasdjaspdkjaspdapoksdopaskd
+          </Text>
+          <Image
+            src="https://topesdegama.com/app/uploads-topesdegama.com/2022/09/Estaciones-de-carga-portatiles.jpg"
+            mt={4}
+            objectFit="cover"
+            w="100%"
+            h="auto"
+            alt="Estaciones de carga portátiles"
+          />
+        </Box>
+
+        <Box>
+          <Image
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6u-oWz2fzwQGSfTbytADmhVwGbqtqYvfsOg&usqp=CAU"
+            objectFit="cover"
+            w="100%"
+            h="auto"
+            alt="Nacimiento de E - LOAD"
+          />
+          <Heading>Nacimiento de E - LOAD</Heading>
+          <Text>
+            Losadnnasdjaspdkjaspdapoksdopaskd
+          </Text>
+          <Text>
+            Losadnnasdjaspdkjaspdapoksdopaskd
+          </Text>
+          <Text>
+            Losadnnasdjaspdkjaspdapoksdopaskd
+          </Text>
+          <Text>
+            Losadnnasdjaspdkjaspdapoksdopaskd
+          </Text>
+        </Box>
+      </Grid>
+    </Container>
   );
 };
 
