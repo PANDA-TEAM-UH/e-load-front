@@ -56,16 +56,16 @@ const ProfileMenu = ({ onClose, logout }) => {
 
             <MenuList bg="grayColor" p={4}>
                 {userMenu.map((menuOption) => (
-                    <MenuItem as={Link} to={menuOption.url} bg="grayColor" color="defaultColor" fontWeight={600} _hover={{ bg: 'defaultColor', color: 'whiteColor'}} key={menuOption}>
+                    <MenuItem as={Link} to={menuOption.url} bg="grayColor" color="defaultColor" fontWeight={600} _hover={{ bg: 'defaultColor', color: 'whiteColor'}} key={menuOption.title}>
                         {menuOption.title}
                     </MenuItem>
                 ))}
                 {user && user.rol === 'admin' && (
                     <>
                         <Divider my={2} borderColor="defaultColor" />
-                        {adminMenu.map((menuOption) => (
-                            <MenuItem as={Link} to={menuOption.url} bg="grayColor" color="defaultColor" fontWeight={600} _hover={{ bg: 'defaultColor', color: 'whiteColor'}} key={menuOption}>
-                                {menuOption.title}
+                        {adminMenu.map((menuAdminOption) => (
+                            <MenuItem as={Link} to={menuAdminOption.url} bg="grayColor" color="defaultColor" fontWeight={600} _hover={{ bg: 'defaultColor', color: 'whiteColor'}} key={menuAdminOption.title}>
+                                {menuAdminOption.title}
                             </MenuItem>
                         ))}
                     </>
