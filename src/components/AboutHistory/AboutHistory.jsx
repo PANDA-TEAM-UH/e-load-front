@@ -1,59 +1,112 @@
-import { Box, Heading, Image,  Text, Grid, Container } from "@chakra-ui/react";
+import { Heading, Image,  Text, Flex } from "@chakra-ui/react";
 
 const AboutHistory = () => {
   return (
-    <Container>
-      <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={8}>
-        <Box>
-          <Heading>Nacimiento de E - LOAD</Heading>
-          <Text>
-          Surgió de la necesidad de abordar los desafíos ambientales y energéticos que
-          </Text>
-          <Text>
-          enfrentamos. Inspirados por la creciente demanda de vehículos eléctricos, creamos una 
-          </Text>
-          <Text>
-          solución integral de estaciones de carga en toda España. Nuestro objetivo es impulsar la
-          </Text>
-          <Text>
-          adopción masiva de la movilidad sostenible y contribuir al cuidado del planeta.
-          </Text>
-          
-                    <Image
-            src="https://topesdegama.com/app/uploads-topesdegama.com/2022/09/Estaciones-de-carga-portatiles.jpg"
+    <Flex justifyContent="center"marginTop={10}>
+      <Flex gap={8}>
+        <Flex width="625px" direction="column" marginTop={10}>
+        <Image
+            src="https://www.autopista.es/uploads/s1/55/35/11/6/5e5cdc3c0ee6948a1834961b-la-estacion-de-carga-para-electricos-mas-rapida-del-mundo-5-minutos-para-recorrer-100-km.jpeg"
             mt={4}
             objectFit="cover"
-            w="100%"
+            w="70%"
             h="auto"
             alt="Estaciones de carga portátiles"
+            marginBottom={8}
           />
-        </Box>
+          {/* <video
+        autoPlay
+        loop
+        muted
+        style={{
+          width: '80%',
+          height: '60%',
+          objectFit: 'cover',
+        }}
+      >
+        <source
+          src="https://res.cloudinary.com/dgkm71mjf/video/upload/v1686474818/e-load/e-load-section-01_hq4smf.mp4"
+          type="video/mp4"
+        />
+      </video> */}
+          <Heading fontSize={30} marginBottom={10}>Nacimiento de E - LOAD</Heading>
+          
+          <Text >
+          Surgió de la necesidad de abordar los desafíos ambientales 
+          </Text>
+          <Text>
+          y energéticos que enfrentamos. Inspirados por la creciente 
+          </Text>
+          <Text>
+          demanda de vehículos eléctricos, creamos una  solución 
+          </Text>
+          <Text>
+          integral de estaciones de carga en toda España. Nuestro  
+          </Text>
+          <Text>
+          objetivo es impulsar la adopción masiva de la movilidad 
+          </Text>
+          <Text>
+          sostenible y contribuir al cuidado del planeta.
+          </Text>
+          
+        </Flex>
 
-        <Box>
-          <Image
+        <Flex width="650px" direction={"column"} marginTop={10}>
+          
+          <Heading fontSize={30} marginBottom={10}>Nuestra misión</Heading>
+          
+          <Text >
+          En E-LOAD, nuestro principal objetivo es impulsar la 
+          </Text>
+          <Text>
+          movilidad eléctrica en España. Con nuestra red de 
+          </Text>
+          <Text>
+          estaciones de carga estratégicas, ofrecemos a los 
+          </Text>
+          <Text>
+          conductores la libertad de recorrer el país sin 
+          </Text>
+          <Text>
+          preocupaciones de autonomía. Un futuro sostenible 
+          </Text>
+          <Text>
+          está en nuestras manos.
+          </Text>
+        
+          <video
+        autoPlay
+        loop
+        muted
+        style={{
+          width: '70%',
+          height: '60%',
+          objectFit: 'cover',
+          marginTop: '10%'
+        }}
+      >
+        <source
+          src="https://res.cloudinary.com/dgkm71mjf/video/upload/v1686474818/e-load/e-load-section-01_hq4smf.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+          {/* <Image
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6u-oWz2fzwQGSfTbytADmhVwGbqtqYvfsOg&usqp=CAU"
             objectFit="cover"
-            w="100%"
+            w="60%"
             h="auto"
             alt="Nacimiento de E - LOAD"
-          />
-          <Heading>Nuestra misión</Heading>
-          
-          <Text>
-          En E-LOAD, nuestro principal objetivo es el de impulsar la movilidad eléctrica en España.
-          </Text>
-          <Text>
-          Con nuestra red de estaciones de carga estratégicas, 
-          </Text>
-          <Text>
-          ofrecemos a los conductores la libertad de recorrer el país sin preocupaciones de autonomía. 
-          </Text>
-          <Text>
-          Un futuro sostenible está en nuestras manos.
-          </Text>
-        </Box>
-      </Grid>
-    </Container>
+            marginTop={8}
+            
+          /> */}
+
+        </Flex>
+        
+      </Flex>
+      
+    </Flex>
   );
 };
 
