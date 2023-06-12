@@ -25,7 +25,7 @@ const Header = () => {
 	const { user } = useSelector((state) => state.users);
 
 	return (
-		<Box width='100%' color={'whiteColor'} bg={'defaultColor'} minH={'80px'} py={{ base: 2 }}
+		<Box width='100%' color={'whiteColor'} bg={'defaultColor'} minH={'80px'} py={{ base: 2 }} position="fixed" zIndex={999}
 			px={{ base: 4 }} borderBottom={1} borderStyle={'solid'} borderColor={'defaultColor'} align={'center'}>
 			<Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
 				<Link to="/">
