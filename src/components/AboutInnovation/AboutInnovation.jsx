@@ -14,7 +14,7 @@ const AboutInnovation = () => {
           src: 'https://img.freepik.com/vector-premium/bombilla-encendida-iluminar-habitacion-doodle-coloracion-dibujos-animados-lineales_253359-2800.jpg?w=2000',
           alt: 'Icono 2',
           text: 'Inteligente',
-          textDescription: 'Siempre conectado, contigo y con tu vida'
+          textDescription: 'Siempre conectado, contigo y con tu vida.'
         },
         {
           src: 'https://png.pngtree.com/png-vector/20191219/ourlarge/pngtree-happy-panda-illustration-vector-on-white-background-png-image_2081980.jpg',
@@ -39,7 +39,7 @@ const AboutInnovation = () => {
 
                 <Box display="flex" alignItems="center" mb={{ base: 8, md: 0 }} mr={{ base: 0, md: 8 }} key={icon.alt}>
                   <Image src={icon.src} alt={icon.alt} boxSize={20} marginLeft={5} />
-                  <Text color="defaultColor" maxW={'4xl'} fontWeight="bold" fontSize={25}>
+                  <Text color="defaultColor" maxW={'4xl'} fontWeight="bold" fontSize={25}  marginRight={8}>
                     {icon.text}
                   </Text>
                   <Text color="defaultColor" fontSize={17}>
