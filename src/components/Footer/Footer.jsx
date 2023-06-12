@@ -4,11 +4,11 @@ import {
   Stack,
   SimpleGrid,
   Text,
-  Link,  
   useColorModeValue,  
   Image,
   Heading,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -45,20 +45,17 @@ const Footer = () => {
                contacto@e-load.es
             </Text>
           </Stack>
-
           <Stack align={"flex-start"}>
             <Heading fontSize="2xl">Compañia</Heading>
-            <Link href={"/sobre-nosotros"}>Sobre Nosotros</Link>
-            <Link href={"/contacto"}>Contacto</Link>
-            <Link href={"/mapa"}>Puntos de carga</Link>
+            <Link to="/sobre-nosotros">Sobre Nosotros</Link>
+            <Link to="/contacto">Contacto</Link>
+            <Link to="/mapa">Puntos de carga</Link>
           </Stack>
 
           <Stack align={"flex-start"}>
             <Heading fontSize="2xl">Legal</Heading>
             <Link href={"#"}>Cookies</Link>
             <Link href={"#"}>Politica de privacidad</Link>
-           
-           
           </Stack>
 
           <Stack align="flex-start">
@@ -94,19 +91,19 @@ const Footer = () => {
 
           <Stack direction={"row"} spacing={10} marginBottom={1}>
             <Box>
-            <Link href="https://www.linkedin.com" isExternal>
+            <Link to="https://www.linkedin.com">
               <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686585674/e-load/linkedin-icono_xd4ov4.png" boxSize={8}/>
               </Link>
             </Box>
 
             <Box>
-            <Link href="https://www.instagram.com" isExternal>
+            <Link to="https://www.instagram.com">
               <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686585674/e-load/instagram-icono_ffe6g9.png" boxSize={8}/>
               </Link>
             </Box>
             
             <Box>
-            <Link href="https://www.twitter.com" isExternal>
+            <Link to="https://www.twitter.com">
               <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686585674/e-load/twitter-icono_uollna.png" boxSize={8}/>
               </Link>
             </Box>

@@ -26,7 +26,6 @@ const SideBar = () => {
 		<Flex
 			backgroundColor="grayColor"
 			width="250px"
-			height="100vh"
 			padding="4"
 			flexDirection="column"
 		>
