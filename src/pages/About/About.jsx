@@ -1,15 +1,17 @@
 
-// import AboutBrands from '../AboutBrands/AboutBrands'
-// import AboutInnovation from '../AboutInnovation/AboutInnovation'
+
+
 
 import AboutHistory from "../../components/AboutHistory/AboutHistory"
+import AboutInnovation from "../../components/AboutInnovation/AboutInnovation"
 
 const About = () => {
   return (
     <>
     <AboutHistory/>
-    {/* <AboutBrands/>
-    <AboutInnovation/> */}
+    <AboutInnovation/>
+   
+    
     </>
   )
 }

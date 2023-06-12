@@ -16,9 +16,10 @@ const Footer = () => {
     <Box
     bg={useColorModeValue("defaultColor")}
     color={useColorModeValue("whiteColor")}
+   
       >
       
-      <Container as={Stack} maxW={"6xl"} py={10}>
+      <Container as={Stack} maxW={"6xl"} py={10} >
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align="flex-start">
             <Heading fontSize="2xl">Asistencia</Heading>
@@ -91,7 +92,7 @@ const Footer = () => {
         >
           <Text fontWeight="bold">© 2023 E - LOAD. ALL RIGHTS RESERVED</Text>
 
-          <Stack direction={"row"} spacing={8}>
+          <Stack direction={"row"} spacing={10} marginBottom={1}>
             <Box>
             <Link href="https://www.linkedin.com" isExternal>
               <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686585674/e-load/linkedin-icono_xd4ov4.png" boxSize={8}/>
