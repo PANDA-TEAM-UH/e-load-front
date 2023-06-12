@@ -7,7 +7,7 @@ import { Done } from "@mui/icons-material";
 const AdminStationForm = ({selectedCoordinates}) => {
     const { register, handleSubmit, reset } = useForm();
     const toast = useToast();
-    const onSubmit= (dataStation) => {
+    const onSubmit = (dataStation) => {
         createStation({
             ...dataStation,
             coordinatesLat: selectedCoordinates.lat,
@@ -60,9 +60,9 @@ const AdminStationForm = ({selectedCoordinates}) => {
                     <Select
                         {...register("schedule")}
                         width={200}
-                        defaultValue={'Selecciona una opción'}
+                        defaultValue={'Opción'}
                     >
-                        <option  disabled value="Selecciona una opción">Selecciona una opción</option>
+                        <option  disabled value="Opción">Opción</option>
                         <option value="10:00 - 22:00">10:00 - 22:00</option>
                         <option value="24 Horas">24 Horas</option>
                         <option value="Cerrada">Cerrada</option>
