@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import AdminSpotCard from "./AdminSpotCard";
 
 const AdminSpots = () => {
-  const { loading, spots } = useSelector((state) => state.spots);
+  const { loading, spots } = useSelector((state) => state.spots);  
   useEffect(() => {
     getAllSpots();
   }, []);
