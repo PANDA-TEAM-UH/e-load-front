@@ -1,4 +1,5 @@
 import { Box, chakra, Flex, Text, Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 
 const HomeSectionInfor = () => {
@@ -57,6 +58,7 @@ const HomeSectionInfor = () => {
       >
         ¿Quieres formar parte de nuestra red?
       </chakra.h3>
+      <Link to="/registro">
       <Button
         type="submit"
         bg="defaultColor"
@@ -69,6 +71,7 @@ const HomeSectionInfor = () => {
       >
         ENTRAR
       </Button>
+      </Link>
     </Box>
   );
 };
