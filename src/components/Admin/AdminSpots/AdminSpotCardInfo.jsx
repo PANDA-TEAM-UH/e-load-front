@@ -2,7 +2,7 @@ import { Button, ButtonGroup, CardBody, CardFooter, Flex, Text } from "@chakra-u
 import { Bolt, ElectricalServices, Euro } from "@mui/icons-material"
 import PropTypes from "prop-types";
 
-const AdminSpotCardInfo = ({ spot, setShowInfo, setShowUpdate }) => {
+const AdminSpotCardInfo = ({ spot, setShowInfo, setShowUpdate, setShowDeleteAlert }) => {
     const getBadgeColor = (spotState) => {
         switch(spotState) {
           case "Libre":
@@ -20,7 +20,11 @@ const AdminSpotCardInfo = ({ spot, setShowInfo, setShowUpdate }) => {
     const handleUpdateClick = () => {
         setShowInfo(false);
         setShowUpdate(true);
-      }
+    }
+    const handleDeleteAlertClick = () => {
+      setShowInfo(false);
+      setShowDeleteAlert(true);
+    }
 
   return (
     <>
@@ -64,6 +68,7 @@ const AdminSpotCardInfo = ({ spot, setShowInfo, setShowUpdate }) => {
             variant="ghost"
             color={"redColor"}
             _hover={{ bg: "redColor", color: "whiteColor" }}
+            onClick={handleDeleteAlertClick}
           >
             BORRAR
           </Button>
@@ -75,7 +80,8 @@ const AdminSpotCardInfo = ({ spot, setShowInfo, setShowUpdate }) => {
 AdminSpotCardInfo.propTypes = {
     spot: PropTypes.object,
     setShowInfo: PropTypes.func,
-    setShowUpdate: PropTypes.func
+    setShowUpdate: PropTypes.func,
+    setShowDeleteAlert: PropTypes.func
 }
 
 export default AdminSpotCardInfo

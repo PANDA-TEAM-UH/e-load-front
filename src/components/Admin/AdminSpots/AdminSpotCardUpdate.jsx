@@ -13,8 +13,8 @@ const AdminSpotCardUpdate = ({ spot, setShowInfo, setShowUpdate }) => {
     setShowInfo(true);
   };
 
-  const onSubmit = (dataSpot) => {
-    updateSpot(dataSpot);
+  const onSubmit = async (dataSpot) => {
+    await updateSpot(spot._id, dataSpot);
     getAllSpots();
     toast({
       status: "success",
@@ -44,7 +44,7 @@ const AdminSpotCardUpdate = ({ spot, setShowInfo, setShowUpdate }) => {
         bg="grayColor"
       >
         <Flex direction={"column"}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
             <FormControl>
               <Flex alignItems="center" justifyContent={"space-between"}>
                 <FormLabel>Tarifa (€/kWh)</FormLabel>
@@ -92,6 +92,8 @@ const AdminSpotCardUpdate = ({ spot, setShowInfo, setShowUpdate }) => {
             CANCELAR
           </Button>
           <Button
+            onClick={handleSubmit(onSubmit)}
+            type="submit"
             bg={'defaultColor'}
             color={"whiteColor"}
             _hover={{ bg: "secondaryColor", color: "defaultColor" }}
