@@ -10,12 +10,12 @@ const AdminStationCard = ({ station }) => {
   return (
     <>
       <GridItem key={station._id} w='100%'>
-        <Card minH={"350px"}>
+        <Card minH={"350px"} border='1px solid' borderColor='grayColor'>
           <CardHeader margin={0} padding={0}>
             <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686470412/e-load/e-load-station-02_xqi2zr.png" />
             <Divider />
           </CardHeader>
-          <CardBody display={"flex"} flexDirection={"column"} justifyContent={"space-between"}>
+          <CardBody bg='grayColor' display={"flex"} flexDirection={"column"} justifyContent={"space-between"}>
             <Heading size='sm'>{station.address}</Heading>
             <Flex>
               <AccessTime/>

@@ -28,7 +28,7 @@ const AdminStations = () => {
           <Button
           bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}
           >
-            CREAR NUEVA ESTACIÓN
+            CREAR ESTACIÓN
           </Button>
         </Link>
       </Flex>

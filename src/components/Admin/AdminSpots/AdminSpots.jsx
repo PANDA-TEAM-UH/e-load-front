@@ -23,13 +23,13 @@ const AdminSpots = () => {
         <Heading size="lg">Puntos de Carga</Heading>
         <Spacer />
 
-        <Link as={NavLink} to={"/usuario/crear-estacion"}>
+        <Link as={NavLink} to={"/usuario/crear-punto"}>
           <Button
             bg={"defaultColor"}
             color={"whiteColor"}
             _hover={{ bg: "secondaryColor", color: "defaultColor" }}
           >
-            CREAR NUEVO PUNTO
+            CREAR PUNTO DE CARGA
           </Button>
         </Link>
       </Flex>
