@@ -1,4 +1,4 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
+import { Flex, Link, Text, Divider } from '@chakra-ui/react';
 import { AccountCircle, CreditCard, LocationOn, CardGiftcard, Error, ExitToApp, EvStationOutlined, ElectricalServices, People, ForumOutlined } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -8,7 +8,7 @@ const SideBar = () => {
 	const { user } = useSelector((state) => state.users);
 	return (
 		<Flex
-			backgroundColor="gray.200"
+			backgroundColor="grayColor"
 			width="250px"
 			height="100vh"
 			padding="4"
@@ -45,8 +45,8 @@ const SideBar = () => {
 				</Flex>
 			</Link>
 			{user && user.rol === "admin" && (
-				<>
-					{/* Modificar al dar estilos y añadirlo a .scss el div inferior a esta linea */}
+				<>	
+					<Divider my={2} borderColor="gray.300" />
 					<div style={{ borderBottom: '1px solid #ccc', margin: '8px 0' }} />
 					<Link as={NavLink} to="/usuario/estaciones" display="block" pb={4} pt={4}>
 						<Flex alignItems="center">
@@ -74,8 +74,7 @@ const SideBar = () => {
 					</Link>
 				</>
 			)}
-			{/* Modificar al dar estilos y añadirlo a .scss el div inferior a esta linea */}
-			<div style={{ borderBottom: '1px solid #ccc', margin: '8px 0' }} />
+			<Divider my={2} borderColor="gray.300" />
 			<Link as={NavLink} to="/" onClick={logout} display="block" pb={4} pt={4}>
 				<Flex alignItems="center">
 					<ExitToApp fontSize="30px" mr={2} />
