@@ -68,7 +68,7 @@ const AdminStationForm = ({selectedCoordinates}) => {
                         <option value="Cerrada">Cerrada</option>
                     </Select>
                     <Spacer/>
-                    <Button type="subtmit" bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}>
+                    <Button type="submit" bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}>
                         GUARDAR
                     </Button>
                 </Flex>            
