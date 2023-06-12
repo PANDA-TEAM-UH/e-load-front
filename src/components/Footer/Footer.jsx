@@ -14,9 +14,10 @@ import {
 const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue("grayColor")}
-      color={useColorModeValue("blackColor")}
-    >
+    bg={useColorModeValue("defaultColor")}
+    color={useColorModeValue("whiteColor")}
+      >
+      
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align="flex-start">
