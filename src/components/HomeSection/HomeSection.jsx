@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
-// const MotionText = motion(Text);
+
 
 const HomeSection = () => {
   const MotionText = motion(Text);
