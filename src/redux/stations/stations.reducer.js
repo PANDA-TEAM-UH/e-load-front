@@ -26,7 +26,8 @@ export const stationsReducer = (state = INITIAL_STATE, action) => {
         case "GET_STATIONS_ADMIN":
             return {
                 ...state,
-                stationsAdmin: [...action.payload],
+                stationsAdmin: action.payload,
+                // stationsAdmin: [...action.payload],
                 loading: false,
                 error: null
             };

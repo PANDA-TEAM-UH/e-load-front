@@ -3,10 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import { getStationById } from "../../../redux/stations/stations.actions";
 import { useSelector } from "react-redux";
 import { Button, useDisclosure, Flex, Spacer, Divider, Grid, Spinner, Heading, Text } from "@chakra-ui/react";
-import AdminStationDetailSpot from "./AdminStationDetailSpot";
 import { getSpotsByStation } from "../../../redux/spots/spots.actions";
 import AdminStationDetailEdit from "./AdminStationDetailEdit";
 import AdminStationDeleteAlert from "../AdminStations/AdminStationDeleteAlert";
+import AdminSpotCard from "../AdminSpots/AdminSpotCard";
 import { AccessTime, Place, Power } from "@mui/icons-material";
 
 const AdminStationDetail = () => {
@@ -84,7 +84,7 @@ const AdminStationDetail = () => {
             gridAutoFlow="row dense"
           >
             {spotsByStation.map((spot) => {
-              return <AdminStationDetailSpot spot={spot} key={spot._id} />;
+              return <AdminSpotCard spot={spot} key={spot._id} />;
             })}
           </Grid>
         </Flex>

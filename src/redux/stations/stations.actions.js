@@ -52,7 +52,7 @@ const getAllStationsAdmin = async () => {
 //probar si esto así pasa, con dos parámetros aquí y que le envíe uno y otro
 const getStationById = async (stationId) => {
     try {
-        dispatch({type: "LOADING"});
+        // dispatch({type: "LOADING"});
         const result = await API.get(`stations/${stationId}`);       
         dispatch({
             type: "SELECT_STATION",
@@ -108,6 +108,7 @@ const deleteStation = async (stationId) => {
             type: "DELETE_STATION",
             payload: result.data
         });
+        getAllStationsAdmin();
     } catch (error) {
         const errorMessage = error.response.data.msg;
         dispatch({ type: "ERROR", payload: errorMessage });

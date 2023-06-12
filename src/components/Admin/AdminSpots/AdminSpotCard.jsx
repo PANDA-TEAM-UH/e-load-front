@@ -2,7 +2,7 @@ import { Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, G
 import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 
-const AdminStationDetailSpot = ({spot}) => {
+const AdminSpotCard = ({spot}) => {
  
     let imgSrc;
             switch (spot.type) {
@@ -59,8 +59,8 @@ const AdminStationDetailSpot = ({spot}) => {
             </GridItem>
   )
 }
-AdminStationDetailSpot.propTypes = {
+AdminSpotCard.propTypes = {
     spot: PropTypes.object
 }
 
-export default AdminStationDetailSpot
+export default AdminSpotCard
