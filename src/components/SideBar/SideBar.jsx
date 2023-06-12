@@ -39,7 +39,6 @@ const SideBar = () => {
 						borderRadius={5}
 						bg={location.pathname === menuOption.url ? 'defaultColor' : 'inherit'} _hover={{ bg: 'defaultColor', color: 'whiteColor' }}
 						color={location.pathname === menuOption.url ? 'whiteColor' : 'inherit'}
-						key={menuOption.title}
 					>
 						{menuOption.icon}
 						<Text>{menuOption.title}</Text>
@@ -50,7 +49,7 @@ const SideBar = () => {
 				<>
 					<Divider my={2} borderColor="defaultColor" />
 					{adminMenu.map((menuOption) => (
-						<Link as={NavLink} to={menuOption.url} display="block" pb={1} pt={1} key={menuAdminOption.title}>
+						<Link as={NavLink} to={menuOption.url} display="block" pb={1} pt={1} key={menuOption.title}>
 							<Flex
 								alignItems="center"
 								gap={2}
@@ -58,7 +57,6 @@ const SideBar = () => {
 								borderRadius={5}
 								bg={location.pathname === menuOption.url ? 'defaultColor' : 'inherit'} _hover={{ bg: 'defaultColor', color: 'whiteColor' }}
 								color={location.pathname === menuOption.url ? 'whiteColor' : 'inherit'}
-								key={menuOption.title}
 							>
 								{menuOption.icon}
 								<Text>{menuOption.title}</Text>

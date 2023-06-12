@@ -37,13 +37,13 @@ const LoginForm = ({ onClose }) => {
                 <Button type="submit" bg={'defaultColor'} color={'whiteColor'} _hover={{ bg: "secondaryColor", color: "defaultColor" }}>
                     Iniciar Sesión
                 </Button>
-            
-                    <Link to="/registro" onClick={onClose} ml={2}>
+
+                <Link to="/registro" onClick={onClose} ml={2}>
                     <Flex alignItems="center" pt={3} pb={3}>
-                    <Text>No tienes cuenta?</Text>
+                        <Text>No tienes cuenta?</Text>
                         <Text fontWeight={800} _hover={{ textDecoration: "underline" }} p={2}>Regístrate</Text>
-                        </Flex>
-                    </Link>
+                    </Flex>
+                </Link>
             </Flex>
         </form>
     );
