@@ -2,15 +2,14 @@ import { Heading, Image,  Text, Flex } from "@chakra-ui/react";
 
 const AboutHistory = () => {
   return (
-    
-    <Flex justifyContent="center" alignItems="center" margin={10}>
-     
+    <Flex justifyContent="center"marginTop={10}>
+      <Flex gap={10}>
         <Flex width="650px" direction="column" marginTop={10}>
         <Image
             src="https://www.autopista.es/uploads/s1/55/35/11/6/5e5cdc3c0ee6948a1834961b-la-estacion-de-carga-para-electricos-mas-rapida-del-mundo-5-minutos-para-recorrer-100-km.jpeg"
             mt={4}
             objectFit="cover"
-            w="60%"
+            w="70%"
             h="auto"
             alt="Estaciones de carga portátiles"
             marginBottom={8}
@@ -81,8 +80,8 @@ const AboutHistory = () => {
         loop
         muted
         style={{
-          width: '80%',
-          height: '40%',
+          width: '70%',
+          height: '60%',
           objectFit: 'cover',
           marginTop: '10%'
         }}
@@ -105,7 +104,7 @@ const AboutHistory = () => {
 
         </Flex>
         
-     
+      </Flex>
       
     </Flex>
   );

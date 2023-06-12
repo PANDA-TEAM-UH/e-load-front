@@ -48,17 +48,17 @@ const Footer = () => {
 
           <Stack align={"flex-start"}>
             <Heading fontSize="2xl">Compañia</Heading>
-            <Link href={"#"}>Sobre Nosotros</Link>
-            <Link href={"#"}>Contacto</Link>
-            <Link href={"#"}>Puntos de carga</Link>
+            <Link href={"/sobre-nosotros"}>Sobre Nosotros</Link>
+            <Link href={"/contacto"}>Contacto</Link>
+            <Link href={"/mapa"}>Puntos de carga</Link>
           </Stack>
 
           <Stack align={"flex-start"}>
             <Heading fontSize="2xl">Legal</Heading>
             <Link href={"#"}>Cookies</Link>
             <Link href={"#"}>Politica de privacidad</Link>
-            <Link href={"#"}>Terms of Service</Link>
-            <Link href={"#"}>Law Enforcement</Link>
+           
+           
           </Stack>
 
           <Stack align="flex-start">
