@@ -5,20 +5,21 @@ const AboutHistory = () => {
     <Container>
       <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={8}>
         <Box>
-          <Heading>Nuestra misión</Heading>
+          <Heading>Nacimiento de E - LOAD</Heading>
           <Text>
-            Losadnnasdjaspdkjaspdapoksdopaskd
+          Surgió de la necesidad de abordar los desafíos ambientales y energéticos que
           </Text>
           <Text>
-            Losadnnasdjaspdkjaspdapoksdopaskd
+          enfrentamos. Inspirados por la creciente demanda de vehículos eléctricos, creamos una 
           </Text>
           <Text>
-            Losadnnasdjaspdkjaspdapoksdopaskd
+          solución integral de estaciones de carga en toda España. Nuestro objetivo es impulsar la
           </Text>
           <Text>
-            Losadnnasdjaspdkjaspdapoksdopaskd
+          adopción masiva de la movilidad sostenible y contribuir al cuidado del planeta.
           </Text>
-          <Image
+          
+                    <Image
             src="https://topesdegama.com/app/uploads-topesdegama.com/2022/09/Estaciones-de-carga-portatiles.jpg"
             mt={4}
             objectFit="cover"
@@ -36,18 +37,19 @@ const AboutHistory = () => {
             h="auto"
             alt="Nacimiento de E - LOAD"
           />
-          <Heading>Nacimiento de E - LOAD</Heading>
+          <Heading>Nuestra misión</Heading>
+          
           <Text>
-            Losadnnasdjaspdkjaspdapoksdopaskd
+          En E-LOAD, nuestro principal objetivo es el de impulsar la movilidad eléctrica en España.
           </Text>
           <Text>
-            Losadnnasdjaspdkjaspdapoksdopaskd
+          Con nuestra red de estaciones de carga estratégicas, 
           </Text>
           <Text>
-            Losadnnasdjaspdkjaspdapoksdopaskd
+          ofrecemos a los conductores la libertad de recorrer el país sin preocupaciones de autonomía. 
           </Text>
           <Text>
-            Losadnnasdjaspdkjaspdapoksdopaskd
+          Un futuro sostenible está en nuestras manos.
           </Text>
         </Box>
       </Grid>
