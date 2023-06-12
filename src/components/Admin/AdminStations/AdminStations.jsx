@@ -2,16 +2,17 @@ import { useEffect } from "react";
 import { getAllStationsAdmin } from "../../../redux/stations/stations.actions";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
-import { Button, Divider, Flex, Grid, Spacer } from "@chakra-ui/react";
 import AdminStationCard from "./AdminStationCard";
 import { Link, NavLink } from "react-router-dom";
+import { Button, Divider, Flex, Grid, Spacer } from "@chakra-ui/react";
 
 const AdminStations = () => {
   const { stationsAdmin } = useSelector((state) => state.stations);
   useEffect(() => {
     getAllStationsAdmin();
-  }, []);
-  return (
+  }, [stationsAdmin]);
+
+   return (
     <div>
       <Flex>
         <h2>Estaciones</h2>
@@ -26,7 +27,7 @@ const AdminStations = () => {
       <Divider my={5} />
       <Grid templateColumns="repeat(6, 1fr)" gap={6} gridAutoFlow="row dense">
         {stationsAdmin.map((station) => {
-          return <AdminStationCard station={station} key={station._id} />;
+          return <AdminStationCard station={station} key={station._id}/>;
         })}
       </Grid>
     </div>
