@@ -14,7 +14,7 @@ import {
 const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue("whiteColor")}
+      bg={useColorModeValue("grayColor")}
       color={useColorModeValue("blackColor")}
     >
       <Container as={Stack} maxW={"6xl"} py={10}>
@@ -22,9 +22,25 @@ const Footer = () => {
           <Stack align="flex-start">
             <Heading fontSize="2xl">Asistencia</Heading>
             <Text>
-              Lunes a jueves: 9:00 - 18:3 <br/>0 Viernes: 9:00 - 15:00 Fines de semana
-              y festivos: Sin atención al cliente Llamar: 91 078 07 11 Correo
-              electrónico: contacto@e-load.es
+              Lunes a jueves: 9:00 - 18:30
+              </Text>
+              <Text>
+              Viernes: 9:00 - 15:00
+              </Text>
+              <Text>
+              Fines de semana y festivos:
+              </Text>
+              <Text>
+              Sin atención al cliente
+              </Text>
+              <Text>
+               Llamar: 91 078 07 11
+               </Text>
+               <Text>
+               Correo electrónico:
+               </Text> 
+               <Text>
+               contacto@e-load.es
             </Text>
           </Stack>
 
@@ -62,10 +78,7 @@ const Footer = () => {
       </Container>
 
       <Box
-        borderTopWidth={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("whiteColor", "blackColor")}
-      >
+               >
         <Container
           as={Stack}
           maxW={"6xl"}
@@ -75,7 +88,7 @@ const Footer = () => {
           justify={{ md: "space-between" }}
           align={{ md: "center" }}
         >
-          <Text>© 2023 E - LOAD. ALL RIGHTS RESERVED</Text>
+          <Text fontWeight="bold">© 2023 E - LOAD. ALL RIGHTS RESERVED</Text>
 
           <Stack direction={"row"} spacing={8}>
             <Box>
