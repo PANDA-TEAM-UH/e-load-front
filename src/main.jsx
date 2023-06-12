@@ -11,7 +11,7 @@ const colors = {
     secondaryColor: '#4be62e',
     whiteColor: '  #ffffff',
     blackColor: '#000000',
-    grayColor: '#383838',
+    grayColor: '#E2E8F0',
     lightColor: '#D3D3D3',
     redColor: '#eb2632',
     orangeColor: '#F59A30'
