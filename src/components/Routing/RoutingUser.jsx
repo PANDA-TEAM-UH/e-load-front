@@ -11,6 +11,7 @@ import AdminUsers from '../Admin/AdminUsers/AdminUsers';
 import AdminComments from '../Admin/AdminComments/AdminComments';
 import AdminStationDetail from '../Admin/AdminStationDetail/AdminStationDetail';
 import AdminStationCreate from '../Admin/AdminStations/AdminStationCreate';
+import AdminSpotCreate from '../Admin/AdminSpots/AdminSpotCreate';
 
 const RoutingUser = () => {
   return (
@@ -39,6 +40,12 @@ const RoutingUser = () => {
       <Route path="/puntos-carga" element={
         <RequireAuth adminAccess>
           <AdminSpots/>
+        </RequireAuth>
+      }
+      />
+      <Route path='/crear-punto-carga' element={
+        <RequireAuth adminAccess>
+            <AdminSpotCreate/>
         </RequireAuth>
       }
       />

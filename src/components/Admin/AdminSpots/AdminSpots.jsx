@@ -23,7 +23,7 @@ const AdminSpots = () => {
         <Heading size="lg">Puntos de Carga</Heading>
         <Spacer />
 
-        <Link as={NavLink} to={"/usuario/crear-punto"}>
+        <Link as={NavLink} to={"/usuario/crear-punto-carga"}>
           <Button
             bg={"defaultColor"}
             color={"whiteColor"}

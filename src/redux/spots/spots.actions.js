@@ -3,15 +3,15 @@ import store from "../store";
 
 const { dispatch } = store;
 
-const createSpot = async (dataSpot, station) => {
+const createSpot = async (dataSpot) => {
     try {
-        dispatch({type: "LOADING"});
+        // dispatch({type: "LOADING"});
         const formData = new FormData();
         formData.append("power", dataSpot.power);
         formData.append("type", dataSpot.type);
         formData.append("rate", dataSpot.rate);
         formData.append("state", dataSpot.state);
-        formData.append("station", station);
+        formData.append("station", dataSpot.station);
         const result = await API.post("spots", formData);
         dispatch({
             type: "CREATE_SPOT",

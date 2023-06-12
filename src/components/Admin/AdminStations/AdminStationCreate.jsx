@@ -1,4 +1,4 @@
-import { Divider, Flex } from '@chakra-ui/react'
+import { Divider, Flex, Heading } from '@chakra-ui/react'
 import { MapContainer, TileLayer, useMapEvent } from 'react-leaflet'
 import AdminStationForm from './AdminStationForm';
 import { useState } from 'react';
@@ -19,7 +19,7 @@ const AdminStationCreate = () => {
     }
   return (
     <Flex direction='column' width='100%'>
-        <h2>Crear Estación</h2>
+        <Heading size='lg'>Crear Estación</Heading>
         <Divider my={5}/>
         <Flex gap={6}>
             <Flex w={800} minH={600} className="leaflet-container">
