@@ -30,7 +30,7 @@ const AboutInnovation = () => {
           <Stack textAlign={'center'} spacing={{ base: 8, md: 10 }} py={{ base: 20, md: 28 }}>
 
             <Heading fontWeight={620} fontSize={{ base: '2xl', sm: '3xl', md: '5xl' }} lineHeight={'140%'} mb={20} color="blackColor">
-              Nuestros principios de innovación<br />
+              Nuestros principios de innovación
               
             </Heading>
 
