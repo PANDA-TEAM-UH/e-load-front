@@ -54,7 +54,7 @@ const ProfileMenu = ({ onClose, logout }) => {
                 </Flex>
             </MenuButton>
 
-            <MenuList bg="grayColor" p={4}>
+            <MenuList bg="grayColor" p={4} zIndex={999} mt={'0.57em'} borderTopRadius={0}>
                 {userMenu.map((menuOption) => (
                     <MenuItem as={Link} to={menuOption.url} bg="grayColor" color="defaultColor" fontWeight={600} _hover={{ bg: 'defaultColor', color: 'whiteColor'}} key={menuOption.title}>
                         {menuOption.title}
