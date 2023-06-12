@@ -4,7 +4,7 @@ const AboutHistory = () => {
   return (
  
 
-    <Flex justifyContent="center"marginTop={10} alignItems="center">
+    <Flex justifyContent="center"marginTop={10} alignItems="center"  >
       <Flex gap={10}>
         <Flex width="650px" direction="column" marginTop={10}>
         <Image

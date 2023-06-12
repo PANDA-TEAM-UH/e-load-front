@@ -32,16 +32,29 @@ const HomeSectionMobile = () => {
         <Flex p={1} flex={0.5} align={"center"} justify={"center"}>
           <Stack spacing={6} w={"full"} maxW={"lg"}>
           {content.map((item) => (
-              <React.Fragment key={item.heading}>
+              <React.Fragment key={item.heading} >
+              <Box
+            borderRadius="0%"
+            border="1px solid"
+            borderColor="grayColor"
+                  px={22}
+                  py={8}
+                  display="inline-block">
                 <Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}>
-                  <Text as={"span"} position={"relative"} color="white">
-                    {item.heading}
+                  <Text as={"span"} position={"relative"} color="whiteColor" 
+                  
+                  >
+                    {item.heading}<Text as="span" color = "secondaryColor">/</Text>
                   </Text>
                   <br />
                 </Heading>
-                <Text fontSize={{ base: "md", lg: "lg" }} color={"white"}>
+              
+
+
+                <Text fontSize={{ base: "md", lg: "lg" }} color= "whiteColor">
                   {item.text}
                 </Text>
+                </Box>
               </React.Fragment>
             ))}
           </Stack>
@@ -51,7 +64,7 @@ const HomeSectionMobile = () => {
           <Image
             alt={"foto-movil"}            
             src={
-              "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              "https://uploads-ssl.webflow.com/6278f767c8039e09089ab08c/62ebe6dec60a5cb4e75f160b_Map_ES.png"
             }
             position="absolute"
             top="50%"
