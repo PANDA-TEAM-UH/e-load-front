@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Flex, Menu, MenuButton, MenuList, MenuItem, Text, Image, Divider, Avatar } from '@chakra-ui/react';
+import { Flex, Menu, MenuButton, MenuList, MenuItem, Text, Divider, Avatar } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 
 const ProfileMenu = ({ onClose, logout }) => {

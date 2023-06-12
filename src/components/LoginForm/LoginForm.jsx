@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FormLabel, Input, Button, Text, Box, Flex } from '@chakra-ui/react';
+import { FormLabel, Input, Button, Text, Flex } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { login } from '../../redux/users/users.actions';
