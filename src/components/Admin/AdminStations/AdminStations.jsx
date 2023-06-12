@@ -4,14 +4,20 @@ import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import AdminStationCard from "./AdminStationCard";
 import { Link, NavLink } from "react-router-dom";
-import { Button, Divider, Flex, Grid, Heading, Spacer } from "@chakra-ui/react";
+import { Button, Divider, Flex, Grid, Heading, Spacer, Spinner } from "@chakra-ui/react";
 
 const AdminStations = () => {
-  const { stationsAdmin } = useSelector((state) => state.stations);
+  const { loading, stationsAdmin } = useSelector((state) => state.stations);
   useEffect(() => {
     getAllStationsAdmin();
   }, []);
-
+  if (loading || !stationsAdmin) {
+    return (
+      <Flex justify="center" align="center" width='100%' height="100vh">
+        <Spinner height='80px' width='80px' thickness="5px"  color="secondaryColor" emptyColor="defaultColor"/>
+      </Flex>
+    );
+  }
    return (
     <Flex display='column'>
       <Flex>
