@@ -16,6 +16,7 @@ function App() {
       checkSession();
     }
     window.scrollTo(0, 0);
+
   }, [location]);
 
   return (
