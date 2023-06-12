@@ -3,6 +3,7 @@ import { FormLabel, Input, Button, Text, Flex } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { login } from '../../redux/users/users.actions';
+import PropTypes from "prop-types";
 
 const LoginForm = ({ onClose }) => {
     const { register, handleSubmit } = useForm();
@@ -48,5 +49,8 @@ const LoginForm = ({ onClose }) => {
         </form>
     );
 };
+LoginForm.propTypes = {
+    onClose: PropTypes.func
+  }
 
 export default LoginForm;

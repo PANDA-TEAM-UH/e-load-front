@@ -22,7 +22,6 @@ const AdminSpots = () => {
       <Flex>
         <Heading size="lg">Puntos de Carga</Heading>
         <Spacer />
-
         <Link as={NavLink} to={"/usuario/crear-punto-carga"}>
           <Button
             bg={"defaultColor"}
