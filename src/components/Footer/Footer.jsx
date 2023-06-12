@@ -63,13 +63,13 @@ const Footer = () => {
           <Stack align="flex-start">
             <Heading fontSize="2xl">Instala nuestra App</Heading>
             <Image
-              alt="foto-movil"
+              alt="image-appstore"
               src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686482925/e-load/app-store_zfrjug.png"
               position="relative"
               maxWidth="45%"
             />
             <Image
-              alt="foto-movil"
+              alt="image-googlePlay"
               src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686482925/e-load/play-store_wwa4f0.png"
               position="relative"
               maxWidth="45%"
@@ -94,19 +94,19 @@ const Footer = () => {
           <Stack direction={"row"} spacing={8}>
             <Box>
             <Link href="https://www.linkedin.com" isExternal>
-              <Image src="./assets/icons/linkedin-icono.png" boxSize={8}/>
+              <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686585674/e-load/linkedin-icono_xd4ov4.png" boxSize={8}/>
               </Link>
             </Box>
 
             <Box>
             <Link href="https://www.instagram.com" isExternal>
-              <Image src="./assets/icons/instagram-icono.png" boxSize={8}/>
+              <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686585674/e-load/instagram-icono_ffe6g9.png" boxSize={8}/>
               </Link>
             </Box>
             
             <Box>
             <Link href="https://www.twitter.com" isExternal>
-              <Image src="./assets/icons/twitter-icono.png" boxSize={8}/>
+              <Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686585674/e-load/twitter-icono_uollna.png" boxSize={8}/>
               </Link>
             </Box>
           </Stack>
