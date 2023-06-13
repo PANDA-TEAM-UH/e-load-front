@@ -33,7 +33,7 @@ const ContactForm = () => {
 			<Heading as="h2" size="xl" color={'defaultColor'}>
 				Contacta con nosotros
 			</Heading>
-			<Text textAlign="justify" align="center" fontSize="l" pb={3}>
+			<Text textAlign="center" align="center" fontSize="l" pb={3} justify={'center'}>
 				Para todo lo que necesites ponte en contacto con nosotros, estaremos encantados de atenderte.
 			</Text>
 
