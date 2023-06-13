@@ -51,7 +51,7 @@ const Header = () => {
 							src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686469078/e-load/e-load-logo_m7r1jg.png"
 							alt="Logo de la empresa"
 							height={7}
-							pl={25}
+							pl={{base: '50px', md: '20px' }}
 						/>
 					</Link>
 				</Box>

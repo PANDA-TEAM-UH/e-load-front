@@ -20,7 +20,7 @@ const ProfileMenu = ({ onClose, logout }) => {
 
     return (
         <Menu>
-            <MenuButton as={Flex} align="center" cursor="pointer" wrap="nowrap" justifyContent="space-between" pr={10}>
+            <MenuButton as={Flex} align="center" cursor="pointer" wrap="nowrap" justifyContent="space-between"  pr={{ base: '3', md: '20' }}>
                 <Flex align="center" gap={2}>
                     {user.image ? (
                         <Avatar size='md' src={user.image} />
