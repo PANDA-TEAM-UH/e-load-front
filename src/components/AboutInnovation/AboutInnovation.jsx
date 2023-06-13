@@ -24,15 +24,15 @@ const AboutInnovation = () => {
   ];
 
   return (
-    <Flex h={{ base: "auto", md: "600px" }}   justifyContent="center" flexDirection="column">
+    <Flex h={{ base: "auto", md: "400px" }}   justifyContent="center" flexDirection="column" mb={20}>
       <Flex justifyContent="center">
         <Heading
-        
+          textAlign={'center'}
           alignContent="center"
           fontWeight={620}
           fontSize={{ base: "2xl", sm: "3xl", md: "5xl" }}
           lineHeight={"140%"}
-          mb={20}
+          mb={10}
           color="blackColor"
         >
           Nuestros principios de innovación
@@ -46,7 +46,7 @@ const AboutInnovation = () => {
               <Text   color="defaultColor" maxW={"4xl"} fontWeight="bold" fontSize={20} mt={4}>
                 {icon.text}
               </Text>
-              <Text   color="defaultColor" fontSize={14}>
+              <Text color="defaultColor" fontSize={14} textAlign={'center'}>
                 {icon.textDescription}
               </Text>
             </Stack>
