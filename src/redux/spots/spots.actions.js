@@ -63,7 +63,7 @@ const getSpotsByUser = async (userId) => {
 }
 const updateSpot = async (spotId, spotToUpdate) => {
     try {
-        dispatch({type: "LOADING"});
+        // dispatch({type: "LOADING"});
         const formData = new FormData();
         formData.append("rate", spotToUpdate.rate);
         formData.append("state", spotToUpdate.state);

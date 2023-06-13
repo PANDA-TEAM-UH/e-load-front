@@ -17,9 +17,9 @@ import {
 const StationSpots = () => {
   const { spotsByStation, spotToCharge } = useSelector((state) => state.spots);
   const { user } = useSelector((state) => state.users);
+  const { stationSelected } =useSelector((state) => state.stations);
   const [chargeMode, setChargeMode] = useState({});
   const [isChargeComplete, setIsChargeComplete] = useState(false);
-
   const getBadgeColor = (stateSpot) => {
     switch (stateSpot) {
       case "Libre":
@@ -69,7 +69,7 @@ const StationSpots = () => {
       }));
       await updateSpotState(spotId, "Ocupado");
       const loyaltyPoints = user.points + 100;
-      await updateUserSpots(user._id, spotId);
+      await updateUserSpots(user._id, spotId, stationSelected._id);
       await updateUserPoints(user._id, loyaltyPoints);
     }
   };
@@ -82,9 +82,6 @@ const StationSpots = () => {
     });
     setIsChargeComplete(false);
   };
-  useEffect(() => {
-    console.log("renderizo");
-  },[]);
   
   return (
     <>
