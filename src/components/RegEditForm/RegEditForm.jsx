@@ -49,7 +49,7 @@ const RegEditForm = () => {
       <Divider my={5} />
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl>
-          <Flex display={"flex"} gap={10}>
+          <Flex gap={10}  display={{md: 'flex'}}>
             <Flex direction="column" width={200} alignItems={"center"}>
               <Box mb={4}>
                 {image && <DeleteForever onClick={onResetImage} />}
@@ -65,16 +65,6 @@ const RegEditForm = () => {
                   setImage(URL.createObjectURL(e.target.files[0]));
                 }}
               />
-              <Button
-                alignSelf={"start"}
-                type="submit"
-                bg={"defaultColor"}
-                color={"whiteColor"}
-                _hover={{ bg: "secondaryColor", color: "defaultColor" }}
-                mt={4}
-              >
-                Guardar
-              </Button>
             </Flex>
             <Flex direction="column">
               <FormLabel fontWeight={600}>Nombre de usuario</FormLabel>
@@ -105,6 +95,16 @@ const RegEditForm = () => {
                 {...register("password")}
                 defaultValue={user?.password || ""}
               />
+              <Button
+                alignSelf={"start"}
+                type="submit"
+                bg={"defaultColor"}
+                color={"whiteColor"}
+                _hover={{ bg: "secondaryColor", color: "defaultColor" }}
+                mt={4}
+              >
+                Guardar
+              </Button>
             </Flex>
           </Flex>
         </FormControl>

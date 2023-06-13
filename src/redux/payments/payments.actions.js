@@ -3,7 +3,7 @@ import store from "../store";
 
 const { dispatch } = store;
 
-const createPayment = async (dataPayment) => {
+const createPayment = async (dataPayment, userId) => {
     try {
         dispatch({type: "LOADING"});
         const formData = new FormData();
@@ -16,6 +16,7 @@ const createPayment = async (dataPayment) => {
             type: "CREATE_PAYMENT",
             payload: result.data
         });
+        getAllPaymentsByUser(userId);
     } catch (error) {
         const errorMessage = error.response.data.msg;
         dispatch({ type: "ERROR", payload: errorMessage });
@@ -34,8 +35,6 @@ const getAllPaymentsByUser = async (userId) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
-
-
 const deletePayment = async (paymentId) => {
     try {
         dispatch({type: "LOADING"});

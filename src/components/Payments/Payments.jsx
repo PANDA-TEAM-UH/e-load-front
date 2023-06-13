@@ -7,16 +7,10 @@ const Payments = () => {
     <Flex display='column'>
       <Heading size='lg'>Métodos de Pago</Heading>
       <Divider my={5} />
-      <Flex gap={6}>
+      <Flex gap={6} display={{md: 'flex'}} alignItems={"flex-start"}>
         <CreatePayment/>
         <PaymentMethods/>
       </Flex>
-
-      {/* <Grid templateColumns="repeat(6, 1fr)" gap={6} gridAutoFlow="row dense">
-        {stationsAdmin.map((station) => {
-          return <AdminStationCard station={station} key={station._id}/>;
-        })}
-      </Grid> */}
     </Flex>
   )
 }
