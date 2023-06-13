@@ -1,4 +1,4 @@
-import { Box, chakra, Flex, Text, Button } from "@chakra-ui/react";
+import { chakra, Flex, Text, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 
@@ -16,23 +16,23 @@ const HomeSectionInfor = () => {
 	];
 
 	return (
-		<Box
-			maxW="100%"
-			h="50vh"
-			bgImage="url(https://res.cloudinary.com/dgkm71mjf/image/upload/v1686474622/e-load/e-load-section-04_bu0qnh.jpg)"
+		<Flex
+			width="100%"
+		    bgImage="url(https://res.cloudinary.com/dgkm71mjf/image/upload/v1686474622/e-load/e-load-section-04_bu0qnh.jpg)"
 			bgSize="cover"
 			bgPosition="center"
-			display="flex"
 			alignItems="center"
 			justifyContent="center"
 			flexDirection="column"
 			paddingY={20}
 			bgAttachment="fixed"
-			gap={6}
+			h={{ base: "auto", md: "450px" }}
+      
 		>
-			<Flex display="flex" justifyContent="center" alignItems="center" gap={6}>
+			<Flex my={10} justifyContent="center" alignItems="center" gap={10} flexWrap="wrap"  mx={{ base: 10, md: 0 }}>
 				{texts.map((item) => (
 					<Text
+         
 						key={item.text}
 						color="whiteColor"
 						maxW="4xl"
@@ -51,11 +51,17 @@ const HomeSectionInfor = () => {
 					</Text>
 				))}
 			</Flex>
+      <Flex
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+      >
 			<chakra.h3
+       mb={8}
 				textAlign="center"
 				fontSize="4xl"
 				fontWeight="bold"
-				color="white"
+				color="whiteColor"
 			>
 				¿Quieres formar parte de nuestra red?
 			</chakra.h3>
@@ -73,7 +79,8 @@ const HomeSectionInfor = () => {
 					ENTRAR
 				</Button>
 			</Link>
-		</Box>
+      </Flex>
+		</Flex>
 	);
 };
 
