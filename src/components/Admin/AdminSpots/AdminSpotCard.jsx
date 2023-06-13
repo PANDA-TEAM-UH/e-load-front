@@ -36,7 +36,6 @@ const AdminSpotCard = ({ spot }) => {
   
   
   return (
-    <>
     <GridItem key={spot._id} w="100%" h="auto">
       <Card minH={"350px"} width={250} border='1px solid' borderColor='grayColor'>
         <CardHeader
@@ -52,7 +51,6 @@ const AdminSpotCard = ({ spot }) => {
         {showDeleteAlert && <AdminSpotCardDeleteAlert spot={spot} setShowInfo={setShowInfo} setShowDeleteAlert={setShowDeleteAlert}/>}
       </Card>
     </GridItem>
-    </>
   );
 };
 AdminSpotCard.propTypes = {

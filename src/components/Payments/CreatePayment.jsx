@@ -2,17 +2,17 @@ import {  useState } from 'react';
 import { FormControl, FormLabel, Input, Button, Flex, useToast, Box } from '@chakra-ui/react';
 import { createPayment } from '../../redux/payments/payments.actions';
 import { useForm } from 'react-hook-form';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Done } from '@mui/icons-material';
 
 const CreatePayment = () => {
-  // const { user } = useSelector((state) => state.users);
+  const { user } = useSelector((state) => state.users);
   const { register, handleSubmit, reset } = useForm();
   const [paymentCreated, setPaymentCreated] = useState(false);
   const toast = useToast();
 
   const onSubmit = (dataPayment) => {
-    createPayment(dataPayment);
+    createPayment(dataPayment, user._id);
     setPaymentCreated(true);
     reset();
     toast({
@@ -40,8 +40,8 @@ const CreatePayment = () => {
   };
 
   return (
-    <div>
-      <Button onClick={handleCreatePaymentClick}>Agregar método de pago</Button>
+    <Flex direction={'column'}>
+      <Button onClick={handleCreatePaymentClick} mb={3}>Agregar método de pago</Button>
       {paymentCreated && (
         <>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -49,7 +49,7 @@ const CreatePayment = () => {
               <FormLabel>NOMBRE Y APELLIDOS</FormLabel>
               <Input type="text" {...register("cardHolderName")} />
               <FormLabel>Nº TARJETA</FormLabel>
-              <Input {...register("number")} minLength={16} maxlength={16} />
+              <Input {...register("number")} minLength={16} maxLength={16} />
 
               <Flex justifyContent={'space-between'}>
                 <Flex direction={"column"} width={20}>
@@ -61,14 +61,14 @@ const CreatePayment = () => {
               <Input {...register("valYear")} minLength={2} maxLength={2} />
                 </Flex>
               </Flex>
-              <Button mt={3} type="submit"
+              <Button my={3} type="submit"
               bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}
               >Guardar</Button>
             </FormControl>
           </form>
         </>
       )}
-    </div>
+    </Flex>
   );
 };
 
