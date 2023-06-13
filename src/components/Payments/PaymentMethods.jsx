@@ -1,17 +1,8 @@
-import { useEffect } from "react";
-import { getAllPaymentsByUser } from "../../redux/payments/payments.actions";
-import { useSelector } from "react-redux";
 import { Grid } from "@chakra-ui/react";
 import PaymentMethodCard from "./PaymentMethodCard";
+import PropTypes from "prop-types";
 
-const PaymentMethods = () => {
-  const { user } = useSelector((state) => state.users);
-  const { payments } = useSelector((state) => state.payments);
- 
-  useEffect(() => {
-    getAllPaymentsByUser(user._id);
-  }, []);
-
+const PaymentMethods = ({ payments }) => {
   return (
     <Grid display={"flex"} gap={6} flexWrap={"wrap"}>
       {payments.map((payment) => {
@@ -19,6 +10,9 @@ const PaymentMethods = () => {
       })}
     </Grid>
   );
+};
+PaymentMethods.propTypes = {
+  payments: PropTypes.array,
 };
 
 export default PaymentMethods;
