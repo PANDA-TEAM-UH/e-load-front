@@ -22,7 +22,7 @@ const HomeSectionMobile = () => {
 
 	return (
 		<Box
-			bgImage="url(public/assets/images/FONDO-MOBILE2.jpg)"
+			bgImage="url(https://res.cloudinary.com/dgkm71mjf/image/upload/v1686650269/e-load/e-load-charge_lrfwg8.jpg)"
 			bgSize="cover"
 			bgPosition="center"
 			minWidth={{ base: "100%", md: "auto" }}
