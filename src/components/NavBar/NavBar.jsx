@@ -5,7 +5,7 @@ const NavBar = () => {
 	const location = useLocation();
 
 	return (
-		<Flex display={{ base: 'none', md: 'flex' }} justify="center" alignItems="center" gap={4}>
+		<>
 			<Link to="/">
 				<Text color={location.pathname === '/' ? 'secondaryColor' : 'inherit'} _hover={{ color: 'secondaryColor' }}>
 					Inicio
@@ -26,7 +26,7 @@ const NavBar = () => {
 					Contacto
 				</Text>
 			</Link>
-		</Flex>
+		</>
 	);
 };
 

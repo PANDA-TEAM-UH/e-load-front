@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Flex, Menu, MenuButton, MenuList, MenuItem, Text, Divider, Avatar } from '@chakra-ui/react';
+import { Flex, Menu, MenuButton, MenuList, MenuItem, Text, Divider, Avatar, Box } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 
 const ProfileMenu = ({ onClose, logout }) => {
@@ -27,7 +27,9 @@ const ProfileMenu = ({ onClose, logout }) => {
                     ) : (
                         <Avatar size='md' src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686469069/e-load/e-load-avatar_e0k9w4.png" />
                     )}
-                    <Text ml="0.5rem">{user.name}</Text>
+                    <Box display={{ base: "none", md: "block" }}>
+                        <Text ml="0.5rem">{user.name}</Text>
+                    </Box>
                 </Flex>
             </MenuButton>
 

@@ -6,6 +6,8 @@ import ProfileMenu from '../ProfileMenu/ProfileMenu';
 import { logout } from '../../redux/users/users.actions';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import MenuMobile from '../MenuMobile/MenuMobile';
+
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -25,23 +27,49 @@ const Header = () => {
 	const { user } = useSelector((state) => state.users);
 
 	return (
-		<Box width='100%' color={'whiteColor'} bg={'defaultColor'} minH={'80px'} py={{ base: 2 }} position="fixed" zIndex={999}
-			px={{ base: 4 }} borderBottom={1} borderStyle={'solid'} borderColor={'defaultColor'} align={'center'}>
-			<Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-				<Link to="/">
-					<Image src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686469078/e-load/e-load-logo_m7r1jg.png" alt="Logo de la empresa" height={7} pl={20} />
-				</Link>
-				<NavBar />
+		<Box
+			width="100%"
+			color="whiteColor"
+			bg="defaultColor"
+			minH="80px"
+			py={{ base: 2 }}
+			position="fixed"
+			zIndex={999}
+			px={{ base: 4 }}
+			borderBottom={1}
+			borderStyle="solid"
+			borderColor="defaultColor"
+			align="center"
+		>
+			<Flex h={16} alignItems="center" textAlign={'center'} justifyContent={{ base: 'space-between', md: 'space-between' }}>
+				<Box pl={4} display={{ base: 'flex', md: 'none' }}>
+					<MenuMobile/>
+				</Box>
+				<Box >
+					<Link to="/">
+						<Image
+							src="https://res.cloudinary.com/dgkm71mjf/image/upload/v1686469078/e-load/e-load-logo_m7r1jg.png"
+							alt="Logo de la empresa"
+							height={7}
+							pl={25}
+						/>
+					</Link>
+				</Box>
+				<Box>
+					<Flex display={{ base: 'none', md: 'flex' }} justify="center" alignItems="center" gap={4}>
+						<NavBar/>
+					</Flex>
+				</Box>
 				{user ? (
 					<ProfileMenu onClose={onClose} logout={handleLogout} />
 				) : (
 					<>
-						<Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={4}>
+						<Stack flex={{ base: 1, md: 0 }} justify="flex-end" direction="row" spacing={4}>
 							<Text
 								onClick={onOpen}
 								cursor="pointer"
-								color={'whitetColor'}
-								fontSize={'sm'}
+								color="whitetColor"
+								fontSize="sm"
 								fontWeight={700}
 								textDecor="underline"
 								_hover={{ color: 'secondaryColor' }}
@@ -54,16 +82,16 @@ const Header = () => {
 								<Button
 									display={{ base: 'none', md: 'inline-flex' }}
 									p={2}
-									bg={'whiteColor'}
-									color={'defaultColor'}
-									fontSize={'sm'}
+									bg="whiteColor"
+									color="defaultColor"
+									fontSize="sm"
 									fontWeight={600}
 									_hover={{ bg: 'secondaryColor', color: 'defaultColor' }}
 								>
 									Registrarse
 								</Button>
 							</Link>
-							<Modal isOpen={isOpen} onClose={onClose} >
+							<Modal isOpen={isOpen} onClose={onClose}>
 								<ModalOverlay />
 								<ModalContent
 									display="flex"
@@ -82,7 +110,7 @@ const Header = () => {
 											/>
 										</Flex>
 									</ModalHeader>
-									<ModalCloseButton onClick={onClose} color={'whiteColor'} borderRadius={0} boxShadow="0 0 0 #010f20" />
+									<ModalCloseButton onClick={onClose} color="whiteColor" borderRadius={0} boxShadow="0 0 0 #010f20" />
 									<ModalBody>
 										<LoginForm onClose={onClose} />
 									</ModalBody>
