@@ -43,7 +43,7 @@ const HomeSectionInstructions = () => {
           <Image
             src={icon.src}
             alt={icon.alt}
-            width="25%"
+            width="20%"
             height="auto"
             key={icon.alt}
             mx={10}

@@ -27,6 +27,7 @@ const AboutInnovation = () => {
     <Flex h={{ base: "auto", md: "600px" }}   justifyContent="center" flexDirection="column">
       <Flex justifyContent="center">
         <Heading
+        
           alignContent="center"
           fontWeight={620}
           fontSize={{ base: "2xl", sm: "3xl", md: "5xl" }}
@@ -37,8 +38,8 @@ const AboutInnovation = () => {
           Nuestros principios de innovación
         </Heading>
       </Flex>
-      <Flex justifyContent="center" alignItems="center"  >
-        <Stack direction="row" spacing={10} justifyContent="center" alignItems="center" flexWrap="wrap">
+      <Flex justifyContent="center" alignItems="center" >
+        <Stack direction="row" spacing={10} justifyContent="center"  alignItems="center" flexWrap="wrap">
           {icons.map((icon) => (
             <Stack key={icon.alt} alignItems="center" spacing={4}>
               <Image src={icon.src} alt={icon.alt} boxSize={20} justifyContent="center" />
