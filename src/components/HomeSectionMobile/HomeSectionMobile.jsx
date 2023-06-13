@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
-import React from "react";
+
 
 
 const HomeSectionMobile = () => {
@@ -7,29 +7,29 @@ const HomeSectionMobile = () => {
 	const content = [
 		{
 			heading: "FIND",
-			text: "Encuentra los puntos de recarga que mejor se adapten a tus necesidades allá donde vayas. Busca entre más de x puntos de carga.",
+			text: "Encuentra los puntos de recarga que mejor se adapten a tus necesidades allá donde vayas. Busca entre más de 150.000 puntos de carga.",
 		},
 		{
 			heading: "PLUG",
-			text: "Activa tu cargador desde nuestra APP.",
+			text:"Activa tu cargador de manera rápida y segura a través de nuestra práctica y eficiente app, obteniendo acceso a una amplia red de puntos de recarga en todo momento.",
 		},
 		{
 			heading: "CHARGE",
-			text: "Creamos una experiencia más fluida y dinámica para que no tengas de qué preocuparte.",
+			text: "Disfruta de una experiencia de carga fluida y sin preocupaciones. Encuentra los mejores puntos de recarga en cualquier momento y lugar.",
 		},
 	];
 
 
 	return (
 		<Box
-			bgImage="url(public/assets/images/FONDO-MOBILE2.jpg)"
+			bgImage="url(https://res.cloudinary.com/dgkm71mjf/image/upload/v1686650269/e-load/e-load-charge_lrfwg8.jpg)"
 			bgSize="cover"
 			bgPosition="center"
 			minWidth={{ base: "100%", md: "auto" }}
 			minHeight="65vh"
 		>
 			<Stack minH={"65vh"} direction={{ base: "column", md: "row" }}>
-				<Flex p={1} flex={1} justify={{ base: "center", md: "center" }}>
+				<Flex p={1} flex={1} justify={{ base: "center", md: "center" }} >
 					<Stack
 						p={6}
 						spacing={50}
@@ -74,5 +74,13 @@ const HomeSectionMobile = () => {
 
 	);
 };
+
+
+
+
+
+
+
+
 
 export default HomeSectionMobile;
