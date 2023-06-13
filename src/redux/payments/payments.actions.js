@@ -21,8 +21,7 @@ const createPayment = async (dataPayment) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
-const getAllPaymentsByUser = async (userId) => {
-    
+const getAllPaymentsByUser = async (userId) => {  
     try {
         dispatch({type: "LOADING"});
         const result = await API.get(`payments/user/${userId}`);
