@@ -33,7 +33,7 @@ const AdminSpots = () => {
         </Link>
       </Flex>
       <Divider my={5} />
-      <Grid templateColumns="repeat(6, 1fr)" gap={6} gridAutoFlow="row dense">
+      <Grid display={"flex"} gap={6} flexWrap={"wrap"} justifyContent={{base:'center', md:'start'}}>
         {spots.map((spot) => {
           return <AdminSpotCard spot={spot} key={spot._id}/>;
         })}

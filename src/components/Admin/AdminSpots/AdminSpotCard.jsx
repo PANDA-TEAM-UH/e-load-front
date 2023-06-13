@@ -36,8 +36,8 @@ const AdminSpotCard = ({ spot }) => {
   
   
   return (
-    <GridItem key={spot._id} w="100%" h="auto">
-      <Card minH={"350px"} width={250} border='1px solid' borderColor='grayColor'>
+    <GridItem key={spot._id} w="250px">
+      <Card height={"350px"} width={250} border='1px solid' borderColor='grayColor'>
         <CardHeader
           margin={0}
           py={1}

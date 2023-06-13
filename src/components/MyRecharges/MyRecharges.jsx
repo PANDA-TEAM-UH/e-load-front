@@ -20,13 +20,13 @@ const MyRecharges = () => {
     <Flex display="column">
       <Heading size="lg">Mis Recargas</Heading>
       <Divider my={5} />
-      <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+      <Grid display={"flex"} gap={6} flexWrap={"wrap"} justifyContent={{base:'center', md:'start'}}>
         {spotsByUser.map((spot) => {
           {/* if(spot.station){
           getStationBySpotUser(spot.station);
           } */}
           return (
-            <GridItem key={spot._id} w="100%" h="auto">
+            <GridItem key={spot._id} w="320px">
               <Card borderTopRadius={10}>
                 <CardHeader margin={0} padding={0}>
                   <Image
@@ -37,15 +37,13 @@ const MyRecharges = () => {
                   />
                 </CardHeader>
                 <CardBody>
-                  <Heading size="S">
-                  
-                  
-                  DIRECCION ESTACION</Heading>
+                  {spot.date}
+                  {/* <Heading size="S">DIRECCION ESTACION</Heading> */}
                   <Divider /> 
                 </CardBody>
-                <CardFooter>
+                {/* <CardFooter>
                   <Text>{spot.date}</Text>
-                </CardFooter>
+                </CardFooter> */}
               </Card>
             </GridItem>
           );
