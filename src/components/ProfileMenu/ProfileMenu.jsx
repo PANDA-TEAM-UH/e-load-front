@@ -15,7 +15,7 @@ const ProfileMenu = ({ onClose, logout }) => {
         { title: 'Estaciones', url: '/usuario/estaciones' },
         { title: 'Puntos de Carga', url: '/usuario/puntos-carga' },
         { title: 'Usuarios', url: '/usuario/usuarios' },
-        { title: 'Comentarios', url: '/usuario/comentarios' }
+        // { title: 'Comentarios', url: '/usuario/comentarios' }
     ];
 
     return (
