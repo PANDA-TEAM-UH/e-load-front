@@ -119,7 +119,7 @@ const loadingSpot = () => {
 }
 const deleteSpot = async (spotId) => {
     try {
-        dispatch({type: "LOADING"});
+        // dispatch({type: "LOADING"});
         const result = await API.delete(`spots/${spotId}`);
         dispatch({
             type: "DELETE_SPOT",

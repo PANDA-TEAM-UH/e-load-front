@@ -52,6 +52,14 @@ export const usersReducer = (state = INITIAL_STATE, action) => {
                 loading: false,
                 error: null
             };
+        case "CHECK_SESSION":
+            return {
+                ...state,
+                user: action.payload.user,
+                token: action.payload.token,
+                loading: false,
+                error: null
+            };
         case "LOGOUT":
             return {
                 ...state,

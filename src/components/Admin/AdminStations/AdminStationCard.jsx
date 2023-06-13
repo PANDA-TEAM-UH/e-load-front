@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Divider, Flex, GridItem, Heading, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
 import AdminStationDeleteAlert from "./AdminStationDeleteAlert";
-import { AccessTime } from "@mui/icons-material";
+import { AccessTime, Power } from "@mui/icons-material";
 
 const AdminStationCard = ({ station }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -17,9 +17,15 @@ const AdminStationCard = ({ station }) => {
           </CardHeader>
           <CardBody bg='grayColor' display={"flex"} flexDirection={"column"} justifyContent={"space-between"}>
             <Heading size='sm'>{station.address}</Heading>
-            <Flex>
-              <AccessTime/>
-              <Text fontSize='md'>HORARIO: {station.schedule}</Text> 
+            <Flex direction='column'>
+              <Flex>
+                <Power/>
+                <Text fontSize='md'>Puestos de Carga: {station.spots.length}</Text> 
+              </Flex>
+              <Flex>
+                <AccessTime/>
+                <Text fontSize='md'>Horario: {station.schedule}</Text> 
+              </Flex>
             </Flex>
           </CardBody>          
           <CardFooter>

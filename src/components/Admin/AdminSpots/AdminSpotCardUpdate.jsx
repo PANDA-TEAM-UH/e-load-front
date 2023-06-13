@@ -50,7 +50,7 @@ const AdminSpotCardUpdate = ({ spot, setShowInfo, setShowUpdate }) => {
                 <FormLabel>Tarifa (€/kWh)</FormLabel>
                 <Input
                   {...register("rate")}
-                  value={spot.rate}
+                  defaultValue={spot.rate}
                   maxLength={6}
                   width={20}
                   bg={'whiteColor'}

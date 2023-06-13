@@ -138,7 +138,7 @@ const checkSession = async () => {
     try {
       const result = await API.get("users/check");
       dispatch({
-        type: "LOGIN",
+        type: "CHECK_SESSION",
         payload: {
           user: result.data !== "No estás autorizado" ? result.data : null,
           token: localStorage.getItem("token")

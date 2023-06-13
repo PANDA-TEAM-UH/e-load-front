@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getAllSpots } from "../../../redux/spots/spots.actions";
 import { Button, Divider, Flex, Grid, Heading, Spacer, Spinner } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
 import AdminSpotCard from "./AdminSpotCard";
+import { getAllSpots } from "../../../redux/spots/spots.actions";
 
 const AdminSpots = () => {
-  const { loading, spots } = useSelector((state) => state.spots);  
+  const { loading, spots } = useSelector((state) => state.spots);
   useEffect(() => {
     getAllSpots();
   }, []);

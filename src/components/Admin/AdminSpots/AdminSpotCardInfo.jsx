@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, CardBody, CardFooter, Flex, Text } from "@chakra-ui/react"
-import { Bolt, ElectricalServices, Euro } from "@mui/icons-material"
+import { Bolt, ElectricalServices, Euro, EvStation } from "@mui/icons-material"
 import PropTypes from "prop-types";
 
 const AdminSpotCardInfo = ({ spot, setShowInfo, setShowUpdate, setShowDeleteAlert }) => {
@@ -46,6 +46,10 @@ const AdminSpotCardInfo = ({ spot, setShowInfo, setShowUpdate, setShowDeleteAler
           <Flex>
             <Euro />
             <Text>Tarifa: {spot.rate} kW/h</Text>
+          </Flex>
+          <Flex>
+            <EvStation />
+            <Text>En una estación: {spot.station ? "SI" : "NO"}</Text>
           </Flex>
         </Flex>
         <Flex alignItems="center" justifyContent="center">
