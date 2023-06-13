@@ -39,15 +39,17 @@ const ContactForm = () => {
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Stack spacing={4} width="100%" maxW="md">
-					<Input placeholder="Nombre" type="text" name="nombre" />
-					<Input placeholder="Email" type="email" name="email" />
-					<Select placeholder="Asunto" name="opcion">
+					<Input placeholder="Nombre" type="text" name="nombre" required/>
+					<Input placeholder="Email" type="email" name="email" required/>
+					<Select placeholder="Asunto" name="opcion" required>
 						<option>Reportar error</option>
 						<option>Contacto</option>
 						<option>Ayuda</option>
 					</Select>
-					<Textarea placeholder="Mensaje" name="mensaje" />
-					<Button type="submit">Enviar mensaje</Button>
+					<Textarea placeholder="Mensaje" name="mensaje" required/>
+					<Button type="submit" bg={'defaultColor'} color={'whiteColor'} _hover={{bg: "secondaryColor", color:"defaultColor"}}>
+						Enviar Mensaje
+					</Button>
 				</Stack>
 			</form>
 

@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 
 
@@ -25,55 +25,53 @@ const HomeSectionMobile = () => {
 			bgImage="url(public/assets/images/FONDO-MOBILE2.jpg)"
 			bgSize="cover"
 			bgPosition="center"
+			minWidth={{ base: "100%", md: "auto" }}
+			minHeight="65vh"
 		>
 			<Stack minH={"65vh"} direction={{ base: "column", md: "row" }}>
-				<Flex p={1} flex={0.5} align={"center"} justify={"center"}>
-					<Stack spacing={6} w={"full"} maxW={"lg"}>
+				<Flex p={1} flex={1} justify={{ base: "center", md: "center" }}>
+					<Stack
+						p={6}
+						spacing={50}
+						w={"full"}
+						maxW={{ base: "md", md: "2xl" }}
+						align={"center"}
+						direction={{ base: "column", md: "row" }}
+					>
 						{content.map((item) => (
-							<React.Fragment key={item.heading} >
-								<Box
-									borderRadius="20px"
-									px={22}
-									py={8}
-									display="inline-block"
-									bg="rgba(128, 128, 128, 0.5)"
-								>
-									<Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}>
-										<Text as={"span"} position={"relative"} color="whiteColor"
-
-										>
-											{item.heading}<Text as="span" color="secondaryColor">/</Text>
-										</Text>
-										<br />
-									</Heading>
-
-
-
-									<Text fontSize={{ base: "md", lg: "lg" }} color="whiteColor">
-										{item.text}
+							<Box
+								borderRadius="20px"
+								px={22}
+								py={8}
+								display="inline-block"
+								bg="rgba(128, 128, 128, 0.5)"
+								maxWidth={{ base: "80%" }}
+								minWidth="205px"
+								flex={1}
+								key={item.heading}
+							>
+								<Heading fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}>
+									<Text
+										as={"span"}
+										position={"relative"}
+										color="whiteColor"
+										pb={2}
+									>
+										{item.heading}
+										<Text as="span" color="secondaryColor">/</Text>
 									</Text>
-								</Box>
-							</React.Fragment>
+								</Heading>
+								<Text fontSize={{ base: "md", lg: "lg" }} color="whiteColor" pt={4}>
+									{item.text}
+								</Text>
+							</Box>
 						))}
 					</Stack>
 				</Flex>
-				<Flex flex={1} justifyContent="flex-end">
-					<Box position="relative" w="30%" h="100%">
-						<Image
-							alt={"foto-movil"}
-							src={
-								"https://uploads-ssl.webflow.com/6278f767c8039e09089ab08c/62ebe6dec60a5cb4e75f160b_Map_ES.png"
-							}
-							position="absolute"
-							top="50%"
-							left="30%"
-							transform="translate(-50%, -50%)"
-
-						/>
-					</Box>
-				</Flex>
 			</Stack>
 		</Box>
+
+
 	);
 };
 

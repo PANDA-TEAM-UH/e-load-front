@@ -11,10 +11,7 @@ const HomeSectionStations = () => {
           alignItems="center"
           justifyContent="center"
           flexDirection="column"
-        
-          
         >
-         
           <chakra.h3
             textAlign="center"
             fontSize="5xl"
