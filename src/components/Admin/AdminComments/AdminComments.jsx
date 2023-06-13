@@ -15,11 +15,6 @@ const AdminComments = () => {
         </Flex>
       );
     }
-
-    const findUserOfComment = (userId) => {
-      console.log(userId);
-    }
-
     return (
       <Flex display="column">
       <Heading size="lg">Comentarios</Heading>
@@ -27,7 +22,6 @@ const AdminComments = () => {
       <Divider my={5} />
       
         {comments.map((comment) => {
-          findUserOfComment(comment.user);
           return (
           <div key={comment._id}>
             <p>{comment.user}</p>
