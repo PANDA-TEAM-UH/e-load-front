@@ -2,11 +2,11 @@ import {  useState } from 'react';
 import { FormControl, FormLabel, Input, Button, Flex, useToast, Box } from '@chakra-ui/react';
 import { createPayment } from '../../redux/payments/payments.actions';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 import { Done } from '@mui/icons-material';
+import PropTypes from "prop-types";
 
-const CreatePayment = () => {
-  const { user } = useSelector((state) => state.users);
+
+const CreatePayment = ({ user }) => {
   const { register, handleSubmit, reset } = useForm();
   const [paymentCreated, setPaymentCreated] = useState(false);
   const toast = useToast();
@@ -70,6 +70,9 @@ const CreatePayment = () => {
       )}
     </Flex>
   );
+};
+CreatePayment.propTypes = {
+  user: PropTypes.object,
 };
 
 export default CreatePayment;
