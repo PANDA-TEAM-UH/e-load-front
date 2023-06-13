@@ -31,7 +31,7 @@ const HomeSectionMobile = () => {
 			<Stack minH={"65vh"} direction={{ base: "column", md: "row" }}>
 				<Flex p={1} flex={1} justify={{ base: "center", md: "center" }} >
 					<Stack
-						p={6}
+						p={5}
 						spacing={50}
 						w={"full"}
 						maxW={{ base: "md", md: "2xl" }}
@@ -44,7 +44,7 @@ const HomeSectionMobile = () => {
 								px={22}
 								py={8}
 								display="inline-block"
-								bg="rgba(128, 128, 128, 0.5)"
+								bg="rgba(128, 128, 128, 0.7)"
 								maxWidth={{ base: "80%" }}
 								minWidth="205px"
 								flex={1}
