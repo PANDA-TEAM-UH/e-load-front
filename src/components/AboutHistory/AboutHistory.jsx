@@ -31,13 +31,11 @@ const AboutHistory = () => {
       
 
       <Flex
-        direction="column"
-        width="100%"
+        direction="column"       
         justifyContent="center"
         alignItems="center"
-        
         my={{ base: 8, md: 300 }}
-        
+        alignContent="center"
       >
         <Heading fontSize={30} marginBottom={10}>
           Nuestra misión
@@ -66,14 +64,14 @@ const AboutHistory = () => {
       </Flex>
 
       <Flex
-        direction="column"
-        width="100%"
+      alignContent="center"
+        direction="column"       
         justifyContent="center"
         alignItems="center"
         my={{ base: 8, md: 300 }}
-       
-       
+        
       >
+      
         <Image
           src="https://www.autopista.es/uploads/s1/55/35/11/6/5e5cdc3c0ee6948a1834961b-la-estacion-de-carga-para-electricos-mas-rapida-del-mundo-5-minutos-para-recorrer-100-km.jpeg"
           mt={4}
@@ -89,7 +87,7 @@ const AboutHistory = () => {
         </Heading>
 
         {firstTexts.map((text, index) => (
-          <Text justifyContent="center" key={index} >{text}</Text>
+           <Text key={index}>{text}</Text>
         ))}
       </Flex>
 
