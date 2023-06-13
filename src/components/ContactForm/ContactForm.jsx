@@ -1,21 +1,5 @@
 import { useState } from 'react';
-import {
-	Input,
-	Button,
-	Textarea,
-	Select,
-	Modal,
-	ModalOverlay,
-	ModalContent,
-	ModalHeader,
-	ModalBody,
-	ModalFooter,
-	useDisclosure,
-	Stack,
-	Heading,
-	Text,
-	Center,
-} from '@chakra-ui/react';
+import { Input, Button, Textarea, Select, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure, Stack, Heading, Text, Divider } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = () => {
