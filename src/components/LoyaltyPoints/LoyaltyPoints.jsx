@@ -1,26 +1,32 @@
-import { Progress, Stack } from "@chakra-ui/react"
+import { Divider, Flex, Heading, Progress } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
 
 const LoyaltyPoints = () => {
 
   const {user} = useSelector((state)=> state.users) 
+  
+   const progressBarStyles = {
+    width: '1000px',
+    background: 'grayColor'
+    };
 
 
   return (
-    <div>
-      <h1>Puntos fidelización</h1>
-       <Stack>
-        <Progress
+    <Flex display='column'>
+      <Heading size='lg'>Puntos de Fidelizacicón</Heading>
+      <Divider my={5} />
+    {/* <Flex> */}
+    <Progress value={user.points} size='xs' color='secondaryColor' sx={progressBarStyles}/>
+    {/* <Progress
           colorScheme='green'
           height='32px'
-          value={user.points}
+          value={500}
+          // value={user.points}
           min={0}
           max={500}
-        />
-      </Stack>
-
-
-    </div>
+        /> */}
+    {/* </Flex> */}
+    </Flex>
   )
 }
 

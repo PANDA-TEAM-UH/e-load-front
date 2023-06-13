@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import PaymentContainer from '../PaymentContainer/PaymentContainer';
 import ErrorReport from '../ErrorReport/ErrorReport';
 import LoyaltyPoints from '../LoyaltyPoints/LoyaltyPoints';
 import MyRecharges from '../MyRecharges/MyRecharges';
@@ -12,12 +11,13 @@ import AdminComments from '../Admin/AdminComments/AdminComments';
 import AdminStationDetail from '../Admin/AdminStationDetail/AdminStationDetail';
 import AdminStationCreate from '../Admin/AdminStations/AdminStationCreate';
 import AdminSpotCreate from '../Admin/AdminSpots/AdminSpotCreate';
+import Payments from '../Payments/Payments';
 
 const RoutingUser = () => {
   return (
     <Routes>
       <Route path="/" element={<PersonalInformation />} />
-      <Route path="/metodos-de-pago" element={<PaymentContainer />} />
+      <Route path="/metodos-de-pago" element={<Payments />} />
       <Route path="/mis-recargas" element={<MyRecharges />} />
       <Route path="/mis-puntos" element={<LoyaltyPoints />} />
       <Route path="/estaciones" element={

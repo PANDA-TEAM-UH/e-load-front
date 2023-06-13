@@ -1,9 +1,9 @@
 import { FormLabel, Input } from '@chakra-ui/react';
-
-const UploadFile = ({ register, funcion, isRegister }) => {
+import PropTypes from "prop-types";
+const UploadFile = ({ register, funcion }) => {
   return (
 
-    <FormLabel className={isRegister ? "file-input-btn" : "file-input-btn file-input-btn__upload"} htmlFor="file-input">
+    <FormLabel htmlFor="file-input">
       <Input
         type="file"
         name="file-input"
@@ -16,5 +16,9 @@ const UploadFile = ({ register, funcion, isRegister }) => {
 
   );
 };
+UploadFile.propTypes = {
+  register: PropTypes.func,
+  funcion: PropTypes.func
+}
 
 export default UploadFile;
