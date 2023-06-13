@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { getAllStationsAdmin } from "../../../redux/stations/stations.actions";
 import { useSelector } from "react-redux";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import AdminStationCard from "./AdminStationCard";
 import { Link, NavLink } from "react-router-dom";
 import { Button, Divider, Flex, Grid, Heading, Spacer, Spinner } from "@chakra-ui/react";
@@ -41,8 +41,8 @@ const AdminStations = () => {
     </Flex>
   );
 };
-AdminStations.propTypes = {
-  station: PropTypes.object,
-};
+// AdminStations.propTypes = {
+//   station: PropTypes.object,
+// };
 
 export default AdminStations;

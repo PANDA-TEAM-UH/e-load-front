@@ -2,8 +2,10 @@ import { Box, Button, ButtonGroup, CardBody, CardFooter, Flex, Text, useToast } 
 import { Done } from "@mui/icons-material";
 import PropTypes from "prop-types";
 import { deletePayment, getAllPaymentsByUser } from "../../redux/payments/payments.actions";
+import { useSelector } from "react-redux";
 
 const PaymentsDeleteAlert = ({ payment, setShowInfo, setShowDeleteAlert}) => {
+  const { user } = useSelector((state) => state.users);
   const toast = useToast();
 
   const handleInfoClick = () => {
@@ -13,7 +15,9 @@ const PaymentsDeleteAlert = ({ payment, setShowInfo, setShowDeleteAlert}) => {
 
   const onSubmit = async () => {
     await deletePayment(payment._id);
-    getAllPaymentsByUser();
+    // if(user.payments){
+      getAllPaymentsByUser(user._id);
+    // }    
     toast({
       status: "success",
       duration: 3000,

@@ -19,7 +19,7 @@ const SideBar = () => {
 		{ title: 'Estaciones', url: '/usuario/estaciones', icon: <EvStationOutlined fontSize="30px" /> },
 		{ title: 'Puntos de Carga', url: '/usuario/puntos-carga', icon: <ElectricalServices fontSize="30px" /> },
 		{ title: 'Usuarios', url: '/usuario/usuarios', icon: <People fontSize="30px" /> },
-		{ title: 'Comentarios', url: '/usuario/comentarios', icon: <ForumOutlined fontSize="30px" /> }
+		// { title: 'Comentarios', url: '/usuario/comentarios', icon: <ForumOutlined fontSize="30px" /> }
 	];
 
 	return (

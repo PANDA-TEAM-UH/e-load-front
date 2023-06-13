@@ -1,5 +1,21 @@
 import { useState } from 'react';
-import { Input, Button, Textarea, Select, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure, Stack, Heading, Text, Center } from '@chakra-ui/react';
+import {
+	Input,
+	Button,
+	Textarea,
+	Select,
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalBody,
+	ModalFooter,
+	useDisclosure,
+	Stack,
+	Heading,
+	Text,
+	Center,
+} from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = () => {
@@ -17,7 +33,8 @@ const ContactForm = () => {
 			<Heading as="h2" size="xl" color={'defaultColor'}>
 				Contacta con nosotros
 			</Heading>
-			<Text textAlign="justify" align="center" fontSize="l" pb={3}>
+			<Divider my={5} />
+			<Text textAlign="center" align="center" fontSize="l" pb={3} justify={'center'}>
 				Para todo lo que necesites ponte en contacto con nosotros, estaremos encantados de atenderte.
 			</Text>
 

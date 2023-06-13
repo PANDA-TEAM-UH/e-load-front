@@ -97,9 +97,10 @@ const updateUser = async (userId, userToUpdate) => {
         dispatch({ type: "ERROR", payload: errorMessage });
     }
 }
-const updateUserSpots = async (userId, spotId) => {
+const updateUserSpots = async (userId, spotId, stationId) => {
     try {
-        const result = await API.patch(`users/${userId}`, {$push: {spots: spotId}});
+        const date = new Date().toLocaleDateString();
+        const result = await API.patch(`users/${userId}`, {$push: {spots: {date: date, spot:spotId, station: stationId}}});
         dispatch({
             type: "UPDATE_USER",
             payload: result.data
