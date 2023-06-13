@@ -1,18 +1,20 @@
 //import React from 'react'
-import {  Card, CardHeader,Divider, Flex, Grid, GridItem, Heading, Image,Stack, Text } from '@chakra-ui/react'
+import {  Card, CardBody, CardFooter, CardHeader,Divider, Flex, Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getSpotsByUser } from '../../redux/spots/spots.actions'
-// import { stationsReducer } from '../../redux/stations/stations.reducer'
+// import { getStationById } from '../../redux/stations/stations.actions'
 
 const MyRecharges = () => {
-  // const {stations} = useSelector((state)=> state.stations)
   const { user } = useSelector((state) => state.users);
   const { spotsByUser } = useSelector((state) => state.spots);
-
   useEffect(() => {
     getSpotsByUser(user._id);
   }, [user._id]);
+
+  // const getStationBySpotUser = (stationId) =>{
+  //   getStationById(stationId);
+  // }
 
   return (
     <Flex display="column">
@@ -20,8 +22,11 @@ const MyRecharges = () => {
       <Divider my={5} />
       <Grid templateColumns="repeat(4, 1fr)" gap={6}>
         {spotsByUser.map((spot) => {
+          {/* if(spot.station){
+          getStationBySpotUser(spot.station);
+          } */}
           return (
-            <GridItem key={spot.updatedAt} w="100%" h="auto">
+            <GridItem key={spot._id} w="100%" h="auto">
               <Card borderTopRadius={10}>
                 <CardHeader margin={0} padding={0}>
                   <Image
@@ -31,16 +36,16 @@ const MyRecharges = () => {
                     maxW="300px"
                   />
                 </CardHeader>
-                <Stack mt="6" spacing="4">
-                  <Heading size="S">DIRECCION ESTACION</Heading>
-                  <Divider />
-                  <Text color="blue.600" fontSize="L">
-                    {spot.power}
-                  </Text>
-                  <Text color="black.300" fontSize="xs">
-                    {spot.updatedAt}
-                  </Text>
-                </Stack>
+                <CardBody>
+                  <Heading size="S">
+                  
+                  
+                  DIRECCION ESTACION</Heading>
+                  <Divider /> 
+                </CardBody>
+                <CardFooter>
+                  <Text>{spot.date}</Text>
+                </CardFooter>
               </Card>
             </GridItem>
           );
